@@ -9,6 +9,7 @@
 
 #include "uncopyable.h"
 #include "enemy.h"
+#include "physics.h"
 
 class KeyboardInterface;
 class MouseInterface;
@@ -111,6 +112,8 @@ class GameWorld : private Uncopyable
         }
 
     private:
+		Physics physics;
+
         std::list<Entity*> m_entities; //!< Member variable "m_enemies"
         std::list<Collider*> m_colliders;
 

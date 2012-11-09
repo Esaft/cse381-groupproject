@@ -12,6 +12,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ogro_invasion\boglgpwindow.h" />
+    <ClInclude Include="ogro_invasion\btBulletCollisionCommon.h" />
+    <ClInclude Include="ogro_invasion\btBulletDynamicsCommon.h" />
     <ClInclude Include="ogro_invasion\camera.h" />
     <ClInclude Include="ogro_invasion\collider.h" />
     <ClInclude Include="ogro_invasion\enemy.h" />
@@ -30,6 +32,7 @@
     <ClInclude Include="ogro_invasion\md2model.h" />
     <ClInclude Include="ogro_invasion\mouseinterface.h" />
     <ClInclude Include="ogro_invasion\ogro.h" />
+    <ClInclude Include="ogro_invasion\physics.h" />
     <ClInclude Include="ogro_invasion\player.h" />
     <ClInclude Include="ogro_invasion\rocket.h" />
     <ClInclude Include="ogro_invasion\spherecollider.h" />
@@ -56,6 +59,7 @@
     <ClCompile Include="ogro_invasion\main.cpp" />
     <ClCompile Include="ogro_invasion\md2model.cpp" />
     <ClCompile Include="ogro_invasion\ogro.cpp" />
+    <ClCompile Include="ogro_invasion\physics.cpp" />
     <ClCompile Include="ogro_invasion\player.cpp" />
     <ClCompile Include="ogro_invasion\rocket.cpp" />
     <ClCompile Include="ogro_invasion\spherecollider.cpp" />
@@ -90,6 +94,17 @@
     <None Include="..\..\Apps\ch13_ogro_invasion\data\shaders\glsl1.30\water.frag" />
     <None Include="..\..\Apps\ch13_ogro_invasion\data\shaders\glsl1.30\water.vert" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bullet3D\solutions\vs2010\BulletCollision.vcxproj">
+      <Project>{54ae91c7-48d4-9c49-a5b1-0ced554cadfa}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Bullet3D\solutions\vs2010\BulletDynamics.vcxproj">
+      <Project>{28d36a0f-b790-d748-bc8c-8fb422e45492}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Bullet3D\solutions\vs2010\LinearMath.vcxproj">
+      <Project>{58d08522-c69f-904c-a7ed-733da229f1ba}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9E70D809-D21E-4BA9-8F63-B6FFAE1FD270}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -119,9 +134,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Apps\$(ProjectName)\</OutDir>
     <IntDir>$(ProjectDir)Temp\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)/../../bullet-2.81-rev2613/src/;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -140,8 +155,9 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Common\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>freetype.lib;glee.lib;kazmath.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glut32.lib;BulletCollision_vs2010_debug.lib;BulletDynamics_vs2010_debug.lib;OpenGLSupport_vs2010_debug.lib;LinearMath_vs2010_debug.lib;freetype.lib;glee.lib;kazmath.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

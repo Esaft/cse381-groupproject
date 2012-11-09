@@ -40,6 +40,7 @@ m_relY(0)
 {
     m_gameCamera = std::auto_ptr<Camera>(new Camera());
     m_frustum = std::auto_ptr<Frustum>(new Frustum());
+	physics.initPhysics();
 }
 
 GameWorld::~GameWorld()
