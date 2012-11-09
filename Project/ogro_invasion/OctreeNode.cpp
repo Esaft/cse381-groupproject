@@ -26,15 +26,36 @@ bool OctreeNode::InitAll(OC3NODEID id)
 
 void OctreeNode::addEntity(Entity *e)
 {
-	if(m_entities.size() == m_maxEntities);
-		//subdivide
-	else
-	{
-		m_entities.push_back(e);
-		m_numEntities ++;
-	}
+
+	m_entities.push_back(e);
+
+	if(m_entities.size() > m_maxEntities)
+		SubdivideNode8(&m_entities, this, //nodesCreated,
+											m_maxEntities);
 }
 
+void OctreeNode::removeEntity(Entity *e)
+{
+
+	Vector3 pos = e->getPosition();
+
+	//For the sake of simplicity, assuming no two entities can have the same position
+	int index = -1;
+	for(int i = 0; i < m_entities.size(); i ++)
+	{
+		Vector3 checkPos = m_entities.at(i)->getPosition();
+		if(checkPos.x == pos.x && checkPos.y == pos.y && checkPos.z == pos.z)
+			index = i;
+	}
+
+	if(index >= 0)
+	{
+		m_entities.erase(m_entities.begin()+ index);
+
+		//if(m_entities.empty());
+			//m_parent
+	}
+}
 
 /* =================================================================================
 	CLEANUP
@@ -116,8 +137,8 @@ void OctreeNode::Get_CenterOfNextNode(Vector3 currCenter, Vector3 *newCenter,
 /* =================================================================================
 	CREATE A NEW NODE
 ==================================================================================== */
-bool OctreeNode::CreateSubNode(std::vector<Entity*> *entities, int *nodesCreated, OC3NODEID id, 
-							int maxEntities, std::vector<int> *entityAssignments)
+bool OctreeNode::CreateSubNode(std::vector<Entity*> *entities, //int *nodesCreated,
+								OC3NODEID id, int maxEntities, std::vector<int> *entityAssignments)
 {
 	bool nodeCreated = false;
 
@@ -145,7 +166,8 @@ bool OctreeNode::CreateSubNode(std::vector<Entity*> *entities, int *nodesCreated
 
 		// SUBDIVIDE	
 		if(m_pSubNodes[id]->SubdivideNode8(&m_entities,
-										this, nodesCreated,	maxEntities))
+										this, //nodesCreated,
+										maxEntities))
 		{
 			nodeCreated = true;
 		}
@@ -157,7 +179,8 @@ bool OctreeNode::CreateSubNode(std::vector<Entity*> *entities, int *nodesCreated
 /* =================================================================================
 	RECURSIVE FUNCTION THAT CREATES 8 NODES...
 ==================================================================================== */
-bool OctreeNode::SubdivideNode8(std::vector<Entity*> *entities, OctreeNode *parent, int *nodesCreated, int maxEntities)
+bool OctreeNode::SubdivideNode8(std::vector<Entity*> *entities, OctreeNode *parent, //int *nodesCreated, 
+																								int maxEntities)
 {
 	
 	m_pParent = parent;
@@ -235,31 +258,31 @@ bool OctreeNode::SubdivideNode8(std::vector<Entity*> *entities, OctreeNode *pare
 				
 			}//end for
 
-			(*nodesCreated)   += 8;
+			//(*nodesCreated)   += 8;
 	
 			// SET UP CHILDREN NODES
-			CreateSubNode( entities, nodesCreated, 
+			CreateSubNode( entities, //nodesCreated, 
 							TOP_LEFT_FRONT, maxEntities, entityAssignments[0]);
 
-			CreateSubNode( entities, nodesCreated, 
+			CreateSubNode( entities, //nodesCreated, 
 							BOTTOM_LEFT_FRONT, maxEntities, entityAssignments[1]);
 
-			CreateSubNode( entities, nodesCreated, 
+			CreateSubNode( entities, //nodesCreated, 
 							BOTTOM_RIGHT_FRONT, maxEntities, entityAssignments[2]);
 
-			CreateSubNode( entities, nodesCreated, 
+			CreateSubNode( entities, //nodesCreated, 
 							TOP_RIGHT_FRONT, maxEntities, entityAssignments[3]);
 
-			CreateSubNode( entities, nodesCreated, 
+			CreateSubNode( entities, //nodesCreated, 
 							TOP_LEFT_BACK, maxEntities, entityAssignments[4]);
 
-			CreateSubNode( entities, nodesCreated, 
+			CreateSubNode( entities, //nodesCreated, 
 							BOTTOM_LEFT_BACK, maxEntities, entityAssignments[5]);
 
-			CreateSubNode( entities, nodesCreated, 
+			CreateSubNode( entities, //nodesCreated, 
 							BOTTOM_RIGHT_BACK, maxEntities, entityAssignments[6]);
 
-			CreateSubNode( entities, nodesCreated, 
+			CreateSubNode( entities, //nodesCreated, 
 							TOP_RIGHT_BACK, maxEntities, entityAssignments[7]);
 
 			// CLEANUP
@@ -268,6 +291,8 @@ bool OctreeNode::SubdivideNode8(std::vector<Entity*> *entities, OctreeNode *pare
 				entityAssignments[i]->clear();
 				delete entityAssignments[i];
 			}
+			
+			m_entities.clear();//if node is subdivided, it no longer has entities
 		}
 		else // ELSE, NO NEED TO KEEP SUBDIVIDING
 		{		

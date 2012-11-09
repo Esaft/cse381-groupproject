@@ -40,18 +40,19 @@ public:
 
 	bool	SubdivideNode8(	std::vector<Entity*> *entities,				//entities of parent node
 							OctreeNode *parent,			// Pointer to parent
-							int *nodesCreated,			// Number of nodes created
+							//int *nodesCreated,			// Number of nodes created
 							int maxEntities				// Max triangles allowed in a node
 							);
 
 	bool	CreateSubNode(	std::vector<Entity*> *entities,				// entities of parent node
-							int *nodesCreated,			// Number of nodes created
+							//int *nodesCreated,			// Number of nodes created
 							OC3NODEID id,				// ID of this sub node to be created
 							int maxEntities,			// Max triangles allowed in a node
 							std::vector<int> *entityAssignments	//indexs of entities to be assigned
 							);	
 
 	void	addEntity(Entity *e);
+	void	removeEntity(Entity *e);
 
 
 	void			Set_ID(OC3NODEID id)		{			m_ID = id;			}
