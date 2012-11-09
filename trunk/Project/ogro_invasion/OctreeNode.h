@@ -59,7 +59,7 @@ public:
 	OC3NODEID		Get_ID()					{	return	m_ID;				}
 	int				Get_entityCount()			{	return	m_numEntities;		}	
 	void			Set_center(Vector3 c)		{			m_center = c;		}
-	void			Get_center(Vector3 *c)		{			*c = m_center;		}
+	Vector3			Get_center()				{	return	m_center;			}
 	void			Set_size(float s)			{			m_size = s;			}
 	float			Get_size()					{	return	m_size;				}
 	bool			IsLeafNode()				{	return	m_isLeafNode;		}
@@ -78,6 +78,9 @@ private:
 	unsigned short	m_numEntities;				// Number of indices inside this node
 	int		m_maxEntities;
 	//GLBoundingBox	m_AABB;								// Bounding Box of the node
+
+protected:
+	std::vector<Entity*>* getEntities()	{return &m_entities;}
 };
 
 #endif

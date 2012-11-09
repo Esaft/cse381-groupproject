@@ -4,6 +4,7 @@
 #include "geom.h"
 #include "entitytypes.h"
 #include "uncopyable.h"
+#include "OctreeNode.h"
 
 class GameWorld;
 class Collider;
@@ -25,6 +26,7 @@ class Entity : private Uncopyable {
         bool m_canBeRemoved;
 
         GameWorld* m_world;
+		OctreeNode* m_node;
     public:
         Entity(GameWorld* const gameWorld);
         virtual ~Entity();
@@ -54,6 +56,10 @@ class Entity : private Uncopyable {
         GameWorld* getWorld() {
             return m_world;
         }
+		OctreeNode* getNode(){
+			return m_node;
+		}
+		void setNode(OctreeNode* n) {m_node = n;} 
 };
 
 #endif // ENTITY_H_INCLUDED

@@ -4,7 +4,7 @@ Entity::Entity(GameWorld* const gameWorld):
 m_canBeRemoved(false),
 m_world(gameWorld)
 {
-
+	m_node = NULL;
 }
 
 Entity::~Entity()
