@@ -26,12 +26,74 @@ bool OctreeNode::InitAll(OC3NODEID id)
 
 void OctreeNode::addEntity(Entity *e)
 {
+	if(m_isLeafNode)
+	{
+		if(e->getNode() != this)
+		{
+			if(e->getNode() != NULL)
+					e->getNode()->removeEntity(e);
+			m_entities.push_back(e);
+		
 
-	m_entities.push_back(e);
+			if(m_entities.size() > m_maxEntities)
+				SubdivideNode8(&m_entities, this, //nodesCreated,
+													m_maxEntities);
+			else	
+				e->setNode(this);
+			
+		}
+	}
+	else
+	{
+		Vector3 pos = e->getPosition();
+		
+		//Send Entity to correct subnode
 
-	if(m_entities.size() > m_maxEntities)
-		SubdivideNode8(&m_entities, this, //nodesCreated,
-											m_maxEntities);
+		if(pos.x < m_center.x){
+			if(pos.y < m_center.y){
+				if(pos.z < m_center.z){
+					//Left Bottom Back
+					m_pSubNodes[BOTTOM_LEFT_BACK]->addEntity(e);
+				}
+				else{
+					//Left Bottom Front
+					m_pSubNodes[BOTTOM_LEFT_FRONT]->addEntity(e);
+				}
+			}
+			else{
+				if(pos.z < m_center.z){
+					//Left Top Back
+					m_pSubNodes[TOP_LEFT_BACK]->addEntity(e);
+				}
+				else{
+					//Left Top Front
+					m_pSubNodes[TOP_LEFT_FRONT]->addEntity(e);
+				}
+			}
+		}
+		else{
+			if(pos.y < m_center.y){
+				if(pos.z < m_center.z){
+					//Right Bottom Back
+					m_pSubNodes[BOTTOM_RIGHT_BACK]->addEntity(e);
+				}
+				else{
+					//Right Bottom Front
+					m_pSubNodes[BOTTOM_RIGHT_FRONT]->addEntity(e);
+				}
+			}
+			else{
+				if(pos.z < m_center.z){
+					//Right Top Back
+					m_pSubNodes[TOP_RIGHT_BACK]->addEntity(e);
+				}
+				else{
+					//Right Top Front
+					m_pSubNodes[TOP_RIGHT_FRONT]->addEntity(e);
+				}
+			}
+		}
+	}
 }
 
 void OctreeNode::removeEntity(Entity *e)
@@ -161,7 +223,13 @@ bool OctreeNode::CreateSubNode(std::vector<Entity*> *entities, //int *nodesCreat
 
 		for(int i = 0; i < entityAssignments->size(); i++)
 		{
-			m_entities.push_back(entities->at(entityAssignments->at(i)));
+			Entity* e = entities->at(entityAssignments->at(i));
+			m_entities.push_back(e);
+
+			if(e->getNode() != this)
+			{
+				e->setNode(this);
+			}
 		}
 
 		// SUBDIVIDE	
