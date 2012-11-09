@@ -13,6 +13,7 @@ void Collider::updateColliders(list<Collider*>& colliders)
     typedef list<Collider*>::iterator CollisionIterator;
     for(CollisionIterator collider = colliders.begin(); collider != colliders.end(); ++collider)
     {
+
         //If the attached entity is dead
         if ((*collider)->getEntity()->canBeRemoved())
         {

@@ -1,0 +1,184 @@
+﻿  btAxisSweep3.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\BroadphaseCollision\btAxisSweep3.cpp': No such file or directory
+  btBroadphaseProxy.cpp
+  btCollisionAlgorithm.cpp
+  btDbvt.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\BroadphaseCollision\btBroadphaseProxy.cpp': No such file or directory
+  btDbvtBroadphase.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\BroadphaseCollision\btCollisionAlgorithm.cpp': No such file or directory
+  btDispatcher.cpp
+  btMultiSapBroadphase.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\BroadphaseCollision\btDbvtBroadphase.cpp': No such file or directory
+  btOverlappingPairCache.cpp
+  btQuantizedBvh.cpp
+  btSimpleBroadphase.cpp
+  btActivatingCollisionAlgorithm.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\BroadphaseCollision\btDbvt.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\BroadphaseCollision\btDispatcher.cpp': No such file or directory
+  btBox2dBox2dCollisionAlgorithm.cpp
+  btBoxBoxCollisionAlgorithm.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\BroadphaseCollision\btOverlappingPairCache.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\BroadphaseCollision\btMultiSapBroadphase.cpp': No such file or directory
+  btBoxBoxDetector.cpp
+  btCollisionDispatcher.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\BroadphaseCollision\btQuantizedBvh.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btBoxBoxCollisionAlgorithm.cpp': No such file or directory
+  btCollisionObject.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btActivatingCollisionAlgorithm.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btBox2dBox2dCollisionAlgorithm.cpp': No such file or directory
+  btCollisionWorld.cpp
+  btCompoundCollisionAlgorithm.cpp
+  btConvex2dConvex2dAlgorithm.cpp
+  btConvexConcaveCollisionAlgorithm.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\BroadphaseCollision\btSimpleBroadphase.cpp': No such file or directory
+  btConvexConvexAlgorithm.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btBoxBoxDetector.cpp': No such file or directory
+  btConvexPlaneCollisionAlgorithm.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btCollisionDispatcher.cpp': No such file or directory
+  btDefaultCollisionConfiguration.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btCollisionWorld.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btConvex2dConvex2dAlgorithm.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btCollisionObject.cpp': No such file or directory
+  btEmptyCollisionAlgorithm.cpp
+  btGhostObject.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btCompoundCollisionAlgorithm.cpp': No such file or directory
+  btInternalEdgeUtility.cpp
+  btManifoldResult.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btConvexConvexAlgorithm.cpp': No such file or directory
+  btSimulationIslandManager.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btConvexPlaneCollisionAlgorithm.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btDefaultCollisionConfiguration.cpp': No such file or directory
+  btSphereBoxCollisionAlgorithm.cpp
+  btSphereSphereCollisionAlgorithm.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btEmptyCollisionAlgorithm.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btManifoldResult.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btGhostObject.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btInternalEdgeUtility.cpp': No such file or directory
+  btSphereTriangleCollisionAlgorithm.cpp
+  btUnionFind.cpp
+  SphereTriangleDetector.cpp
+  btBox2dShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btSimulationIslandManager.cpp': No such file or directory
+  btBoxShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btSphereBoxCollisionAlgorithm.cpp': No such file or directory
+  btBvhTriangleMeshShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btUnionFind.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btSphereSphereCollisionAlgorithm.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btSphereTriangleCollisionAlgorithm.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\SphereTriangleDetector.cpp': No such file or directory
+  btCapsuleShape.cpp
+  btCollisionShape.cpp
+  btCompoundShape.cpp
+  btConcaveShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btBox2dShape.cpp': No such file or directory
+  btConeShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionDispatch\btConvexConcaveCollisionAlgorithm.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btBvhTriangleMeshShape.cpp': No such file or directory
+  btConvex2dShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btBoxShape.cpp': No such file or directory
+  btConvexHullShape.cpp
+  btConvexInternalShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btCapsuleShape.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btCollisionShape.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btConcaveShape.cpp': No such file or directory
+  btConvexPointCloudShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btCompoundShape.cpp': No such file or directory
+  btConvexPolyhedron.cpp
+  btConvexShape.cpp
+  btConvexTriangleMeshShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btConeShape.cpp': No such file or directory
+  btCylinderShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btConvexHullShape.cpp': No such file or directory
+  btEmptyShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btConvexInternalShape.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btConvexPolyhedron.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btConvexShape.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btConvexPointCloudShape.cpp': No such file or directory
+  btHeightfieldTerrainShape.cpp
+  btMinkowskiSumShape.cpp
+  btMultimaterialTriangleMeshShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btConvexTriangleMeshShape.cpp': No such file or directory
+  btMultiSphereShape.cpp
+  btOptimizedBvh.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btEmptyShape.cpp': No such file or directory
+  btPolyhedralConvexShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btMinkowskiSumShape.cpp': No such file or directory
+  btScaledBvhTriangleMeshShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btCylinderShape.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btMultimaterialTriangleMeshShape.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btHeightfieldTerrainShape.cpp': No such file or directory
+  btShapeHull.cpp
+  btSphereShape.cpp
+  btStaticPlaneShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btMultiSphereShape.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btOptimizedBvh.cpp': No such file or directory
+  btStridingMeshInterface.cpp
+  btTetrahedronShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btConvex2dShape.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btPolyhedralConvexShape.cpp': No such file or directory
+  btTriangleBuffer.cpp
+  btTriangleCallback.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btScaledBvhTriangleMeshShape.cpp': No such file or directory
+  btTriangleIndexVertexArray.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btSphereShape.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btShapeHull.cpp': No such file or directory
+  btTriangleIndexVertexMaterialArray.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btStaticPlaneShape.cpp': No such file or directory
+  btTriangleMesh.cpp
+  btTriangleMeshShape.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btStridingMeshInterface.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btTetrahedronShape.cpp': No such file or directory
+  btUniformScalingShape.cpp
+  btContactProcessing.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btTriangleCallback.cpp': No such file or directory
+  btGenericPoolAllocator.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btTriangleIndexVertexArray.cpp': No such file or directory
+  btGImpactBvh.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btTriangleIndexVertexMaterialArray.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btTriangleMeshShape.cpp': No such file or directory
+  btGImpactCollisionAlgorithm.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btTriangleMesh.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btUniformScalingShape.cpp': No such file or directory
+  btGImpactQuantizedBvh.cpp
+  btGImpactShape.cpp
+  btTriangleShapeEx.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\CollisionShapes\btTriangleBuffer.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\btGenericPoolAllocator.cpp': No such file or directory
+  gim_box_set.cpp
+  gim_contact.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\btContactProcessing.cpp': No such file or directory
+  gim_memory.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\btGImpactBvh.cpp': No such file or directory
+  gim_tri_collision.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\btGImpactCollisionAlgorithm.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\btTriangleShapeEx.cpp': No such file or directory
+  btContinuousConvexCollision.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\btGImpactQuantizedBvh.cpp': No such file or directory
+  btConvexCast.cpp
+  btGjkConvexCast.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\btGImpactShape.cpp': No such file or directory
+  btGjkEpa2.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\gim_contact.cpp': No such file or directory
+  btGjkEpaPenetrationDepthSolver.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\gim_memory.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\gim_box_set.cpp': No such file or directory
+  btGjkPairDetector.cpp
+  btMinkowskiPenetrationDepthSolver.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\Gimpact\gim_tri_collision.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btContinuousConvexCollision.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btConvexCast.cpp': No such file or directory
+  btPersistentManifold.cpp
+  btPolyhedralContactClipping.cpp
+  btRaycastCallback.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btGjkEpaPenetrationDepthSolver.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.cpp': No such file or directory
+  btSubSimplexConvexCast.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btGjkPairDetector.cpp': No such file or directory
+  btVoronoiSimplexSolver.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btGjkEpa2.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btMinkowskiPenetrationDepthSolver.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btPolyhedralContactClipping.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btPersistentManifold.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btRaycastCallback.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btSubSimplexConvexCast.cpp': No such file or directory
+c1xx : fatal error C1083: Cannot open source file: '..\..\src\BulletCollision\NarrowPhaseCollision\btVoronoiSimplexSolver.cpp': No such file or directory
