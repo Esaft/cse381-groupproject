@@ -43,6 +43,33 @@ bool Frustum::PointInFrustum( float x, float y, float z )
 	return true;
 }
 
+bool Frustum::CubeInFrustum( float x, float y, float z, float size )
+{
+   int p;
+
+   for( p = 0; p < 6; p++ )
+   {
+      if( m_planes[p].a * (x - size) + m_planes[p].b * (y - size) + m_planes[p].c * (z - size) + m_planes[p].d > 0 )
+         continue;
+      if( m_planes[p].a * (x + size) + m_planes[p].b * (y - size) + m_planes[p].c * (z - size) + m_planes[p].d > 0 )
+         continue;
+      if( m_planes[p].a * (x - size) + m_planes[p].b * (y + size) + m_planes[p].c * (z - size) + m_planes[p].d > 0 )
+         continue;
+      if( m_planes[p].a * (x + size) + m_planes[p].b * (y + size) + m_planes[p].c * (z - size) + m_planes[p].d > 0 )
+         continue;
+      if( m_planes[p].a * (x - size) + m_planes[p].b * (y - size) + m_planes[p].c * (z + size) + m_planes[p].d > 0 )
+         continue;
+      if( m_planes[p].a * (x + size) + m_planes[p].b * (y - size) + m_planes[p].c * (z + size) + m_planes[p].d > 0 )
+         continue;
+      if( m_planes[p].a * (x - size) + m_planes[p].b * (y + size) + m_planes[p].c * (z + size) + m_planes[p].d > 0 )
+         continue;
+      if( m_planes[p].a * (x + size) + m_planes[p].b * (y + size) + m_planes[p].c * (z + size) + m_planes[p].d > 0 )
+         continue;
+      return false;
+   }
+   return true;
+}
+
 void Frustum::updateFrustum()
 {
     GLfloat projection[16];

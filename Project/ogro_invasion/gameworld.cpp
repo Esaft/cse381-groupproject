@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <cassert>
 #include <algorithm>
+#include <vector>
 
 #include "gameworld.h"
 #include "ogro.h"
@@ -30,6 +31,7 @@ m_entities(list<Entity*>()),
 m_colliders(list<Collider*>()),
 m_player(NULL),
 m_landscape(NULL),
+m_pOctreeRoot(NULL),
 m_gameCamera(NULL),
 m_keyboard(keyboardInterface),
 m_mouse(mouseInterface),
@@ -41,10 +43,20 @@ m_relY(0)
     m_gameCamera = std::auto_ptr<Camera>(new Camera());
     m_frustum = std::auto_ptr<Frustum>(new Frustum());
 	physics.initPhysics();
+	numSentToFrustum = 0;
+	numRendered = 0;
 }
 
 GameWorld::~GameWorld()
 {
+	// IF THE ROOT IS NOT NULL
+	if(m_pOctreeRoot != NULL)
+	{
+		// RECURSIVELY CLEANUP
+		m_pOctreeRoot->DestroyAll();
+		delete m_pOctreeRoot;
+		m_pOctreeRoot = NULL;
+	}
 
     //Free any allocated memory
     for (list<Entity*>::iterator entity = m_entities.begin();
@@ -161,6 +173,8 @@ Entity* GameWorld::spawnEntity(EntityType entityType)
 
 bool GameWorld::initialize()
 {
+	OctreeNode		*pRoot=NULL;
+
     srand((unsigned int)time(0));
 
     spawnEntity(LANDSCAPE); //Spawn the landscape
@@ -190,6 +204,19 @@ bool GameWorld::initialize()
     m_gameCamera->attachTo(getPlayer()); //Attach the camera to the player
 
     m_remainingTime = 60.0f * 5; //5 minutes
+
+	//BUILDING OCTREE
+
+	m_pOctreeRoot = new OctreeNode;
+	m_pOctreeRoot->InitAll(ROOT);
+	m_pOctreeRoot->Set_size(65.0f / 2.0f);
+
+	pRoot = m_pOctreeRoot;
+	std::vector<Entity*> m_e(m_entities.begin(),m_entities.end());
+	m_pOctreeRoot->SubdivideNode8(&m_e, pRoot, //&nodesCreated,
+									 8);
+
+	m_e.clear();
 
     return true;
 }
@@ -266,8 +293,9 @@ void GameWorld::render() const
 {
     m_gameCamera->apply();
     m_frustum->updateFrustum();
-
-    for (ConstEntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
+	
+	
+    /*for (ConstEntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
     {
         Vector3 pos = (*entity)->getPosition();
         if ((*entity)->getType() == LANDSCAPE || (*entity)->getCollider() == NULL)
@@ -280,7 +308,28 @@ void GameWorld::render() const
             (*entity)->render();
             (*entity)->postRender();
         }
+    }*/
+
+	(int)numSentToFrustum = 0;
+	(int)numRendered = 0;
+
+	std::list<Entity*> visibleEntities;
+	m_pOctreeRoot->SceneCull(&visibleEntities, &(*m_frustum));
+
+
+	(int)numSentToFrustum = visibleEntities.size();
+	for (ConstEntityIterator entity = visibleEntities.begin(); entity != visibleEntities.end(); ++entity)
+    {
+		Vector3 pos = (*entity)->getPosition();
+        if (m_frustum->sphereInFrustum(pos.x, pos.y, pos.z, (*entity)->getCollider()->getRadius()))
+        {
+			((int)numRendered) ++;
+            (*entity)->render();
+            (*entity)->postRender();
+        }
     }
+
+	visibleEntities.clear();
 }
 
 Vector3 GameWorld::getRandomPosition() const

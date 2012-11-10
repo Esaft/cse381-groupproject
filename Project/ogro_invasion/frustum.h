@@ -10,6 +10,7 @@ public:
 	void updateFrustum();
 	bool sphereInFrustum(float x, float y, float z, float radius);
 	bool PointInFrustum(float x, float y, float z);
+	bool CubeInFrustum( float x, float y, float z, float size);
 
 private:
 	Plane m_planes[6];
@@ -23,6 +24,7 @@ private:
 	    PLANE_NEAR
     };
 
+	//int entitiesSentToFrustum;
 	Plane extractPlane(float a, float b, float c, float d);
 };
 

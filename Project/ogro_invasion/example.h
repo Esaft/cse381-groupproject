@@ -27,6 +27,7 @@ public:
     void updateFPS(float dt);
 private:
     float m_angle;
+	bool showCullStats;
 
     std::auto_ptr<FreeTypeFont> m_font;
     std::auto_ptr<GameWorld> m_world;

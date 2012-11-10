@@ -151,6 +151,26 @@ void OctreeNode::DestroyAll()
 	}
 }
 
+
+void OctreeNode::SceneCull(std::list<Entity*> *visibleEntities, Frustum *f)
+{
+	if(f->CubeInFrustum(m_center.x, m_center.y, m_center.z, m_size))
+	{
+		if(m_isLeafNode)
+		{
+			for(int i = 0; i < m_entities.size(); i++)
+				visibleEntities->push_back(m_entities.at(i));
+		}
+		else
+		{
+			for(int i=0; i<8; i++)
+			{
+				m_pSubNodes[i]->SceneCull(visibleEntities, f);
+			}
+		}
+	}
+}
+
 /* =================================================================================
 	CALCULATE THE CENTER OF A NEW NODE
 ==================================================================================== */
@@ -221,24 +241,28 @@ bool OctreeNode::CreateSubNode(std::vector<Entity*> *entities, //int *nodesCreat
 		m_pSubNodes[id]->Set_size((m_size/2.0f));
 		m_pSubNodes[id]->Set_center(newNodeCenter);
 
+		std::vector<Entity*> temp;
+
 		for(int i = 0; i < entityAssignments->size(); i++)
 		{
 			Entity* e = entities->at(entityAssignments->at(i));
-			m_entities.push_back(e);
+			temp.push_back(e);
 
 			if(e->getNode() != this)
 			{
-				e->setNode(this);
+				e->setNode(m_pSubNodes[id]);
 			}
 		}
 
 		// SUBDIVIDE	
-		if(m_pSubNodes[id]->SubdivideNode8(&m_entities,
+		if(m_pSubNodes[id]->SubdivideNode8(&temp,
 										this, //nodesCreated,
 										maxEntities))
 		{
 			nodeCreated = true;
 		}
+
+		temp.clear();
 	}
 
 	return nodeCreated;

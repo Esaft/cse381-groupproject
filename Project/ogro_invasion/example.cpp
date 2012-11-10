@@ -16,6 +16,7 @@
 #include "example.h"
 #include "glslshader.h"
 #include "freetypefont.h"
+#include "keyboardinterface.h"
 #include "gameworld.h"
 #include "player.h"
 #include "freetypefont.h"
@@ -86,6 +87,8 @@ bool Example::init()
         return false;
     }
 
+	showCullStats = false;
+
     srand(time(0));
     return true;
 }
@@ -93,6 +96,11 @@ bool Example::init()
 
 void Example::prepare(float dt)
 {
+	if (m_world->getKeyboard()->isKeyPressed(KC_t))
+    {
+       showCullStats = !showCullStats;
+    }
+
     m_world->update(dt);
     updateFPS(dt);
 }
@@ -120,6 +128,17 @@ void Example::render()
         stringstream remainingString;
         remainingString << "Time remaining: "  << m_world->getRemainingTimeAsString();
         m_font->printString(remainingString.str(), 20.0f, 50.0f);
+
+		if(showCullStats)
+		{
+			stringstream cullStatString;
+			stringstream cullStatString2;
+			//reduce dependency later
+			cullStatString << "Entities in world:"  << m_world->getNumEntities() << " Entities scene culled:" << m_world->getNumSceneCulled();
+			cullStatString2 << "Entities sent to frustum:"  << m_world->getNumSentToFrustum() << " Entities rendered:" << m_world->getNumRendered();
+			m_font->printString(cullStatString.str(), 20.0f, 110.0f);
+			m_font->printString(cullStatString2.str(), 20.0f, 80.0f);
+		}
 
         m_font->printString(m_world->getSpawnMessage(), 20.0f, 80.0f);
         m_font->printString("+", (float)viewport[2] / 2, (float)viewport[3] / 2);
