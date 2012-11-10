@@ -30,7 +30,7 @@ public:
     virtual Collider* getCollider() { return m_collider.get(); }
 
     Vector3 getPosition() const { return Vector3(0.0f, 0.0f, 0.0f); }
-    void setPosition(const Vector3& v) { throw std::logic_error("Attempted to move the landscape"); }
+	void setPosition(const Vector3& v) { } // fix later: throw std::logic_error("Attempted to move the landscape"); }
     Vector3 getVelocity() const { return Vector3(0.0f, 0.0f, 0.0f); }
     float getYaw() const { return 0.0f; }
     float getPitch() const { return 0.0f; }

@@ -3,6 +3,7 @@
 
 #include <list>
 #include "uncopyable.h"
+#include "btBulletCollisionCommon.h"
 
 class Entity;
 
@@ -18,10 +19,14 @@ public:
 
     virtual ~Collider() { m_entity = NULL; }
 
+	void setBody(btRigidBody* newBody) { body = newBody; }
+	btRigidBody* getBody() { return body; }
+
 private:
     virtual bool collideWith(const Collider* collider) = 0;
 
     Entity* m_entity;
+	btRigidBody* body;
 };
 
 #endif // COLLIDER_H_INCLUDED

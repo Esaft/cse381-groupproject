@@ -334,6 +334,7 @@ bool Terrain::loadHeightmap(const string& rawFile, const string& grassTexture, c
     {
         //Convert to floating value, the unsigned char cast is importantant otherwise the values wrap at 128
         float value = (float)(unsigned char)stringBuffer[i] / 256.0f;
+		//value = 0.001;
 
         heights.push_back(value * HEIGHT_SCALE);
         m_colors.push_back(Color(value, value, value, 1.0f));
@@ -459,6 +460,9 @@ Vertex Terrain::getPositionAt(int x, int z)
 
 void Terrain::renderWater() const
 {
+	
+	glPushMatrix();
+	glTranslatef(0, 4, 0);
     static float modelviewMatrix[16];
     static float projectionMatrix[16];
 
@@ -489,11 +493,14 @@ void Terrain::renderWater() const
 
     m_waterShaderProgram->bindShader();
 
+	
     glDrawElements(GL_TRIANGLES, m_waterIndices.size(), GL_UNSIGNED_INT, 0);
 
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
     //glDisable(GL_BLEND);
+
+	glPopMatrix();
 }
 
 void Terrain::render() const

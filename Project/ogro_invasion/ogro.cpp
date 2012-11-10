@@ -12,6 +12,7 @@
 #include "collider.h"
 #include "gameworld.h"
 #include "player.h"
+#include "btBulletDynamicsCommon.h"
 #include "landscape.h"
 
 using std::string;
@@ -46,9 +47,9 @@ void Ogro::onPrepare(float dT)
 
     m_model->update(dT);
 
-    if (m_position.y > 0.0f) {
+    /*if (m_position.y > 0.0f) {
         m_position.y -= 10.0f * dT;
-    }
+    }*/
 
     Vector3 pos = getPosition();
 
@@ -65,10 +66,13 @@ void Ogro::onPrepare(float dT)
 
     float cosYaw = cosf(degreesToRadians(m_yaw));
     float sinYaw = sinf(degreesToRadians(m_yaw));
-    pos.x += float(cosYaw) * speed;
-    pos.z += float(sinYaw) * speed;
+    //pos.x += float(cosYaw) * speed;
+    //pos.z += float(sinYaw) * speed;
 
-    setPosition(pos);
+	btVector3 linearVelocity = getCollider()->getBody()->getLinearVelocity();
+	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(float(cosYaw)*speed*10.), linearVelocity.getY(), btScalar(float(sinYaw)*speed*10.)));
+
+	//setPosition(pos);
 
 
 }
@@ -195,7 +199,7 @@ void Ogro::processAI()
 
     float randYaw = 90.0f + (float) (rand() % 90);
 
-    if (getPosition().x < minX ||
+    /*if (getPosition().x < minX ||
         getPosition().x > maxX ||
         getPosition().z < minZ ||
         getPosition().z > maxZ)
@@ -221,7 +225,7 @@ void Ogro::processAI()
         {
             m_position.z = maxZ;
         }
-    }
+    }*/
 
 
 }

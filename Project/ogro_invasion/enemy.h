@@ -19,7 +19,7 @@ public:
 
 
     Vector3 getPosition() const { return m_position; }
-    void setPosition(const Vector3& pos) { m_position = pos; }
+    void setPosition(const Vector3& pos);
     Vector3 getVelocity() const { return m_velocity; }
 
     float getYaw() const { return m_yaw; }

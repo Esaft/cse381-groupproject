@@ -1,4 +1,7 @@
 #include "entity.h"
+#include "collider.h"
+#include "btBulletCollisionCommon.h"
+#include "btBulletDynamicsCommon.h"
 
 Entity::Entity(GameWorld* const gameWorld):
 m_canBeRemoved(false),
@@ -25,6 +28,22 @@ void Entity::destroy()
 
 void Entity::prepare(float dt)
 {
+	btRigidBody* body = getCollider()->getBody();
+	// Update Position
+	if (body && body->getMotionState())
+	{
+		btTransform trans;
+		body->getMotionState()->getWorldTransform(trans);
+		//printf("world pos = %f,%f,%f\n",float(trans.getOrigin().getX()),float(trans.getOrigin().getY()),float(trans.getOrigin().getZ()));
+
+		btVector3 pos = trans.getOrigin();
+		float x, y, z;
+		x = pos.getX();
+		y = pos.getY();
+		z = pos.getZ();
+		setPosition(Vector3(x, y, z));
+	}
+
     onPrepare(dt);
 }
 

@@ -26,7 +26,7 @@ bool Landscape::onInitialize()
 {
     const string grassTexture = "data/textures/grass.tga";
     const string heightTexture = "data/textures/height.tga";
-    const string waterTexture = "data/textures/water.tga";
+    const string waterTexture = "data/textures/grass.tga"; //water.tga
     bool result = m_terrain.loadHeightmap(m_heightmap, grassTexture, heightTexture, 65, true, waterTexture);
     if (result) {
         m_terrain.normalizeTerrain();
@@ -38,7 +38,7 @@ bool Landscape::onInitialize()
 
 void Landscape::onRender() const
 {
-    m_terrain.render();
+    //m_terrain.render();
     m_terrain.renderWater();
 }
 
