@@ -9,7 +9,7 @@
 #include <GL/glu.h>
 
 Camera::Camera():
-m_position(Vector3(0.0f, 0.0f, 0.0f)),
+m_position(Vector3(0.0f, 5.0f, 0.0f)),
 m_up(Vector3(0.0f, 1.0f, 0.0f)),
 m_right(Vector3(1.0f, 0.0f, 0.0f)),
 m_forward(Vector3(0.0f, 0.0f, 1.0f)),

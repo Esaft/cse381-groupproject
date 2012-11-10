@@ -4,6 +4,7 @@
 #include "mouseinterface.h"
 #include "spherecollider.h"
 #include "landscape.h"
+#include "btBulletDynamicsCommon.h"
 
 Player::Player(GameWorld* const world):
 Entity(world),
@@ -43,7 +44,7 @@ void Player::onPrepare(float dT)
     if (getWorld()->getKeyboard()->isKeyPressed(KC_SPACE) ||
         getWorld()->getMouse()->isButtonPressed(0))
     {
-        Entity* rocket = getWorld()->spawnEntity(ROCKET);
+        Entity* rocket = getWorld()->spawnEntity(ROCKET, Vector3(0,0,0));
         rocket->setPosition(getPosition());
         rocket->setYaw(getYaw());
         rocket->setPitch(getPitch());
@@ -55,7 +56,7 @@ void Player::onPrepare(float dT)
     yaw(float(x) * 40.0f * dT);
     pitch(float(y)* -40.0f * dT);
 
-    m_position.y -= 8.0f * dT;
+    //m_position.y -= 8.0f * dT;
 
     float minX = getWorld()->getLandscape()->getTerrain()->getMinX() + 2.5f;
     float maxX = getWorld()->getLandscape()->getTerrain()->getMaxX() - 2.5f;
@@ -117,12 +118,21 @@ void Player::pitch(const float val)
 
 void Player::moveForward(const float speed)
 {
-    Vector3 pos = getPosition();
+    //Vector3 pos = getPosition();
 
     float cosYaw = cosf(degreesToRadians(m_yaw));
     float sinYaw = sinf(degreesToRadians(m_yaw));
-    pos.x += float(cosYaw)*speed;
-    pos.z += float(sinYaw)*speed;
+    //pos.x += float(cosYaw)*speed;
+    //pos.z += float(sinYaw)*speed;
 
-    setPosition(pos);
+	btVector3 linearVelocity = getCollider()->getBody()->getLinearVelocity();
+
+	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(float(cosYaw)*speed*20.), linearVelocity.getY(), btScalar(float(sinYaw)*speed*20.)));
+
+    //setPosition(pos);
+}
+
+
+void Player::setPosition(const Vector3& pos) {
+    m_position = pos;
 }

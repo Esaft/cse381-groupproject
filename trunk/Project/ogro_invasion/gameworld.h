@@ -67,7 +67,7 @@ class GameWorld : private Uncopyable
         /** Default destructor */
         virtual ~GameWorld();
 
-        Entity* spawnEntity(EntityType entity);
+        Entity* spawnEntity(EntityType entity, Vector3);
 
         bool initialize();
         void update(float dt);

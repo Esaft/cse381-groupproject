@@ -95,7 +95,7 @@ GameWorld::~GameWorld()
     Entity* ogro = spawnEntity<Ogro>();
     Entity* player = spawnEntity<Player>();
 */
-Entity* GameWorld::spawnEntity(EntityType entityType)
+Entity* GameWorld::spawnEntity(EntityType entityType, Vector3 pos = Vector3(0,0,0))
 {
     Entity* newEntity = NULL;
     bool initialize = true;
@@ -163,7 +163,9 @@ Entity* GameWorld::spawnEntity(EntityType entityType)
     //register it as such
     if (newEntity->getCollider())
     {
+		newEntity->setPosition(pos);
         registerCollider(newEntity->getCollider());
+		physics.registerEntity(newEntity);
     }
 
     registerEntity(newEntity);
@@ -182,25 +184,23 @@ bool GameWorld::initialize()
     //Spawn a load of monsters
     for (unsigned int i = 0; i < MAX_ENEMY_COUNT; ++i)
     {
-        Entity* newEntity = spawnEntity(OGRO);
-        newEntity->setPosition(getRandomPosition());
+        Entity* newEntity = spawnEntity(OGRO, getRandomPosition());
     }
 
     for (int i = 0; i < TREE_COUNT; ++i)
     {
-        Entity* newEntity = spawnEntity(TREE);
+        
 
         Vector3 pos(0.0f, -1.0f, 0.0f);
         while (pos.y < 1.1f) {
             pos = getRandomPosition();
         }
-
-        newEntity->setPosition(pos);
+		Entity* newEntity = spawnEntity(TREE, pos);
     }
 
     //Spawn the player and center them
     spawnEntity(PLAYER);
-    getPlayer()->setPosition(Vector3(10.0f, 0.0f, 0.0f));
+    //getPlayer()->setPositionReal(Vector3(10.0f, 0.0f, 0.0f));
     m_gameCamera->attachTo(getPlayer()); //Attach the camera to the player
 
     m_remainingTime = 60.0f * 5; //5 minutes
@@ -232,7 +232,8 @@ void GameWorld::update(float dT)
     }
 
     //Perform all the collisions
-    Collider::updateColliders(m_colliders);
+    //Collider::updateColliders(m_colliders);
+	physics.update(dT);
     clearDeadEntities(); //Remove any entities that were killed as a result of a collision
 
     //Spawn an entity every 10 seconds if we have room
@@ -372,6 +373,7 @@ void GameWorld::clearDeadEntities()
         }
 
         unregisterCollider((*entity)->getCollider());
+		physics.unregisterEntity((*entity));
         delete (*entity);
         entity = m_entities.erase(entity);
     }

@@ -30,3 +30,8 @@ void Enemy::onCollision(Entity* collider)
         kill(); //Kill this enemy
     }
 }
+
+void Enemy::setPosition(const Vector3& pos)
+{
+	m_position = pos;
+}

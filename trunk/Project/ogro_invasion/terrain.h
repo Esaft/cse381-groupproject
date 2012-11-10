@@ -10,6 +10,7 @@
 #include "glee/GLee.h"
 #include "targa.h"
 #include "geom.h"
+using std::string;
 
 class GLSLProgram;
 
@@ -33,6 +34,9 @@ public:
     float getMaxX() { return m_maxX; }
     float getMinZ() { return m_minZ; }
     float getMaxZ() { return m_maxZ; }
+
+	static string heightmap;
+
 private:
     void generateVertices(const std::vector<float> heights, int width);
     void generateIndices(int width);

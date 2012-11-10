@@ -6,6 +6,7 @@
 #include "uncopyable.h"
 #include "OctreeNode.h"
 
+class btRigidBody;
 class GameWorld;
 class Collider;
 

@@ -4,6 +4,8 @@
 //#include "GlutStuff.h"
 #include "btBulletCollisionCommon.h"
 #include "LinearMath/btHashMap.h"
+#include "entity.h"
+#include <vector>
 
 class btBroadphaseInterface;
 class btCollisionShape;
@@ -30,10 +32,17 @@ private:
 
 	btDynamicsWorld*		m_dynamicsWorld;
 
+	std::vector<btRigidBody*> bodies;
+
 
 public:
-	void	initPhysics();
-	void	exitPhysics();
+	void initPhysics();
+	void exitPhysics();
+
+	void update(float speed);
+
+	void registerEntity(Entity* entity);
+	void unregisterEntity(Entity* entity);
 
 };
 

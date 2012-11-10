@@ -110,7 +110,7 @@ void Rocket::onCollision(Entity* collider)
     if (collider->getType() == PLAYER) return;
 
     //Create an explosion where the rocket is
-    Entity* explosion = getWorld()->spawnEntity(EXPLOSION);
+    Entity* explosion = getWorld()->spawnEntity(EXPLOSION, Vector3(0,0,0));
     explosion->setPosition(getPosition());
 
     destroy(); //Mark the rocket as dead

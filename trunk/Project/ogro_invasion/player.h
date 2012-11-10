@@ -28,9 +28,7 @@ class Player : public Entity
         virtual Collider* getCollider() { return m_collider; }
 
         Vector3 getPosition() const { return m_position; }
-        void setPosition(const Vector3& pos) {
-            m_position = pos;
-        }
+        void setPosition(const Vector3& pos);
 
         Vector3 getVelocity() const { return m_velocity; }
 
