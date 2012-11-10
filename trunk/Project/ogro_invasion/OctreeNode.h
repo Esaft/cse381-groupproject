@@ -5,6 +5,7 @@
 #include <list>
 #include <vector>
 #include "geom.h"
+#include "frustum.h"
 
 class Entity;
 
@@ -31,7 +32,7 @@ public:
 	bool	InitAll(OC3NODEID id);						// Init Node
 	void	DestroyAll();								// Cleanup
 
-	void	frustumCullEntities();
+	void	SceneCull(std::list<Entity*> *visibleEntities, Frustum *f);
 
 	void	Get_CenterOfNextNode(Vector3 currCenter,		// Center of current node
 								 Vector3 *newCenter,		// New center

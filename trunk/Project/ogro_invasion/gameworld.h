@@ -21,6 +21,46 @@ class Frustum;
 
 class GameWorld : private Uncopyable
 {
+	 private:
+		Physics physics;
+
+        std::list<Entity*> m_entities; //!< Member variable "m_enemies"
+        std::list<Collider*> m_colliders;
+
+        void registerCollider(Collider* collider);
+        void unregisterCollider(const Collider* collider);
+
+        void registerEntity(Entity* entity);
+        void unregisterEntity(const Entity* entity);
+
+        static const unsigned int MAX_ENEMY_COUNT = 15;
+        static const int TREE_COUNT = 20;
+
+        Player* m_player;
+        Landscape* m_landscape;
+		OctreeNode	*m_pOctreeRoot;	
+
+        Vector3 getRandomPosition() const;
+
+        void clearDeadEntities();
+
+        std::auto_ptr<Camera> m_gameCamera;
+
+        KeyboardInterface* m_keyboard;
+        MouseInterface* m_mouse;
+
+        float m_lastSpawn;
+        float m_currentTime;
+
+        float m_remainingTime;
+
+        float m_relX, m_relY;
+
+		int numSentToFrustum;
+		int numRendered;
+
+        std::auto_ptr<Frustum> m_frustum;
+
     public:
         /** Default constructor */
         GameWorld(KeyboardInterface* keyboardInterface, MouseInterface* mouseInterface);
@@ -111,41 +151,12 @@ class GameWorld : private Uncopyable
             y = m_relY;
         }
 
-    private:
-		Physics physics;
+		int getNumRendered()		{	return numRendered;}
+		int getNumSentToFrustum()	{	return numSentToFrustum;}
+		int getNumSceneCulled()		{	return m_entities.size() - numSentToFrustum;}
+		int getNumEntities()		{	return m_entities.size();}
 
-        std::list<Entity*> m_entities; //!< Member variable "m_enemies"
-        std::list<Collider*> m_colliders;
 
-        void registerCollider(Collider* collider);
-        void unregisterCollider(const Collider* collider);
-
-        void registerEntity(Entity* entity);
-        void unregisterEntity(const Entity* entity);
-
-        static const unsigned int MAX_ENEMY_COUNT = 15;
-        static const int TREE_COUNT = 20;
-
-        Player* m_player;
-        Landscape* m_landscape;
-
-        Vector3 getRandomPosition() const;
-
-        void clearDeadEntities();
-
-        std::auto_ptr<Camera> m_gameCamera;
-
-        KeyboardInterface* m_keyboard;
-        MouseInterface* m_mouse;
-
-        float m_lastSpawn;
-        float m_currentTime;
-
-        float m_remainingTime;
-
-        float m_relX, m_relY;
-
-        std::auto_ptr<Frustum> m_frustum;
 };
 
 #endif // GAMEWORLD_H
