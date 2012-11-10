@@ -1,5 +1,6 @@
 #include "OctreeNode.h"
 #include "entity.h"
+#include "spherecollider.h"
 #include <windows.h>
 #include <assert.h>
 #include <vector>
@@ -28,19 +29,46 @@ void OctreeNode::addEntity(Entity *e)
 {
 	if(m_isLeafNode)
 	{
-		if(e->getNode() != this)
-		{
-			if(e->getNode() != NULL)
-					e->getNode()->removeEntity(e);
-			m_entities.push_back(e);
-		
+		float rad;
+		if(e->getCollider() != NULL)
+			rad = e->getCollider()->getRadius();
+		else
+			rad = 0;
+		Vector3 pos = e->getPosition();
 
-			if(m_entities.size() > m_maxEntities)
-				SubdivideNode8(&m_entities, this, //nodesCreated,
-													m_maxEntities);
-			else	
-				e->setNode(this);
-			
+		if(e->getType() == LANDSCAPE)
+			rad = 65.0f/2.0f;
+
+		if((pos.x - rad) < (m_center.x - (m_size * 1.5)) ||
+			(pos.x + rad) > (m_center.x + (m_size * 1.5)) ||
+			(pos.y - rad) < (m_center.y - (m_size * 1.5)) ||
+			(pos.y + rad) > (m_center.y + (m_size * 1.5)) ||
+			(pos.z - rad) < (m_center.z - (m_size * 1.5)) ||
+			(pos.z + rad) > (m_center.z + (m_size * 1.5)))
+		{
+			m_pParent->addEntityFromChild(e);
+		}
+		else
+		{
+			if(e->getNode() != this)
+			{
+				if(e->getNode() != NULL)
+					e->getNode()->removeEntity(e);
+				m_entities.push_back(e);
+
+
+				if(m_entities.size() > m_maxEntities)
+				{
+					std::vector<Entity*> temp;
+					temp.assign(m_entities.begin(), m_entities.end());
+					SubdivideNode8(&temp, this, //nodesCreated,
+						m_maxEntities);
+					temp.clear();
+				}
+				else	
+					e->setNode(this);
+
+			}
 		}
 	}
 	else
@@ -96,6 +124,42 @@ void OctreeNode::addEntity(Entity *e)
 	}
 }
 
+void OctreeNode::addEntityFromChild(Entity *e)
+{
+		float rad;
+		if(e->getCollider() != NULL)
+			rad = e->getCollider()->getRadius();
+		else
+			rad = 0;
+		Vector3 pos = e->getPosition();
+
+		if(e->getType() == LANDSCAPE)
+			rad = 65.0f/2.0f;
+
+		if((pos.x - rad) < (m_center.x - (m_size * 1.5)) ||
+			(pos.x + rad) > (m_center.x + (m_size * 1.5)) ||
+			(pos.y - rad) < (m_center.y - (m_size * 1.5)) ||
+			(pos.y + rad) > (m_center.y + (m_size * 1.5)) ||
+			(pos.z - rad) < (m_center.z - (m_size * 1.5)) ||
+			(pos.z + rad) > (m_center.z + (m_size * 1.5)))
+		{
+			if(m_ID >= 0)
+				m_pParent->addEntityFromChild(e);
+		}
+		else
+		{
+			if(e->getNode() != this)
+			{
+				if(e->getNode() != NULL)
+						e->getNode()->removeEntity(e);
+				m_entities.push_back(e);
+		
+				e->setNode(this);
+			}
+		}
+	
+}
+
 void OctreeNode::removeEntity(Entity *e)
 {
 
@@ -128,7 +192,7 @@ void OctreeNode::DestroyAll()
 	if(m_isLeafNode)
 	{
 		// CLEANUP INDICES (IF ANY) IN THIS NODE
-		if((m_numEntities>0) && (!m_entities.empty()))
+		if((!m_entities.empty()))
 		{
 			m_entities.clear();
 			m_numEntities = 0;
@@ -147,21 +211,24 @@ void OctreeNode::DestroyAll()
 			m_pSubNodes[j]=NULL;
 		}
 
-		//ADD CLEAN-UP FOR ENTITIES IN PARENT NODES
+		// CLEANUP INDICES (IF ANY) IN THIS NODE
+		if((!m_entities.empty()))
+		{
+			m_entities.clear();
+			m_numEntities = 0;
+		}
 	}
 }
 
-
+//FILL A LIST WITH ALL POSSIBLE VISIBLE ENTITIES
 void OctreeNode::SceneCull(std::list<Entity*> *visibleEntities, Frustum *f)
 {
 	if(f->CubeInFrustum(m_center.x, m_center.y, m_center.z, m_size))
 	{
-		if(m_isLeafNode)
-		{
-			for(int i = 0; i < m_entities.size(); i++)
-				visibleEntities->push_back(m_entities.at(i));
-		}
-		else
+		for(int i = 0; i < m_entities.size(); i++)
+			visibleEntities->push_back(m_entities.at(i));
+		
+		if(!m_isLeafNode)
 		{
 			for(int i=0; i<8; i++)
 			{
@@ -246,10 +313,31 @@ bool OctreeNode::CreateSubNode(std::vector<Entity*> *entities, //int *nodesCreat
 		for(int i = 0; i < entityAssignments->size(); i++)
 		{
 			Entity* e = entities->at(entityAssignments->at(i));
-			temp.push_back(e);
+			float rad;
+			if(e->getCollider() != NULL)
+				rad = e->getCollider()->getRadius();
+			else
+				rad = 0;
+			Vector3 pos = e->getPosition();
 
-			if(e->getNode() != this)
+			if(e->getType() == LANDSCAPE)
+				rad = 65.0f;
+			
+			if((pos.x - rad) < (m_pSubNodes[id]->Get_center().x - (m_pSubNodes[id]->Get_size() * 1.5)) ||
+				(pos.x + rad) > (m_pSubNodes[id]->Get_center().x + (m_pSubNodes[id]->Get_size() * 1.5)) ||
+				(pos.y - rad) < (m_pSubNodes[id]->Get_center().y - (m_pSubNodes[id]->Get_size() * 1.5)) ||
+				(pos.y + rad) > (m_pSubNodes[id]->Get_center().y + (m_pSubNodes[id]->Get_size() * 1.5)) ||
+				(pos.z - rad) < (m_pSubNodes[id]->Get_center().z - (m_pSubNodes[id]->Get_size() * 1.5)) ||
+				(pos.z + rad) > (m_pSubNodes[id]->Get_center().z + (m_pSubNodes[id]->Get_size() * 1.5)))
 			{
+				addEntityFromChild(e);
+			}
+			else
+			{
+				temp.push_back(e);
+
+				if(e->getNode() != NULL)
+					e->getNode()->removeEntity(e);
 				e->setNode(m_pSubNodes[id]);
 			}
 		}
@@ -286,6 +374,7 @@ bool OctreeNode::SubdivideNode8(std::vector<Entity*> *entities, OctreeNode *pare
 		{
 			// IT WON'T BE A LEAF NODE... SUBDIVIDE...
 			m_isLeafNode = false;
+			m_entities.clear();//if node is subdivided, it no longer has entities
 
 			std::vector<int>* entityAssignments[8];
 			for(int i = 0; i < 8; i++)
@@ -384,7 +473,6 @@ bool OctreeNode::SubdivideNode8(std::vector<Entity*> *entities, OctreeNode *pare
 				delete entityAssignments[i];
 			}
 			
-			m_entities.clear();//if node is subdivided, it no longer has entities
 		}
 		else // ELSE, NO NEED TO KEEP SUBDIVIDING
 		{		

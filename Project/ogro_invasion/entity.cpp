@@ -9,7 +9,7 @@ m_world(gameWorld)
 
 Entity::~Entity()
 {
-
+	m_node = NULL;
 }
 
 bool Entity::canBeRemoved() const
@@ -19,6 +19,7 @@ bool Entity::canBeRemoved() const
 
 void Entity::destroy()
 {
+	m_node->removeEntity(this);
     m_canBeRemoved = true;
 }
 
