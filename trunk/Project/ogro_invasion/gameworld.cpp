@@ -241,6 +241,11 @@ void GameWorld::update(float dT)
         spawnEntity(OGRO)->setPosition(getRandomPosition());
     }
 
+	for (EntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
+    {
+		m_pOctreeRoot->addEntity(*entity);
+    }
+
     /*
     This next section of code allows for really smooth mouse movement no matter
     what the frame rate (well... within reason). Basically the last 10 positions
@@ -315,19 +320,31 @@ void GameWorld::render() const
 
 	std::list<Entity*> visibleEntities;
 	m_pOctreeRoot->SceneCull(&visibleEntities, &(*m_frustum));
-
+	bool ground = false;
 
 	(int)numSentToFrustum = visibleEntities.size();
 	for (ConstEntityIterator entity = visibleEntities.begin(); entity != visibleEntities.end(); ++entity)
     {
 		Vector3 pos = (*entity)->getPosition();
-        if (m_frustum->sphereInFrustum(pos.x, pos.y, pos.z, (*entity)->getCollider()->getRadius()))
+		if ((*entity)->getType() == LANDSCAPE || (*entity)->getCollider() == NULL)
+        {
+            (*entity)->render();
+            (*entity)->postRender();
+			ground = true;
+			((int)numRendered) ++;
+        }
+        else if (m_frustum->sphereInFrustum(pos.x, pos.y, pos.z, (*entity)->getCollider()->getRadius()))
         {
 			((int)numRendered) ++;
             (*entity)->render();
             (*entity)->postRender();
         }
     }
+
+	if(!ground)
+	{
+		ground = true;
+	}
 
 	visibleEntities.clear();
 }

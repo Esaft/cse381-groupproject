@@ -54,6 +54,7 @@ public:
 
 	void	addEntity(Entity *e);
 	void	removeEntity(Entity *e);
+	void	addEntityFromChild(Entity *e);
 
 
 	void			Set_ID(OC3NODEID id)		{			m_ID = id;			}
