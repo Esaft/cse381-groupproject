@@ -49,7 +49,7 @@ void Tree::onRender() const
     static float projectionMatrix[16];
 
     glPushMatrix();
-    glTranslatef(m_position.x, m_position.y, m_position.z);
+    glTranslatef(m_position.x, m_position.y + 1, m_position.z);
 
     glGetFloatv(GL_MODELVIEW_MATRIX, modelviewMatrix);
     glGetFloatv(GL_PROJECTION_MATRIX, projectionMatrix);

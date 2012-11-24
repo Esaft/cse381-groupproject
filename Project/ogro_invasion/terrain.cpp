@@ -7,12 +7,15 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
+#include <climits>
 
 #include "glee/GLee.h"
 #include "terrain.h"
 #include "example.h"
 #include "GL/glu.h"
 #include "glslshader.h"
+#include "BulletCollision/CollisionShapes/btBvhTriangleMeshShape.h"
+#include "BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h"
 
 using std::vector;
 using std::string;
@@ -44,6 +47,7 @@ void Terrain::generateVertices(const vector<float> heights, int width)
     //Generate the vertices
     int i = 0;
     float halfWidth = float(width) * 0.5f;
+	int physicsCounter = 0;
 
     for (int z = 0; z < width; ++z)
     {
@@ -52,6 +56,18 @@ void Terrain::generateVertices(const vector<float> heights, int width)
             m_vertices.push_back(Vertex(float(x) - halfWidth, heights[i++], float(z) - halfWidth));
         }
     }
+
+	// Create Physics
+	/*m_physics_vertex = new btScalar[m_vertices.size() * 3];
+	numVertices = m_vertices.size();
+
+	int vertexCounter = 0;
+	for (int i = 0 ; i < m_vertices.size() ; i++) {
+		Vertex v = m_vertices.at(i);
+		m_physics_vertex[vertexCounter++] = btScalar(v.x);
+		m_physics_vertex[vertexCounter++] = btScalar(v.y);
+		m_physics_vertex[vertexCounter++] = btScalar(v.z);
+	}*/
 
     /*for (float z = -halfWidth; z < halfWidth; z += 1.0f)
     {
@@ -346,6 +362,8 @@ bool Terrain::loadHeightmap(const string& rawFile, const string& grassTexture, c
 
     generateVertices(heights, width);
     generateIndices(width);
+	//generateShape();
+
     generateTexCoords(width);
     generateNormals();
 
@@ -458,11 +476,69 @@ Vertex Terrain::getPositionAt(int x, int z)
     return m_vertices[(z * m_width) + x];
 }
 
+void Terrain::generateShape()
+{
+	m_physics_indices = new int[m_indices.size()];
+	m_physics_vertex = new btScalar[m_vertices.size() * 3];
+
+	int vertexCounter = 0;
+	for (int i = 0 ; i < m_vertices.size() ; i++) {
+		Vertex v = m_vertices.at(i);
+		m_physics_vertex[vertexCounter++] = btScalar(v.x);
+		m_physics_vertex[vertexCounter++] = btScalar(v.y);
+		m_physics_vertex[vertexCounter++] = btScalar(v.z);
+	}
+
+	for (int i = 0 ; i < m_indices.size() ; i++) {
+
+		int integ = (int) m_indices.at(i);
+		unsigned int usngi = m_indices.at(i);
+		if (usngi > INT_MAX)
+			int maxint = INT_MAX;
+
+		m_physics_indices[i] = (int) m_indices.at(i);
+	}
+
+	btTriangleIndexVertexArray* meshInterface = new btTriangleIndexVertexArray(
+													m_indices.size() / 3,//numTriangles
+													m_physics_indices, //int *triangleIndexBase,
+													3 * sizeof(int), //int triangleIndexStride,
+													m_vertices.size(), //int numVertices,
+													m_physics_vertex, //btScalar *vertexBase,
+													sizeof(btScalar) * 3); //int vertexStride);
+	
+
+	/*btTriangleIndexVertexArray* meshInterface = new btTriangleIndexVertexArray();
+	btIndexedMesh part;
+
+	btScalar number = m_physics_vertex[0];
+
+	//part.m_vertexBase = (const unsigned char*)LandscapeVtx[i]; // Vtx is made of btScalar
+	part.m_vertexBase = (const unsigned char*)m_physics_vertex;
+	part.m_vertexStride = sizeof(btScalar) * 3;
+	part.m_numVertices = m_vertices.size() * 3;
+	//part.m_triangleIndexBase = (const unsigned char*)LandscapeIdx[i]; //Idx is made of unsigned short
+	part.m_triangleIndexBase = (const unsigned char*)m_physics_indices;
+	part.m_triangleIndexStride = sizeof(unsigned int) * 3;
+	part.m_numTriangles = m_indices.size() / 3; //LandscapeIdxCount[i]/3;
+	part.m_indexType = PHY_INTEGER;
+
+	meshInterface->addIndexedMesh(part,PHY_INTEGER);*/
+
+	shape = new btBvhTriangleMeshShape(meshInterface, true); // Check both true or false
+
+}
+
+btBvhTriangleMeshShape* Terrain::createShape()
+{
+	return shape;
+}
+
 void Terrain::renderWater() const
 {
 	
 	glPushMatrix();
-	glTranslatef(0, 4, 0);
+	//glTranslatef(0, 4, 0);
     static float modelviewMatrix[16];
     static float projectionMatrix[16];
 

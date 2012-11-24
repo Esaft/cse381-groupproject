@@ -28,10 +28,13 @@ void Player::onPrepare(float dT)
     {
         moveForward(2.0f * dT);
     }
-    if (getWorld()->getKeyboard()->isKeyHeldDown(KC_DOWN) || getWorld()->getKeyboard()->isKeyHeldDown(KC_s))
+    else if (getWorld()->getKeyboard()->isKeyHeldDown(KC_DOWN) || getWorld()->getKeyboard()->isKeyHeldDown(KC_s))
     {
         moveForward(-2.0f * dT);
-    }
+    } else {
+		// Not Moving
+		moveForward(0);
+	}
     if (getWorld()->getKeyboard()->isKeyHeldDown(KC_RIGHT))
     {
         yaw(50.0f * dT);

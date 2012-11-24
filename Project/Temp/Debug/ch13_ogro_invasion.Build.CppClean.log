@@ -1,75 +1,133 @@
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\APPS\CH13_OGRO_INVASION\CH13_OGRO_INVASION.EXE
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\APPS\CH13_OGRO_INVASION\CH13_OGRO_INVASION.ILK
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\APPS\CH13_OGRO_INVASION\CH13_OGRO_INVASION.PDB
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\CAMERA.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\CH13_OGRO_INVASION.EXE.INTERMEDIATE.MANIFEST
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\cl.command.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\CL.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\CL.write.1.tlog
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\COLLIDER.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\ENEMY.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\ENTITY.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\EXAMPLE.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\EXPLOSION.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\FREETYPEFONT.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\FRUSTUM.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\GAMEWORLD.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\GLWINDOW.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\LANDSCAPE.OBJ
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.1152.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.1152.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.14020.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.14020.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.16836.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.16836.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.16928.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.16928.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17040.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17040.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17300.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17300.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17396.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17396.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17420.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17420.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17616.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17616.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17680.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17680.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17816.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17816.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17904.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.17904.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.18192.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.18192.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.18332.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.18332.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.18376.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.18376.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.3128.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.3128.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.5708.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.5708.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.8212.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.8212.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.command.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\link.write.1.tlog
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\MAIN.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\MD2MODEL.OBJ
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\mt.command.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\mt.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\mt.write.1.tlog
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\OCTREENODE.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\OGRO.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\PHYSICS.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\PLAYER.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\ROCKET.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\SPHERECOLLIDER.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\TARGA.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\TERRAIN.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\TERRAINCOLLIDER.OBJ
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\TREE.OBJ
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\vc100.idb
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\TEMP\DEBUG\VC100.PDB
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\APPS\CH13_OGRO_INVASION\CH13_OGRO_INVASION.EXE
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\APPS\CH13_OGRO_INVASION\CH13_OGRO_INVASION.ILK
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\APPS\CH13_OGRO_INVASION\CH13_OGRO_INVASION.PDB
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\CAMERA.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\CH13_OGRO_INVASION.EXE.INTERMEDIATE.MANIFEST
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\ch13_ogro_invasion.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\cl.command.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\CL.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\CL.write.1.tlog
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\COLLIDER.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\ENEMY.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\ENTITY.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\EXAMPLE.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\EXPLOSION.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\FREETYPEFONT.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\FRUSTUM.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\GAMEWORLD.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\GLWINDOW.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\LANDSCAPE.OBJ
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.10360.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.10360.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.10568.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.10568.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.10664.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.10664.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.1072.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.1072.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.10772.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.10772.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.10860.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.10860.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.11364.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.11364.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.11524.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.11524.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.11912.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.11912.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.12032.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.12032.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.12212.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.12212.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.1256.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.1256.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.2252.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.2252.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.3088.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.3088.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6112.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6112.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6340.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6340.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6476.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6476.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6484.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6484.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6528.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6528.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6616.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6616.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6652.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.6652.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.7180.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.7180.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.7236.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.7236.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.7484.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.7484.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.7728.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.7728.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.7900.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.7900.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8360.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8360.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8460.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8460.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8556.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8556.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.856.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.856.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8588.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8588.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8612.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8612.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8624.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8624.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8652.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8652.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8744.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8744.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8852.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8852.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8864.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.8864.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9140.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9140.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9204.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9204.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9300.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9300.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9440.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9440.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9476.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9476.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9568.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9568.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9672.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9672.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9692.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9692.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9904.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9904.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9944.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.9944.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.command.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\link.write.1.tlog
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\MAIN.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\MD2MODEL.OBJ
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\mt.command.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\mt.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\mt.write.1.tlog
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\OCTREENODE.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\OGRO.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\PHYSICS.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\PLAYER.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\ROCKET.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\SPHERECOLLIDER.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\TARGA.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\TERRAIN.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\TERRAINCOLLIDER.OBJ
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\TREE.OBJ
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Project\Temp\Debug\vc100.idb
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\TEMP\DEBUG\VC100.PDB

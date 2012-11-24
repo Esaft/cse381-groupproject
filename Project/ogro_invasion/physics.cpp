@@ -17,11 +17,37 @@ void Physics::initPhysics()
 	m_dynamicsWorld = new btDiscreteDynamicsWorld( m_dispatcher, m_broadphase, m_solver, m_collisionConfiguration );
 	m_dynamicsWorld->setGravity( btVector3(0.0,-10,0.0));
 
+	//addStaticPlane();
+
 }
 
 void Physics::exitPhysics()
 {
 
+
+}
+
+void Physics::addStaticPlane()
+{
+	btScalar mass = btScalar(0);
+	btCollisionShape* colShape = new btStaticPlaneShape(btVector3(0,1,0), btScalar(0));
+
+	m_collisionShapes.push_back(colShape);
+	/// Create Dynamic Objects
+	btTransform startTransform;
+	startTransform.setIdentity();
+
+	//Vector3 pos = entity->getPosition();
+	startTransform.setOrigin(btVector3(0,0,0));
+
+	btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
+	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, btVector3(0, 0, 0));
+	btRigidBody* body = new btRigidBody(rbInfo);
+
+	m_dynamicsWorld->addRigidBody(body);
+	//entity->getCollider()->setBody(body);
+
+	//body->forceActivationState(DISABLE_DEACTIVATION); // Check this, it should be enabled when object is moving..
 
 }
 
@@ -69,7 +95,9 @@ void Physics::registerEntity(Entity* entity)
 				bool use_heightmap = false;
 				mass = btScalar(0.0f);
 				if (!use_heightmap) {
-					colShape = new btBoxShape(btVector3(50, 4, 50));//new btStaticPlaneShape(btVector3(0,1,0), 1000); // Check Constant
+					//colShape = new btBoxShape(btVector3(50, 4, 50));//new btStaticPlaneShape(btVector3(0,1,0), 1000); // Check Constant
+					colShape = new btStaticPlaneShape(btVector3(0,1,0), btScalar(0));
+					//colShape = ((Terrain*) entity)->createShape();
 					} else {
 
 				
@@ -119,7 +147,7 @@ void Physics::registerEntity(Entity* entity)
 		if (entity->getType() == LANDSCAPE)
 			startTransform.setOrigin(btVector3(0,0,0));
 		else if (entity->getType() == TREE)
-			startTransform.setOrigin(btVector3(pos.x, 5.2,pos.z));
+			startTransform.setOrigin(btVector3(pos.x, 0,pos.z)); // y == 5.2
 		else // Make entities fall from sky
 			startTransform.setOrigin(btVector3(pos.x,pos.y + 5,pos.z));
 
@@ -129,16 +157,17 @@ void Physics::registerEntity(Entity* entity)
 		btVector3 localInertia(0,0,0);
 		if (isDynamic)
 			colShape->calculateLocalInertia(mass,localInertia);
+
+		//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
+		btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
+		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, btVector3(0, 0, 0)); // should be localInertia, but we dont want them to rotate
+		btRigidBody* body = new btRigidBody(rbInfo);
+
+		m_dynamicsWorld->addRigidBody(body);
+		entity->getCollider()->setBody(body);
+
+		body->forceActivationState(DISABLE_DEACTIVATION); // Check this, it should be enabled when object is moving..
 		
-			//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
-			btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
-			btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, btVector3(0, 0, 0)); // should be localInertia, but we dont want them to rotate
-			btRigidBody* body = new btRigidBody(rbInfo);
-
-			m_dynamicsWorld->addRigidBody(body);
-			entity->getCollider()->setBody(body);
-
-			body->forceActivationState(DISABLE_DEACTIVATION); // Check this, it should be enabled when object is moving..
 	}
 
 }
