@@ -34,6 +34,8 @@ private:
 
 	std::vector<btRigidBody*> bodies;
 
+	void addStaticPlane();
+
 
 public:
 	void initPhysics();

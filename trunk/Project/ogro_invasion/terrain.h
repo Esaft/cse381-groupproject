@@ -10,9 +10,12 @@
 #include "glee/GLee.h"
 #include "targa.h"
 #include "geom.h"
+#include "btBulletCollisionCommon.h"
 using std::string;
 
 class GLSLProgram;
+class btBvhTriangleMeshShape;
+class btTriangleIndexVertexArray;
 
 class Terrain
 {
@@ -26,6 +29,7 @@ public:
 
     Vertex getPositionAt(int x, int z);
     GLfloat getHeightAt(GLfloat x, GLfloat z);
+	btBvhTriangleMeshShape* createShape();
 
     void normalizeTerrain();
     void scaleHeights(float scale);
@@ -90,6 +94,13 @@ private:
     float m_minZ;
     float m_maxZ;
 
+	// Hopefully temporary variables
+	int* m_physics_indices;
+	btScalar* m_physics_vertex;
+	int numVertices;
+	btBvhTriangleMeshShape* shape;
+
+	void generateShape();
 };
 
 #endif

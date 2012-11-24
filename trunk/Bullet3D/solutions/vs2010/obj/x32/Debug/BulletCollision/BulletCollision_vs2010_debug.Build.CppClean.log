@@ -1,118 +1,118 @@
 ..\..\..\Project\common\BulletCollision_vs2010_debug.pdb
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\..\..\..\Project\common\BulletCollision_vs2010_debug.lib
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btActivatingCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btAxisSweep3.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBox2dBox2dCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBox2dShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBoxBoxCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBoxBoxDetector.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBoxShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBroadphaseProxy.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBvhTriangleMeshShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCapsuleShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCollisionDispatcher.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCollisionObject.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCollisionShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCollisionWorld.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCompoundCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCompoundShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConcaveShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConeShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btContactProcessing.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btContinuousConvexCollision.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvex2dConvex2dAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvex2dShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexCast.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexConcaveCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexConvexAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexHullShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexInternalShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexPlaneCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexPointCloudShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexPolyhedron.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexTriangleMeshShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCylinderShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btDbvt.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btDbvtBroadphase.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btDefaultCollisionConfiguration.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btDispatcher.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btEmptyCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btEmptyShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGenericPoolAllocator.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGhostObject.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGImpactBvh.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGImpactCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGImpactQuantizedBvh.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGImpactShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGjkConvexCast.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGjkEpa2.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGjkEpaPenetrationDepthSolver.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGjkPairDetector.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btHeightfieldTerrainShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btInternalEdgeUtility.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btManifoldResult.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btMinkowskiPenetrationDepthSolver.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btMinkowskiSumShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btMultimaterialTriangleMeshShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btMultiSapBroadphase.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btMultiSphereShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btOptimizedBvh.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btOverlappingPairCache.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btPersistentManifold.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btPolyhedralContactClipping.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btPolyhedralConvexShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btQuantizedBvh.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btRaycastCallback.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btScaledBvhTriangleMeshShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btShapeHull.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSimpleBroadphase.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSimulationIslandManager.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSphereBoxCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSphereShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSphereSphereCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSphereTriangleCollisionAlgorithm.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btStaticPlaneShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btStridingMeshInterface.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSubSimplexConvexCast.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTetrahedronShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleBuffer.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleCallback.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleIndexVertexArray.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleIndexVertexMaterialArray.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleMesh.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleMeshShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleShapeEx.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btUniformScalingShape.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btUnionFind.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btVoronoiSimplexSolver.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.13428.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.13428.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.14200.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.14200.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.14488.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.14488.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.14840.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.14840.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.15700.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.15700.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.16060.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.16060.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.16700.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.16700.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.16816.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.16816.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\cl.command.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\cl.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\gim_box_set.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\gim_contact.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\gim_memory.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\gim_tri_collision.obj
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\lib.command.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\Lib-link.read.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\Lib-link.write.1.tlog
-C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\SphereTriangleDetector.obj
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\COMMON\BULLETCOLLISION_VS2010_DEBUG.LIB
-C:\USERS\EVAN\DOCUMENTS\CLASSES\CSE 381\GROUP\CSE381-GROUPPROJECT\PROJECT\COMMON\BULLETCOLLISION_VS2010_DEBUG.PDB
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\..\..\..\Project\common\BulletCollision_vs2010_debug.lib
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btActivatingCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btAxisSweep3.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBox2dBox2dCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBox2dShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBoxBoxCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBoxBoxDetector.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBoxShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBroadphaseProxy.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btBvhTriangleMeshShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCapsuleShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCollisionDispatcher.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCollisionObject.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCollisionShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCollisionWorld.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCompoundCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCompoundShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConcaveShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConeShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btContactProcessing.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btContinuousConvexCollision.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvex2dConvex2dAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvex2dShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexCast.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexConcaveCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexConvexAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexHullShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexInternalShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexPlaneCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexPointCloudShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexPolyhedron.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btConvexTriangleMeshShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btCylinderShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btDbvt.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btDbvtBroadphase.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btDefaultCollisionConfiguration.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btDispatcher.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btEmptyCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btEmptyShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGenericPoolAllocator.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGhostObject.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGImpactBvh.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGImpactCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGImpactQuantizedBvh.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGImpactShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGjkConvexCast.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGjkEpa2.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGjkEpaPenetrationDepthSolver.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btGjkPairDetector.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btHeightfieldTerrainShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btInternalEdgeUtility.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btManifoldResult.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btMinkowskiPenetrationDepthSolver.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btMinkowskiSumShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btMultimaterialTriangleMeshShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btMultiSapBroadphase.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btMultiSphereShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btOptimizedBvh.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btOverlappingPairCache.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btPersistentManifold.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btPolyhedralContactClipping.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btPolyhedralConvexShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btQuantizedBvh.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btRaycastCallback.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btScaledBvhTriangleMeshShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btShapeHull.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSimpleBroadphase.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSimulationIslandManager.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSphereBoxCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSphereShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSphereSphereCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSphereTriangleCollisionAlgorithm.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btStaticPlaneShape.obj
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\BULLET3D\SOLUTIONS\VS2010\OBJ\X32\DEBUG\BULLETCOLLISION\BTSTRIDINGMESHINTERFACE.OBJ
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btSubSimplexConvexCast.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTetrahedronShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleBuffer.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleCallback.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleIndexVertexArray.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleIndexVertexMaterialArray.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleMesh.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleMeshShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btTriangleShapeEx.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btUniformScalingShape.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btUnionFind.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\btVoronoiSimplexSolver.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.10824.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.10824.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.11028.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.11028.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.11708.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.11708.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.11884.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.11884.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.2428.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.2428.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.4848.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.4848.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.8164.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.8164.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.8256.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.8256.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\cl.command.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\CL.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\cl.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\gim_box_set.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\gim_contact.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\gim_memory.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\gim_tri_collision.obj
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\lib.command.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\Lib-link.read.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\Lib-link.write.1.tlog
+C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletCollision\SphereTriangleDetector.obj
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\COMMON\BULLETCOLLISION_VS2010_DEBUG.LIB
+C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\COMMON\BULLETCOLLISION_VS2010_DEBUG.PDB

@@ -82,7 +82,7 @@ void Ogro::onRender() const
 
     glPushMatrix();
         Vector3 pos = getPosition();
-        glTranslatef(pos.x, pos.y, pos.z);
+        glTranslatef(pos.x, pos.y - 0.5, pos.z); // Pos y-1
         glRotatef(getYaw(), 0.0f, -1.0f, 0.0f);
         glBindTexture(GL_TEXTURE_2D, m_ogroTextureID);
         m_model->render();
