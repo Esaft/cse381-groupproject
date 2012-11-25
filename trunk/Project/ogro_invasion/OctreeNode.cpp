@@ -15,7 +15,7 @@ bool OctreeNode::InitAll(OC3NODEID id)
 	m_numEntities =	0;
 	m_size		=	0.0f;
 	m_isLeafNode=	false;	
-	m_maxEntities = 8;
+	m_maxEntities = 16;
 
 	//m_AABB.Clear();
 	m_center = Vector3(0.0f, 0.0f, 0.0f);
@@ -146,6 +146,7 @@ void OctreeNode::addEntityFromChild(Entity *e)
 			if(m_ID >= 0)
 				m_pParent->addEntityFromChild(e);
 		}
+
 		else
 		{
 			if(e->getNode() != this)

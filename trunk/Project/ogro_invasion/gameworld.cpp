@@ -45,6 +45,7 @@ m_relY(0)
 	physics.initPhysics();
 	numSentToFrustum = 0;
 	numRendered = 0;
+	gameLost = false;
 }
 
 GameWorld::~GameWorld()

@@ -58,6 +58,7 @@ class GameWorld : private Uncopyable
 
 		int numSentToFrustum;
 		int numRendered;
+		bool gameLost;
 
         std::auto_ptr<Frustum> m_frustum;
 
@@ -155,6 +156,7 @@ class GameWorld : private Uncopyable
 		int getNumSentToFrustum()	{	return numSentToFrustum;}
 		int getNumSceneCulled()		{	return m_entities.size() - numSentToFrustum;}
 		int getNumEntities()		{	return m_entities.size();}
+		bool isGameLost()			{	return gameLost;}
 
 
 };
