@@ -120,6 +120,9 @@
     <ClInclude Include="ogro_invasion\house.h">
       <Filter>ogro_invasion</Filter>
     </ClInclude>
+    <ClInclude Include="ogro_invasion\TreeLog.h">
+      <Filter>ogro_invasion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ogro_invasion\camera.cpp">
@@ -192,6 +195,9 @@
       <Filter>ogro_invasion</Filter>
     </ClCompile>
     <ClCompile Include="ogro_invasion\house.cpp">
+      <Filter>ogro_invasion</Filter>
+    </ClCompile>
+    <ClCompile Include="ogro_invasion\TreeLog.cpp">
       <Filter>ogro_invasion</Filter>
     </ClCompile>
   </ItemGroup>

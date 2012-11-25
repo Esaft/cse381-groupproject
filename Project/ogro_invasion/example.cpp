@@ -140,6 +140,19 @@ void Example::render()
 			m_font->printString(cullStatString2.str(), 20.0f, 80.0f);
 		}
 
+		if (m_world->getTreeToShow() != NULL) {
+			stringstream treeHPString;
+			//reduce dependency later
+			treeHPString << "Tree HP:";
+			int counter = 0;
+			while (counter <= m_world->getTreeToShow()->getHP()) {
+				treeHPString << "||";
+				counter += 25;
+			}
+
+			m_font->printString(treeHPString.str(), 20.0f, 120.0f);
+		}
+
         m_font->printString(m_world->getSpawnMessage(), 20.0f, 80.0f);
         m_font->printString("+", (float)viewport[2] / 2, (float)viewport[3] / 2);
 

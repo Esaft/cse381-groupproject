@@ -9,6 +9,8 @@
 
 #include "uncopyable.h"
 #include "enemy.h"
+#include "tree.h"
+#include "TreeLog.h"
 #include "physics.h"
 
 class KeyboardInterface;
@@ -63,6 +65,10 @@ class GameWorld : private Uncopyable
 
         std::auto_ptr<Frustum> m_frustum;
 
+		int timeOfLastTreeHit;
+		Tree* currentTree;
+		std::list<Vector3> logsToSpawn;
+
     public:
         /** Default constructor */
         GameWorld(KeyboardInterface* keyboardInterface, MouseInterface* mouseInterface);
@@ -72,6 +78,7 @@ class GameWorld : private Uncopyable
         Entity* spawnEntity(EntityType entity, Vector3);
 
 		void playerHit(Entity*);
+		Tree* getTreeToShow();
 
         bool initialize();
         void update(float dt);

@@ -25,6 +25,7 @@ public:
     void setWindow(BOGLGPWindow* window) { m_window = window; }
 
     void updateFPS(float dt);
+
 private:
     float m_angle;
 	bool showCullStats;
