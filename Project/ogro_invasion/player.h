@@ -45,18 +45,20 @@ class Player : public Entity
     private:
         unsigned int m_score; //!< Member variable "m_score"
 
+		void hitTree();
         virtual void onPrepare(float);
         virtual void onRender() const;
         virtual void onPostRender();
         virtual bool onInitialize();
         virtual void onShutdown();
-        virtual void onCollision(Entity* collider) { } //Players don't collide.. yet
+        void onCollision(Entity* collider); // now it does..
         Vector3 m_position;
         Vector3 m_velocity;
 
         float m_yaw;
         float m_pitch;
         Collider* m_collider;
+		bool hitNextTree;
 };
 
 #endif // PLAYER_H

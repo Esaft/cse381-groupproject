@@ -4,9 +4,15 @@
 #include "btBulletDynamicsCommon.h"
 #include "BulletCollision/CollisionShapes/btHeightfieldTerrainShape.h"
 #include "terrain.h"
+#include "landscape.h"
 #include <string>
 #include <vector>
 using std::vector;
+
+Physics::Physics(GameWorld* gworld)
+{
+	world = gworld;
+}
 
 void Physics::initPhysics()
 {
@@ -84,7 +90,7 @@ void Physics::registerEntity(Entity* entity)
 				break;
 			case TREE:
 				mass = btScalar(0.0f);
-				colShape = new btBoxShape(btVector3(0.2, 1, 0.2));
+				colShape = new btBoxShape(btVector3(0.2, 4, 0.2));
 				break;
 			case ROCKET:
 				mass = btScalar(1.0f);
@@ -146,9 +152,10 @@ void Physics::registerEntity(Entity* entity)
 		Vector3 pos = entity->getPosition();
 		if (entity->getType() == LANDSCAPE)
 			startTransform.setOrigin(btVector3(0,0,0));
-		else if (entity->getType() == TREE)
-			startTransform.setOrigin(btVector3(pos.x, 0,pos.z)); // y == 5.2
-		else // Make entities fall from sky
+		else if (entity->getType() == TREE) {
+			float height = world->getLandscape()->getTerrain()->getHeightAt(pos.x, pos.z);
+			startTransform.setOrigin(btVector3(pos.x, height + 1,pos.z));
+		} else // Make entities fall from sky
 			startTransform.setOrigin(btVector3(pos.x,pos.y + 5,pos.z));
 
 		//rigidbody is dynamic if and only if mass is non zero, otherwise static
@@ -163,6 +170,7 @@ void Physics::registerEntity(Entity* entity)
 		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, btVector3(0, 0, 0)); // should be localInertia, but we dont want them to rotate
 		btRigidBody* body = new btRigidBody(rbInfo);
 
+		body->setUserPointer(entity);
 		m_dynamicsWorld->addRigidBody(body);
 		entity->getCollider()->setBody(body);
 
@@ -174,10 +182,37 @@ void Physics::registerEntity(Entity* entity)
 
 void Physics::unregisterEntity(Entity* entity)
 {
-
+	m_dynamicsWorld->removeRigidBody(entity->getCollider()->getBody());
 }
 
 void Physics::update(float speed)
 {
 	m_dynamicsWorld->stepSimulation(btScalar(speed), 10);
+
+	// Detect Collision
+	int numManifolds = m_dynamicsWorld->getDispatcher()->getNumManifolds();
+	for (int i=0;i<numManifolds;i++)
+	{
+		btPersistentManifold* contactManifold =  m_dynamicsWorld->getDispatcher()->getManifoldByIndexInternal(i);
+		btCollisionObject* obA = (btCollisionObject*)(contactManifold->getBody0());
+		btCollisionObject* obB = (btCollisionObject*)(contactManifold->getBody1());
+	
+		int numContacts = contactManifold->getNumContacts();
+		for (int j=0;j<numContacts;j++)
+		{
+			btManifoldPoint& pt = contactManifold->getContactPoint(j);
+			if (pt.getDistance()<0.f)
+			{
+				Entity* enA = (Entity*) obA->getUserPointer();
+				Entity* enB = (Entity*) obB->getUserPointer();
+				if (enA != NULL && enB != NULL) {
+
+					enA->collide(enB);
+					enB->collide(enA);
+
+				}
+			}
+		}
+	}
+
 }

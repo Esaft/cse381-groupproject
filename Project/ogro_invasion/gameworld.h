@@ -18,11 +18,12 @@ class Camera;
 class Player;
 class Landscape;
 class Frustum;
+class Physics;
 
 class GameWorld : private Uncopyable
 {
 	 private:
-		Physics physics;
+		Physics* physics;
 
         std::list<Entity*> m_entities; //!< Member variable "m_enemies"
         std::list<Collider*> m_colliders;
@@ -69,6 +70,8 @@ class GameWorld : private Uncopyable
         virtual ~GameWorld();
 
         Entity* spawnEntity(EntityType entity, Vector3);
+
+		void playerHit(Entity*);
 
         bool initialize();
         void update(float dt);
