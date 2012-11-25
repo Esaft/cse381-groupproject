@@ -42,7 +42,8 @@ m_relY(0)
 {
     m_gameCamera = std::auto_ptr<Camera>(new Camera());
     m_frustum = std::auto_ptr<Frustum>(new Frustum());
-	physics.initPhysics();
+	physics = new Physics(this);
+	physics->initPhysics();
 	numSentToFrustum = 0;
 	numRendered = 0;
 	gameLost = false;
@@ -166,7 +167,7 @@ Entity* GameWorld::spawnEntity(EntityType entityType, Vector3 pos = Vector3(0,0,
     {
 		newEntity->setPosition(pos);
         registerCollider(newEntity->getCollider());
-		physics.registerEntity(newEntity);
+		physics->registerEntity(newEntity);
     }
 
     registerEntity(newEntity);
@@ -234,7 +235,7 @@ void GameWorld::update(float dT)
 
     //Perform all the collisions
     //Collider::updateColliders(m_colliders);
-	physics.update(dT);
+	physics->update(dT);
     clearDeadEntities(); //Remove any entities that were killed as a result of a collision
 
     //Spawn an entity every 10 seconds if we have room
@@ -374,7 +375,7 @@ void GameWorld::clearDeadEntities()
         }
 
         unregisterCollider((*entity)->getCollider());
-		physics.unregisterEntity((*entity));
+		physics->unregisterEntity((*entity));
         delete (*entity);
         entity = m_entities.erase(entity);
     }
@@ -412,4 +413,17 @@ void GameWorld::registerEntity(Entity* entity)
         return;
     }
     m_entities.push_back(entity);
+}
+
+void GameWorld::playerHit(Entity* en)
+{
+	for(EntityIterator it = m_entities.begin(); it != m_entities.end(); ++it)
+    {
+		if (en == (*it)) {
+			//physics->unregisterEntity((*it));
+			en->destroy();
+			//((Tree*) (*it))->cutTree();
+			//m_entities.erase(it);
+		}
+	}
 }

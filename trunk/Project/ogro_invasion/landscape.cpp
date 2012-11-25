@@ -38,7 +38,7 @@ bool Landscape::onInitialize()
 
 void Landscape::onRender() const
 {
-    //m_terrain.render();
+    m_terrain.render();
     m_terrain.renderWater();
 }
 

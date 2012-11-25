@@ -1,46 +1,46 @@
 ..\..\..\Project\common\BulletDynamics_vs2010_debug.pdb
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\..\..\..\Project\common\BulletDynamics_vs2010_debug.lib
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btConeTwistConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btContactConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btDiscreteDynamicsWorld.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btGearConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btGeneric6DofConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btGeneric6DofSpringConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btHinge2Constraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btHingeConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btKinematicCharacterController.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btPoint2PointConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btRaycastVehicle.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btRigidBody.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btSequentialImpulseConstraintSolver.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btSimpleDynamicsWorld.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btSliderConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btSolve2LinearConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btTypedConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btUniversalConstraint.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btWheelInfo.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\Bullet-C-API.obj
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.10252.read.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.10252.write.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.10300.read.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.10300.write.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.10792.read.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.10792.write.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.11432.read.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.11432.write.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.11448.read.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.11448.write.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.12108.read.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.12108.write.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.12120.read.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.12120.write.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.9680.read.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.9680.write.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\cl.command.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.read.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\cl.write.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\lib.command.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\Lib-link.read.1.tlog
-C:\Users\Yuri\Documents\Visual Studio 2010\Projects\CSE381ProjectSVN\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\Lib-link.write.1.tlog
-C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\COMMON\BULLETDYNAMICS_VS2010_DEBUG.LIB
-C:\USERS\YURI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\CSE381PROJECTSVN\PROJECT\COMMON\BULLETDYNAMICS_VS2010_DEBUG.PDB
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\..\..\..\Project\common\BulletDynamics_vs2010_debug.lib
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btConeTwistConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btContactConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btDiscreteDynamicsWorld.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btGearConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btGeneric6DofConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btGeneric6DofSpringConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btHinge2Constraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btHingeConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btKinematicCharacterController.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btPoint2PointConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btRaycastVehicle.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btRigidBody.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btSequentialImpulseConstraintSolver.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btSimpleDynamicsWorld.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btSliderConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btSolve2LinearConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btTypedConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btUniversalConstraint.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\btWheelInfo.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\Bullet-C-API.obj
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.13020.read.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.13020.write.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.5328.read.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.5328.write.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.5628.read.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.5628.write.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.6692.read.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.6692.write.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.7560.read.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.7560.write.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.8104.read.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.8104.write.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.8324.read.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.8324.write.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.9492.read.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.9492.write.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\cl.command.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\CL.read.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\cl.write.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\lib.command.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\Lib-link.read.1.tlog
+C:\Users\Yuri\Desktop\New Test\Bullet3D\solutions\vs2010\obj\x32\Debug\BulletDynamics\Lib-link.write.1.tlog
+C:\USERS\YURI\DESKTOP\NEW TEST\PROJECT\COMMON\BULLETDYNAMICS_VS2010_DEBUG.LIB
+C:\USERS\YURI\DESKTOP\NEW TEST\PROJECT\COMMON\BULLETDYNAMICS_VS2010_DEBUG.PDB

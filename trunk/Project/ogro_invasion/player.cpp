@@ -15,6 +15,7 @@ m_yaw(0.0f),
 m_pitch(0.0f)
 {
     m_collider = new SphereCollider(this, 0.75f);
+	hitNextTree = false;
 }
 
 Player::~Player()
@@ -47,10 +48,7 @@ void Player::onPrepare(float dT)
     if (getWorld()->getKeyboard()->isKeyPressed(KC_SPACE) ||
         getWorld()->getMouse()->isButtonPressed(0))
     {
-        Entity* rocket = getWorld()->spawnEntity(ROCKET, Vector3(0,0,0));
-        rocket->setPosition(getPosition());
-        rocket->setYaw(getYaw());
-        rocket->setPitch(getPitch());
+		hitTree();
     }
 
     float x, y;
@@ -72,14 +70,29 @@ void Player::onPrepare(float dT)
     if (m_position.z > maxZ) m_position.z = maxZ;
 }
 
+void Player::hitTree()
+{
+	//getWorld()->hitTreeAtVector(m_position, m_yaw);
+	hitNextTree = true;
+}
+
 void Player::onRender() const
 {
 
 }
 
+void Player::onCollision(Entity* en)
+{
+	if (en->getType() == TREE && hitNextTree == true) {
+
+		getWorld()->playerHit(en);
+		
+	}
+}
+
 void Player::onPostRender()
 {
-
+	hitNextTree = false;
 }
 
 bool Player::onInitialize()

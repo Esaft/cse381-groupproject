@@ -5,6 +5,7 @@
 #include "btBulletCollisionCommon.h"
 #include "LinearMath/btHashMap.h"
 #include "entity.h"
+#include "gameworld.h"
 #include <vector>
 
 class btBroadphaseInterface;
@@ -36,8 +37,13 @@ private:
 
 	void addStaticPlane();
 
+	GameWorld* world;
+
 
 public:
+	Physics(GameWorld*);
+	~Physics();
+
 	void initPhysics();
 	void exitPhysics();
 
