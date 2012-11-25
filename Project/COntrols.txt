@@ -1,0 +1,20 @@
+Larry the Lumberjack lived a serene life, cutting down the evergrowing trees around his hilltop log cabin,
+and rolling them down the incline to awaiting customers.
+
+Then everything changed when the Ogres showed up.
+
+Larry didn't know where they came from, or why, but one thing was certain: They wanted to destroy his happy life.
+Endlessly they attempt to climb Larry's hill, and destroy his cabin. Larry has only one tool with which to stop
+them: his axe.
+
+What?! No, he doesn't attack them with his axe! That would be psychotic! No, Larry just does what he always did,
+cut down trees and rolls them down his hill. However, now Larry makes sure that the Ogres just happen to be in 
+the path of those logs...
+
+
+CONTROLS
+
+Mouse-Look Around
+W- Move Forward
+S- Move Back
+Space - Swing Axe
