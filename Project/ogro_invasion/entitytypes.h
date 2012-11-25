@@ -7,7 +7,8 @@ enum EntityType {
     ROCKET,
     EXPLOSION,
     LANDSCAPE,
-    TREE
+    TREE,
+	HOUSE
 };
 
 #endif // ENTITYTYPES_H_INCLUDED

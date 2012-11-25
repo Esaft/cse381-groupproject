@@ -147,6 +147,16 @@ void Example::render()
         fpsMessage << "FPS: " << std::setprecision(3) << m_FPS;
         m_font->printString(fpsMessage.str(), (float)viewport[2] - 100.0f, 20.0f);
     }
+	else if(m_world->isGameLost())
+	{
+		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+        m_font->printString("They got to your cabin!", (float)viewport[2] / 2 - 40, (float)viewport[3] / 2);
+
+        stringstream scoreMessage;
+        scoreMessage << "Your score was " << m_world->getPlayer()->getScore();
+        m_font->printString(scoreMessage.str(), (float)viewport[2] / 2 - 60, (float)viewport[3] / 2 - 30);
+        m_font->printString("Press ESC to exit", (float)viewport[2] / 2 - 60, (float)viewport[3] / 2 - 60);
+	}
     else
     {
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
