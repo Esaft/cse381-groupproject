@@ -45,7 +45,7 @@ void Player::onPrepare(float dT)
         yaw(-50.0f * dT);
     }
 
-    if (getWorld()->getKeyboard()->isKeyPressed(KC_SPACE) ||
+	if (getWorld()->getKeyboard()->isKeyPressed(KC_SPACE) ||
         getWorld()->getMouse()->isButtonPressed(0))
     {
 		hitTree();
@@ -86,6 +86,7 @@ void Player::onCollision(Entity* en)
 	if (en->getType() == TREE && hitNextTree == true) {
 
 		getWorld()->playerHit(en);
+		hitNextTree = false;
 		
 	}
 }

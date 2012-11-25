@@ -24,7 +24,7 @@
 
 using std::list;
 using std::string;
-const std::string TERRAIN_HEIGHTMAP = "data/island.raw";
+const std::string TERRAIN_HEIGHTMAP = "data/flat_terrain.raw";
 
 GameWorld::GameWorld(KeyboardInterface* keyboardInterface, MouseInterface* mouseInterface):
 m_entities(list<Entity*>()),
@@ -47,6 +47,8 @@ m_relY(0)
 	numSentToFrustum = 0;
 	numRendered = 0;
 	gameLost = false;
+	timeOfLastTreeHit = 0;
+	currentTree = NULL;
 }
 
 GameWorld::~GameWorld()
@@ -59,6 +61,8 @@ GameWorld::~GameWorld()
 		delete m_pOctreeRoot;
 		m_pOctreeRoot = NULL;
 	}
+
+	physics->exitPhysics();
 
     //Free any allocated memory
     for (list<Entity*>::iterator entity = m_entities.begin();
@@ -151,6 +155,9 @@ Entity* GameWorld::spawnEntity(EntityType entityType, Vector3 pos = Vector3(0,0,
         case TREE:
             newEntity = new Tree(this);
         break;
+		case LOG:
+			newEntity = new TreeLog(this);
+			break;
         default:
             throw std::invalid_argument("Attempted to spawn an invalid entity");
     }
@@ -194,9 +201,11 @@ bool GameWorld::initialize()
         
 
         Vector3 pos(0.0f, -1.0f, 0.0f);
-        while (pos.y < 1.1f) {
+        /*while (pos.y < 1.1f) { // Do not care about being in a higher level
             pos = getRandomPosition();
-        }
+        }*/
+
+		pos = getRandomPosition();
 		Entity* newEntity = spawnEntity(TREE, pos);
     }
 
@@ -237,6 +246,13 @@ void GameWorld::update(float dT)
     //Collider::updateColliders(m_colliders);
 	physics->update(dT);
     clearDeadEntities(); //Remove any entities that were killed as a result of a collision
+
+	// Spawn Logs
+	for (list<Vector3>::iterator pos = logsToSpawn.begin(); pos != logsToSpawn.end(); ++pos)
+    {
+		spawnEntity(LOG, (*pos));
+	}
+	logsToSpawn.clear();
 
     //Spawn an entity every 10 seconds if we have room
     if (getOgroCount() < MAX_ENEMY_COUNT && (m_currentTime - m_lastSpawn) > 10.0f)
@@ -421,9 +437,32 @@ void GameWorld::playerHit(Entity* en)
     {
 		if (en == (*it)) {
 			//physics->unregisterEntity((*it));
-			en->destroy();
-			//((Tree*) (*it))->cutTree();
+			//en->destroy();
+			if (en->getType() == TREE) {
+				Tree* tree = ((Tree*) (*it));
+
+				tree->damageTree();
+				if (tree->getHP() <= 0) {
+					tree->cutTree();
+					currentTree = NULL;
+					logsToSpawn.push_back(tree->getPosition());
+				} else {
+					currentTree = tree;
+					timeOfLastTreeHit = time(NULL);
+				}
+					
+
+				
+			}
+				
 			//m_entities.erase(it);
 		}
 	}
+}
+
+Tree* GameWorld::getTreeToShow()
+{
+	if (time(NULL) - timeOfLastTreeHit < 3)
+		return currentTree;
+	return NULL;
 }

@@ -43,6 +43,7 @@
     <ClInclude Include="ogro_invasion\terrain.h" />
     <ClInclude Include="ogro_invasion\terraincollider.h" />
     <ClInclude Include="ogro_invasion\tree.h" />
+    <ClInclude Include="ogro_invasion\TreeLog.h" />
     <ClInclude Include="ogro_invasion\uncopyable.h" />
     <ClInclude Include="ogro_invasion\win32keyboardinterface.h" />
     <ClInclude Include="ogro_invasion\win32mouseinterface.h" />
@@ -72,6 +73,7 @@
     <ClCompile Include="ogro_invasion\terrain.cpp" />
     <ClCompile Include="ogro_invasion\terraincollider.cpp" />
     <ClCompile Include="ogro_invasion\tree.cpp" />
+    <ClCompile Include="ogro_invasion\TreeLog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Apps\ch13_ogro_invasion\data\shaders\glsl1.20\alpha_test.frag" />

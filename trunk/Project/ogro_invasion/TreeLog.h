@@ -1,5 +1,5 @@
-#ifndef TREE_H_INCLUDED
-#define TREE_H_INCLUDED
+#ifndef TREELOG_H_INCLUDED
+#define TREELOG_H_INCLUDED
 
 #include <memory>
 #include "glee/GLee.h"
@@ -7,11 +7,11 @@
 
 class GLSLProgram;
 
-class Tree : public Entity
+class TreeLog : public Entity
 {
 public:
-    Tree(GameWorld* const world);
-    virtual ~Tree();
+    TreeLog(GameWorld* const world);
+    virtual ~TreeLog();
 
     virtual void onPrepare(float dT);
     virtual void onRender() const;
@@ -30,10 +30,7 @@ public:
 
     Collider* getCollider() { return m_collider; }
 
-    EntityType getType() const { return TREE; }
-	int getHP() { return hp; }
-	void cutTree() { destroy(); }
-	void damageTree() { hp = hp - 25; }
+    EntityType getType() const { return LOG; }
 
     virtual void onCollision(Entity* collider) { }
 private:
@@ -41,7 +38,6 @@ private:
     static GLuint m_vertexBuffer;
     static GLuint m_texCoordBuffer;
     static std::auto_ptr<GLSLProgram> m_shaderProgram;
-	int hp;
 
     void initializeVBOs();
 
@@ -49,4 +45,4 @@ private:
     Collider* m_collider;
 };
 
-#endif // TREE_H_INCLUDED
+#endif // TREELOG_H_INCLUDED

@@ -7,17 +7,20 @@
 #include "glee/GLee.h"
 #include <GL/glu.h>
 
-#include "tree.h"
+#include "TreeLog.h"
 #include "targa.h"
 #include "glslshader.h"
 #include "spherecollider.h"
+#include "collider.h"
+#include "btBulletCollisionCommon.h"
+#include "btBulletDynamicsCommon.h"
 
 using std::string;
 
-GLuint Tree::m_treeTexID = 0;
-GLuint Tree::m_vertexBuffer = 0;
-GLuint Tree::m_texCoordBuffer = 0;
-std::auto_ptr<GLSLProgram> Tree::m_shaderProgram;
+GLuint TreeLog::m_treeTexID = 0;
+GLuint TreeLog::m_vertexBuffer = 0;
+GLuint TreeLog::m_texCoordBuffer = 0;
+std::auto_ptr<GLSLProgram> TreeLog::m_shaderProgram;
 
 const string TREE_TEXTURE = "data/textures/beech.tga";
 
@@ -27,33 +30,60 @@ const string VERTEX_SHADER_130 = "data/shaders/glsl1.30/alpha_test.vert";
 const string FRAGMENT_SHADER_120 = "data/shaders/glsl1.20/alpha_test.frag";
 const string FRAGMENT_SHADER_130 = "data/shaders/glsl1.30/alpha_test.frag";
 
-Tree::Tree(GameWorld* const world):
+TreeLog::TreeLog(GameWorld* const world):
 Entity(world)
 {
     m_collider = new SphereCollider(this, 0.75f);
-	hp = 100;
 }
 
-Tree::~Tree()
+TreeLog::~TreeLog()
 {
     delete m_collider;
 }
 
-void Tree::onPrepare(float dT)
+void TreeLog::onPrepare(float dT)
 {
 
 }
 
-void Tree::onRender() const
+void TreeLog::onRender() const
 {
+
+	
+	/*
+	btTransform t;
+	float m[16];
+	
+	t.getOpenGLMatrix(m);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix(); 
+	glMultMatrixf(m);
+	// drawCube
+	glPopMatrix();*/
+
     static float modelviewMatrix[16];
     static float projectionMatrix[16];
 
+	btTransform t;
+	btRigidBody* body = m_collider->getBody();
+	if (body->getMotionState() != NULL)
+		body->getMotionState()->getWorldTransform(t);
+	else
+		t = body->getWorldTransform();
+
+	t.getOpenGLMatrix(modelviewMatrix);
+
+	//glMultMatrixf(modelviewMatrix);
+
     glPushMatrix();
-    glTranslatef(m_position.x, m_position.y, m_position.z);
+    //glTranslatef(m_position.x, m_position.y, m_position.z);
+	glMultMatrixf(modelviewMatrix);
 
     glGetFloatv(GL_MODELVIEW_MATRIX, modelviewMatrix);
     glGetFloatv(GL_PROJECTION_MATRIX, projectionMatrix);
+
+	
+	
 
     m_shaderProgram->bindShader();
     m_shaderProgram->sendUniform4x4("modelview_matrix", modelviewMatrix);
@@ -81,12 +111,12 @@ void Tree::onRender() const
     glPopMatrix();
 }
 
-void Tree::onPostRender()
+void TreeLog::onPostRender()
 {
 
 }
 
-void Tree::initializeVBOs()
+void TreeLog::initializeVBOs()
 {
     GLfloat vertex [] = {
         -1.0f, -1.0f, 0.0f, //First Square vertex
@@ -120,7 +150,7 @@ void Tree::initializeVBOs()
     glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 8 * 2, &texCoord[0], GL_STATIC_DRAW); //Send the data to OpenGL
 }
 
-bool Tree::onInitialize()
+bool TreeLog::onInitialize()
 {
     if(m_treeTexID == 0)
     {
@@ -164,7 +194,7 @@ bool Tree::onInitialize()
 
 }
 
-void Tree::onShutdown()
+void TreeLog::onShutdown()
 {
 
 }

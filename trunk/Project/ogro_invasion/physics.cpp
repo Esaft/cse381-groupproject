@@ -14,6 +14,15 @@ Physics::Physics(GameWorld* gworld)
 	world = gworld;
 }
 
+Physics::~Physics()
+{
+	delete m_collisionConfiguration;
+	delete m_dispatcher;
+	delete m_broadphase;
+	delete m_solver;
+	delete m_dynamicsWorld;
+}
+
 void Physics::initPhysics()
 {
 	m_collisionConfiguration = new btDefaultCollisionConfiguration();
@@ -29,7 +38,7 @@ void Physics::initPhysics()
 
 void Physics::exitPhysics()
 {
-
+	// Clean anything left
 
 }
 
@@ -92,6 +101,10 @@ void Physics::registerEntity(Entity* entity)
 				mass = btScalar(0.0f);
 				colShape = new btBoxShape(btVector3(0.2, 4, 0.2));
 				break;
+			case LOG:
+				mass = btScalar(1.0f);
+				colShape = new btCapsuleShape(0.2, 2);
+				break;
 			case ROCKET:
 				mass = btScalar(1.0f);
 				colShape = new btSphereShape(btScalar(entity->getCollider()->getRadius()));
@@ -152,9 +165,15 @@ void Physics::registerEntity(Entity* entity)
 		Vector3 pos = entity->getPosition();
 		if (entity->getType() == LANDSCAPE)
 			startTransform.setOrigin(btVector3(0,0,0));
-		else if (entity->getType() == TREE) {
+		else if (entity->getType() == TREE || entity->getType() == LOG) {
 			float height = world->getLandscape()->getTerrain()->getHeightAt(pos.x, pos.z);
 			startTransform.setOrigin(btVector3(pos.x, height + 1,pos.z));
+		} else if (entity->getType() == LOG) {
+			float height = world->getLandscape()->getTerrain()->getHeightAt(pos.x, pos.z);
+			startTransform.setOrigin(btVector3(pos.x, height + 1,pos.z));
+			btQuaternion quat;
+			quat.setEuler(0, 90, 90); //or quat.setEulerZYX depending on the ordering you want
+			startTransform.setRotation(quat);
 		} else // Make entities fall from sky
 			startTransform.setOrigin(btVector3(pos.x,pos.y + 5,pos.z));
 
@@ -167,8 +186,14 @@ void Physics::registerEntity(Entity* entity)
 
 		//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
 		btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
-		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, btVector3(0, 0, 0)); // should be localInertia, but we dont want them to rotate
-		btRigidBody* body = new btRigidBody(rbInfo);
+		btRigidBody* body;
+		if (entity->getType() == LOG) {
+			btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, localInertia);
+			body = new btRigidBody(rbInfo);
+		} else {
+			btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, btVector3(0, 0, 0)); // should be localInertia, but we dont want them to rotate
+			body = new btRigidBody(rbInfo);
+		}
 
 		body->setUserPointer(entity);
 		m_dynamicsWorld->addRigidBody(body);
