@@ -32,7 +32,15 @@ void Player::onPrepare(float dT)
     else if (getWorld()->getKeyboard()->isKeyHeldDown(KC_DOWN) || getWorld()->getKeyboard()->isKeyHeldDown(KC_s))
     {
         moveForward(-2.0f * dT);
-    } else {
+    } 
+	else if (getWorld()->getKeyboard()->isKeyHeldDown(KC_d))
+    {
+        moveLeft(-2.0f * dT);
+    }
+    else if (getWorld()->getKeyboard()->isKeyHeldDown(KC_a))
+    {
+		moveLeft(2.0f * dT);
+    }else {
 		// Not Moving
 		moveForward(0);
 	}
@@ -139,6 +147,22 @@ void Player::moveForward(const float speed)
 
     float cosYaw = cosf(degreesToRadians(m_yaw));
     float sinYaw = sinf(degreesToRadians(m_yaw));
+    //pos.x += float(cosYaw)*speed;
+    //pos.z += float(sinYaw)*speed;
+
+	btVector3 linearVelocity = getCollider()->getBody()->getLinearVelocity();
+
+	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(float(cosYaw)*speed*20.), linearVelocity.getY(), btScalar(float(sinYaw)*speed*20.)));
+
+    //setPosition(pos);
+}
+
+void Player::moveLeft(const float speed)
+{
+    //Vector3 pos = getPosition();
+
+    float cosYaw = cosf(degreesToRadians(m_yaw - 90));
+    float sinYaw = sinf(degreesToRadians(m_yaw - 90));
     //pos.x += float(cosYaw)*speed;
     //pos.z += float(sinYaw)*speed;
 

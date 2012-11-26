@@ -45,7 +45,7 @@ void House::onPrepare(float dT)
 
 void House::onRender() const
 {
-    static float modelviewMatrix[16];
+    /*static float modelviewMatrix[16];
     static float projectionMatrix[16];
 
     glPushMatrix();
@@ -77,7 +77,7 @@ void House::onRender() const
     glDisableVertexAttribArray(0);
     glEnable(GL_CULL_FACE);
 
-    glPopMatrix();
+    glPopMatrix();*/
 }
 
 void House::onPostRender()
@@ -87,77 +87,77 @@ void House::onPostRender()
 
 void House::initializeVBOs()
 {
-    GLfloat vertex [] = {
-        -1.0f, -1.0f, 0.0f, //First Square vertex
-         1.0f, -1.0f, 0.0f,
-        -1.0f, 1.0f, 0.0f,
-         1.0f, 1.0f, 0.0f,  //Last Square vertex
-         0.0f, -1.0f, 1.0f, //First Square vertex
-         0.0f, -1.0f,-1.0f,
-         0.0f, 1.0f, 1.0f,  //Last Square vertex
-         0.0f, 1.0f,-1.0f,
+    //GLfloat vertex [] = {
+    //    -1.0f, -1.0f, 0.0f, //First Square vertex
+    //     1.0f, -1.0f, 0.0f,
+    //    -1.0f, 1.0f, 0.0f,
+    //     1.0f, 1.0f, 0.0f,  //Last Square vertex
+    //     0.0f, -1.0f, 1.0f, //First Square vertex
+    //     0.0f, -1.0f,-1.0f,
+    //     0.0f, 1.0f, 1.0f,  //Last Square vertex
+    //     0.0f, 1.0f,-1.0f,
 
-    };
+    //};
 
-    GLfloat texCoord [] = {
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-    };
+    //GLfloat texCoord [] = {
+    //    0.0f, 0.0f,
+    //    1.0f, 0.0f,
+    //    0.0f, 1.0f,
+    //    1.0f, 1.0f,
+    //    0.0f, 0.0f,
+    //    1.0f, 0.0f,
+    //    0.0f, 1.0f,
+    //    1.0f, 1.0f,
+    //};
 
-    glGenBuffers(1, &m_vertexBuffer); //Generate a buffer for the vertices
-    glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer); //Bind the vertex buffer
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 8 * 3, &vertex[0], GL_STATIC_DRAW); //Send the data to OpenGL
+    //glGenBuffers(1, &m_vertexBuffer); //Generate a buffer for the vertices
+    //glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer); //Bind the vertex buffer
+    //glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 8 * 3, &vertex[0], GL_STATIC_DRAW); //Send the data to OpenGL
 
-    glGenBuffers(1, &m_texCoordBuffer); //Generate a buffer for the vertices
-    glBindBuffer(GL_ARRAY_BUFFER, m_texCoordBuffer); //Bind the vertex buffer
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 8 * 2, &texCoord[0], GL_STATIC_DRAW); //Send the data to OpenGL
+    //glGenBuffers(1, &m_texCoordBuffer); //Generate a buffer for the vertices
+    //glBindBuffer(GL_ARRAY_BUFFER, m_texCoordBuffer); //Bind the vertex buffer
+    //glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 8 * 2, &texCoord[0], GL_STATIC_DRAW); //Send the data to OpenGL
 }
 
 bool House::onInitialize()
 {
-    if(m_houseTexID == 0)
-    {
-        TargaImage houseTexture;
-        if (!houseTexture.load(TREE_TEXTURE))
-        {
-            std::cerr << "Couldn't load the house texture" << std::endl;
-            return false;
-        }
+    //if(m_houseTexID == 0)
+    //{
+    //    TargaImage houseTexture;
+    //    if (!houseTexture.load(TREE_TEXTURE))
+    //    {
+    //        std::cerr << "Couldn't load the house texture" << std::endl;
+    //        return false;
+    //    }
 
-        initializeVBOs();
+    //    initializeVBOs();
 
-        const string vertexShader = (GLSLProgram::glsl130Supported()) ? VERTEX_SHADER_130 : VERTEX_SHADER_120;
-        const string fragmentShader = (GLSLProgram::glsl130Supported()) ? FRAGMENT_SHADER_130 : FRAGMENT_SHADER_120;
+    //    const string vertexShader = (GLSLProgram::glsl130Supported()) ? VERTEX_SHADER_130 : VERTEX_SHADER_120;
+    //    const string fragmentShader = (GLSLProgram::glsl130Supported()) ? FRAGMENT_SHADER_130 : FRAGMENT_SHADER_120;
 
-        m_shaderProgram = std::auto_ptr<GLSLProgram>(new GLSLProgram(vertexShader, fragmentShader));
+    //    m_shaderProgram = std::auto_ptr<GLSLProgram>(new GLSLProgram(vertexShader, fragmentShader));
 
-        if (!m_shaderProgram->initialize())
-        {
-            std::cerr << "Could not initialize the house shaders" << std::endl;
-            return false;
-        }
+    //    if (!m_shaderProgram->initialize())
+    //    {
+    //        std::cerr << "Could not initialize the house shaders" << std::endl;
+    //        return false;
+    //    }
 
-        m_shaderProgram->bindAttrib(0, "a_Vertex");
-        m_shaderProgram->bindAttrib(1, "a_TexCoord");
-        m_shaderProgram->linkProgram();
+    //    m_shaderProgram->bindAttrib(0, "a_Vertex");
+    //    m_shaderProgram->bindAttrib(1, "a_TexCoord");
+    //    m_shaderProgram->linkProgram();
 
-        glGenTextures(1, &m_houseTexID);
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, m_houseTexID);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    //    glGenTextures(1, &m_houseTexID);
+    //    glActiveTexture(GL_TEXTURE0);
+    //    glBindTexture(GL_TEXTURE_2D, m_houseTexID);
+    //    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    //    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
-        //We load the texture with an alpha channel (RGBA)
-        gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGBA8, houseTexture.getWidth(),
-                      houseTexture.getHeight(), GL_RGBA, GL_UNSIGNED_BYTE,
-                      houseTexture.getImageData());
-    }
+    //    //We load the texture with an alpha channel (RGBA)
+    //    gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGBA8, houseTexture.getWidth(),
+    //                  houseTexture.getHeight(), GL_RGBA, GL_UNSIGNED_BYTE,
+    //                  houseTexture.getImageData());
+    //}
 
     return true;
 

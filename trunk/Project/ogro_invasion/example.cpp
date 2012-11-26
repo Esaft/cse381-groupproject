@@ -116,7 +116,7 @@ void Example::render()
     GLint viewport[4];
     glGetIntegerv(GL_VIEWPORT, viewport);
 
-    if (m_world->getRemainingTime() > 0.0f)
+    if (m_world->getRemainingTime() > 0.0f && !m_world->isGameLost())
     {
         m_world->render();
 
