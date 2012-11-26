@@ -22,7 +22,7 @@ GLuint TreeLog::m_vertexBuffer = 0;
 GLuint TreeLog::m_texCoordBuffer = 0;
 std::auto_ptr<GLSLProgram> TreeLog::m_shaderProgram;
 
-const string TREE_TEXTURE = "data/textures/beech.tga";
+const string TREE_TEXTURE = "data/textures/log.tga";
 
 const string VERTEX_SHADER_120 = "data/shaders/glsl1.20/alpha_test.vert";
 const string VERTEX_SHADER_130 = "data/shaders/glsl1.30/alpha_test.vert";

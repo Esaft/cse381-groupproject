@@ -255,7 +255,7 @@ void GameWorld::update(float dT)
 	logsToSpawn.clear();
 
     //Spawn an entity every 10 seconds if we have room
-    if (getOgroCount() < MAX_ENEMY_COUNT && (m_currentTime - m_lastSpawn) > 10.0f)
+    if (getOgroCount() < MAX_ENEMY_COUNT && (m_currentTime - m_lastSpawn) > 60.0f)
     {
         spawnEntity(OGRO)->setPosition(getRandomPosition());
     }

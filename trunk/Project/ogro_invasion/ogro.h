@@ -37,6 +37,7 @@ class Ogro : public Enemy
         void processAI();
 
         AIState m_AIState;
+		int deathTime;
 
         float m_currentTime;
         float m_lastAIChange;
