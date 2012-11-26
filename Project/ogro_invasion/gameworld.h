@@ -37,7 +37,7 @@ class GameWorld : private Uncopyable
         void unregisterEntity(const Entity* entity);
 
         static const unsigned int MAX_ENEMY_COUNT = 15;
-        static const int TREE_COUNT = 20;
+        static const int TREE_COUNT = 50;
 
         Player* m_player;
         Landscape* m_landscape;
@@ -113,8 +113,8 @@ class GameWorld : private Uncopyable
         }
 
         Enemy* findDeadEnemy()
-        {
-            for (EntityIterator it = m_entities.begin(); it != m_entities.end(); ++it)
+        { // Deactivate Enemy Resuse (Bugged)
+            /*for (EntityIterator it = m_entities.begin(); it != m_entities.end(); ++it)
             {
                 if ((*it)->getType() == OGRO) {
                     Enemy* ogro = dynamic_cast<Enemy*>((*it));
@@ -124,7 +124,7 @@ class GameWorld : private Uncopyable
                     }
                 }
 
-            }
+            }*/
 
             return NULL;
         }

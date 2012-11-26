@@ -90,20 +90,20 @@ void Physics::registerEntity(Entity* entity)
 		btCollisionShape* colShape;
 		switch (entity->getType()) {
 			case OGRO:
-				mass = btScalar(1.0f);
-				colShape = new btBoxShape(btVector3(0.2, 0.5, 0.2));//new btCapsuleShape(btScalar(entity->getCollider()->getRadius()), btScalar(entity->getCollider()->getRadius()));
+				mass = btScalar(0.5f);
+				colShape = new btSphereShape(0.5);
 				break;
 			case PLAYER:
-				mass = btScalar(1.0f);
-				colShape = new btBoxShape(btVector3(0.2, 1, 0.2));//btCapsuleShape(btScalar(entity->getCollider()->getRadius()), btScalar(entity->getCollider()->getRadius()));// btBoxShape(btVector3(1,1,1));
+				mass = btScalar(10.0f);
+				colShape = new btCapsuleShape(0.1, 1);
 				break;
 			case TREE:
 				mass = btScalar(0.0f);
 				colShape = new btBoxShape(btVector3(0.2, 4, 0.2));
 				break;
 			case LOG:
-				mass = btScalar(1.0f);
-				colShape = new btCapsuleShape(0.2, 2);
+				mass = btScalar(100.0f);
+				colShape = new btCapsuleShape(0.2, 1.5);
 				break;
 			case ROCKET:
 				mass = btScalar(1.0f);
@@ -201,10 +201,10 @@ void Physics::registerEntity(Entity* entity)
 
 		if (entity->getType() == LANDSCAPE) { // Add Friction to Landscape
 			body->setFriction(1);
-			body->setRollingFriction(0.35);
+			body->setRollingFriction(0.35); // 0.35
 		}
 		if (entity->getType() == LOG)
-			body->setRollingFriction(0.2);
+			body->setRollingFriction(0.2); // 0.2
 	}
 
 }

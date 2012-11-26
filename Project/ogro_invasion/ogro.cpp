@@ -31,6 +31,7 @@ m_lastAIChange(0)
     string fragmentShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.frag" : "data/shaders/glsl1.20/model.frag";
     m_model = new MD2Model(vertexShader, fragmentShader);
     m_model->setAnimation(Animation::IDLE);
+	deathTime = 0;
 }
 
 Ogro::~Ogro()
@@ -162,6 +163,8 @@ void Ogro::processAI()
 {
     if (isDead())
     {
+		if (time(NULL) - deathTime > 3)
+			destroy();
         return;
     }
 
@@ -278,6 +281,7 @@ void Ogro::onKill()
     }
 
     m_AIState = OGRO_DEAD;
+	deathTime = time(NULL);
 }
 
 void Ogro::onResurrection()
