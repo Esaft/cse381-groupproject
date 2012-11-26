@@ -71,7 +71,6 @@ void Ogro::onPrepare(float dT)
 
 	btVector3 linearVelocity = getCollider()->getBody()->getLinearVelocity();
 	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(float(cosYaw)*speed*10.), linearVelocity.getY(), btScalar(float(sinYaw)*speed*10.)));
-
 	//setPosition(pos);
 
 
@@ -79,10 +78,24 @@ void Ogro::onPrepare(float dT)
 
 void Ogro::onRender() const
 {
+	static float modelviewMatrix[16];
+    static float projectionMatrix[16];
+
+	btTransform t;
+	btRigidBody* body = m_collider->getBody();
+	if (body->getMotionState() != NULL)
+		body->getMotionState()->getWorldTransform(t);
+	else
+		t = body->getWorldTransform();
+
+	t.getOpenGLMatrix(modelviewMatrix);
+
+	//glMultMatrixf(modelviewMatrix);
 
     glPushMatrix();
+		glMultMatrixf(modelviewMatrix);
         Vector3 pos = getPosition();
-        glTranslatef(pos.x, pos.y, pos.z); // Pos y-1
+        //glTranslatef(pos.x, pos.y, pos.z); // Pos y-1
         glRotatef(getYaw(), 0.0f, -1.0f, 0.0f);
         glBindTexture(GL_TEXTURE_2D, m_ogroTextureID);
         m_model->render();
@@ -153,6 +166,8 @@ void Ogro::processAI()
 
     const float DANGER_DISTANCE = 5.0f;
 
+	float currentYaw = m_yaw;
+
     Vector3 playerPosition = getWorld()->getPlayer()->getPosition();
     Vector3 playerDirection = getPosition() - playerPosition;
     float playerDistance = playerDirection.length();
@@ -198,7 +213,7 @@ void Ogro::processAI()
     float maxZ = getWorld()->getLandscape()->getTerrain()->getMaxZ() - 2.5f;
 
     float randYaw = 90.0f + (float) (rand() % 90);
-
+	//m_yaw += randYaw;
     /*if (getPosition().x < minX ||
         getPosition().x > maxX ||
         getPosition().z < minZ ||
@@ -227,6 +242,10 @@ void Ogro::processAI()
         }
     }*/
 
+	float newRotation = currentYaw - m_yaw;
+
+	getCollider()->getBody()->getWorldTransform().setRotation(
+		btQuaternion(btVector3(0,-1,0),btRadians(newRotation)));
 
 }
 

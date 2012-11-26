@@ -91,7 +91,7 @@ void Physics::registerEntity(Entity* entity)
 		switch (entity->getType()) {
 			case OGRO:
 				mass = btScalar(1.0f);
-				colShape = new btBoxShape(btVector3(0.2, 1, 0.2));//new btCapsuleShape(btScalar(entity->getCollider()->getRadius()), btScalar(entity->getCollider()->getRadius()));
+				colShape = new btBoxShape(btVector3(0.2, 0.5, 0.2));//new btCapsuleShape(btScalar(entity->getCollider()->getRadius()), btScalar(entity->getCollider()->getRadius()));
 				break;
 			case PLAYER:
 				mass = btScalar(1.0f);
@@ -181,26 +181,30 @@ void Physics::registerEntity(Entity* entity)
 		bool isDynamic = (mass != 0.f);
 
 		btVector3 localInertia(0,0,0);
-		if (isDynamic)
+		if (isDynamic && entity->getType() == LOG) { // The Only Element that rotates for now...
 			colShape->calculateLocalInertia(mass,localInertia);
+		}
 
 		//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
 		btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
-		btRigidBody* body;
-		if (entity->getType() == LOG) {
-			btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, localInertia);
-			body = new btRigidBody(rbInfo);
-		} else {
-			btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, btVector3(0, 0, 0)); // should be localInertia, but we dont want them to rotate
-			body = new btRigidBody(rbInfo);
-		}
+		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, localInertia);
+		btRigidBody* body = new btRigidBody(rbInfo);
 
 		body->setUserPointer(entity);
 		m_dynamicsWorld->addRigidBody(body);
 		entity->getCollider()->setBody(body);
 
-		body->forceActivationState(DISABLE_DEACTIVATION); // Check this, it should be enabled when object is moving..
-		
+		if (mass == 0.f) { // Disable the "Disabled" State
+		  body->setCollisionFlags( body->getCollisionFlags() | btCollisionObject::CF_KINEMATIC_OBJECT);
+		  body->setActivationState(DISABLE_DEACTIVATION);
+	   }
+
+		if (entity->getType() == LANDSCAPE) { // Add Friction to Landscape
+			body->setFriction(1);
+			body->setRollingFriction(0.35);
+		}
+		if (entity->getType() == LOG)
+			body->setRollingFriction(0.2);
 	}
 
 }

@@ -48,19 +48,6 @@ void TreeLog::onPrepare(float dT)
 
 void TreeLog::onRender() const
 {
-
-	
-	/*
-	btTransform t;
-	float m[16];
-	
-	t.getOpenGLMatrix(m);
-	glMatrixMode(GL_MODELVIEW);
-	glPushMatrix(); 
-	glMultMatrixf(m);
-	// drawCube
-	glPopMatrix();*/
-
     static float modelviewMatrix[16];
     static float projectionMatrix[16];
 
