@@ -177,15 +177,16 @@ void Ogro::processAI()
 	Vector3 centerDirection = Vector3(0,0,0)- getPosition();
     float playerDistance = playerDirection.length();
 
-    /*if (playerDistance < DANGER_DISTANCE && m_AIState != OGRO_RUNNING && (m_currentTime - m_lastAIChange) > 3.0f)
+    if (playerDistance < DANGER_DISTANCE && m_AIState != OGRO_RUNNING && (m_currentTime - m_lastAIChange) > 3.0f)
     {
         m_model->setAnimation(Animation::RUN);
         m_AIState = OGRO_RUNNING;
         m_lastAIChange = m_currentTime;
-    }*/
+		m_yaw += float(rand() % 180) - 90.0f;
+    }
 
-    /*if (playerDistance >= DANGER_DISTANCE)
-    {*/
+    if (playerDistance >= DANGER_DISTANCE)
+    {
         if (((m_currentTime + float(rand() % 5) / 10.0f) - m_lastAIChange) > 8.0f)
         {
             AIState newState = getRandomIdleState();
@@ -219,7 +220,7 @@ void Ogro::processAI()
                 }
             }
         }
-    //}
+    }
 
     //Stop the Ogro's going outside the map bounds
     float minX = getWorld()->getLandscape()->getTerrain()->getMinX() + 2.5f;
