@@ -40,6 +40,8 @@ class Player : public Entity
         void yaw(const float val);
         void pitch(const float val);
         void moveForward(const float speed);
+		void moveLeft(const float speed);
+		//void moveForward(const float speed);
 
         void increaseScore(int amount) { m_score += amount; }
     private:

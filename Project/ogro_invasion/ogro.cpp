@@ -55,6 +55,12 @@ void Ogro::onPrepare(float dT)
 
     Vector3 pos = getPosition();
 
+	bool gameL = true;
+
+	if(pos.x > -5 && pos.x < 5 && pos.z > -5 && pos.z < 0 && gameL)
+		getWorld()->loseGame();
+		
+
     float speed = 0.0f;
 
     if (m_AIState == OGRO_RUNNING)
@@ -63,7 +69,7 @@ void Ogro::onPrepare(float dT)
     }
     else if (m_AIState == OGRO_WALK)
     {
-        speed = 1.0f * dT;
+        speed = 1.5f * dT;
     }
 
     float cosYaw = cosf(degreesToRadians(m_yaw));

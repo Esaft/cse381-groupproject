@@ -190,10 +190,13 @@ bool GameWorld::initialize()
 
     spawnEntity(LANDSCAPE); //Spawn the landscape
 
+	float minX = getLandscape()->getTerrain()->getMinX();
+	float mapWidth = getLandscape()->getTerrain()->getMaxX() - minX;
+
     //Spawn a load of monsters
     for (unsigned int i = 0; i < MAX_ENEMY_COUNT; ++i)
     {
-        Entity* newEntity = spawnEntity(OGRO, getRandomPosition());
+        Entity* newEntity = spawnEntity(OGRO, getRandomPositionR((mapWidth/2)-2));
     }
 
     for (int i = 0; i < TREE_COUNT; ++i)
@@ -237,6 +240,9 @@ void GameWorld::update(float dT)
     m_currentTime += dT; //Update the time since we started
     m_remainingTime -= dT;
 
+	float minX = getLandscape()->getTerrain()->getMinX();
+	float mapWidth = getLandscape()->getTerrain()->getMaxX() - minX;
+
     for (EntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
     {
         (*entity)->prepare(dT);
@@ -257,7 +263,7 @@ void GameWorld::update(float dT)
     //Spawn an entity every 10 seconds if we have room
     if (getOgroCount() < MAX_ENEMY_COUNT && (m_currentTime - m_lastSpawn) > 60.0f)
     {
-        spawnEntity(OGRO)->setPosition(getRandomPosition());
+        spawnEntity(OGRO)->setPosition(getRandomPositionR((mapWidth/2)-2));
     }
 
 	for (EntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
@@ -375,6 +381,20 @@ Vector3 GameWorld::getRandomPosition() const
 
     float randX = minX + ((rand() / ((float)RAND_MAX + 1)) * mapWidth);
     float randZ = minX + ((rand() / ((float)RAND_MAX + 1)) * mapWidth);
+    float y = getLandscape()->getTerrain()->getHeightAt(randX, randZ);
+
+    return Vector3(randX, y, randZ);
+}
+
+//gets random position at a certain distance from center
+Vector3 GameWorld::getRandomPositionR(float radius)
+{
+    float minX = getLandscape()->getTerrain()->getMinX();
+    float mapWidth = getLandscape()->getTerrain()->getMaxX() - minX;
+	float randDeg = (rand() % 360) - 180;
+
+    float randX = cosf(degreesToRadians(randDeg)) * radius;
+    float randZ = sinf(degreesToRadians(randDeg)) * radius;
     float y = getLandscape()->getTerrain()->getHeightAt(randX, randZ);
 
     return Vector3(randX, y, randZ);

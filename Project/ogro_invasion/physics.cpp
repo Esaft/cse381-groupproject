@@ -109,6 +109,9 @@ void Physics::registerEntity(Entity* entity)
 				mass = btScalar(1.0f);
 				colShape = new btSphereShape(btScalar(entity->getCollider()->getRadius()));
 				break;
+			case HOUSE:
+				mass = btScalar(0.0f);
+				break;
 			case LANDSCAPE:
 			{
 				bool use_heightmap = false;
@@ -234,7 +237,7 @@ void Physics::update(float speed)
 			{
 				Entity* enA = (Entity*) obA->getUserPointer();
 				Entity* enB = (Entity*) obB->getUserPointer();
-				if (enA != NULL && enB != NULL) {
+				if (enA != NULL && enB != NULL && !enA->canBeRemoved() && !enB->canBeRemoved()) {
 
 					enA->collide(enB);
 					enB->collide(enA);

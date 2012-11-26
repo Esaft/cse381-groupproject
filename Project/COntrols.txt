@@ -16,5 +16,7 @@ CONTROLS
 
 Mouse-Look Around
 W- Move Forward
+A- Move Left
 S- Move Back
+D- Move Right
 Space - Swing Axe

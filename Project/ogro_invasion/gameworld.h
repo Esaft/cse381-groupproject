@@ -36,7 +36,7 @@ class GameWorld : private Uncopyable
         void registerEntity(Entity* entity);
         void unregisterEntity(const Entity* entity);
 
-        static const unsigned int MAX_ENEMY_COUNT = 15;
+        static const unsigned int MAX_ENEMY_COUNT = 7;
         static const int TREE_COUNT = 50;
 
         Player* m_player;
@@ -44,6 +44,7 @@ class GameWorld : private Uncopyable
 		OctreeNode	*m_pOctreeRoot;	
 
         Vector3 getRandomPosition() const;
+		Vector3 getRandomPositionR(float radius);
 
         void clearDeadEntities();
 
