@@ -114,4 +114,9 @@ inline float degreesToRadians(const float degrees) {
     return degrees * PIOver180;
 }
 
+inline float radiansToDegrees(const float rad) {
+    const float OverPi =  180.0f/3.14159f;
+    return rad * OverPi;
+}
+
 #endif

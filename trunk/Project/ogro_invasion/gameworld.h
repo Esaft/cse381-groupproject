@@ -167,6 +167,7 @@ class GameWorld : private Uncopyable
 		int getNumSceneCulled()		{	return m_entities.size() - numSentToFrustum;}
 		int getNumEntities()		{	return m_entities.size();}
 		bool isGameLost()			{	return gameLost;}
+		void loseGame()				{	gameLost = true;}
 
 
 };

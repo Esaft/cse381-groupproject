@@ -29,6 +29,12 @@ void Enemy::onCollision(Entity* collider)
         getWorld()->getPlayer()->increaseScore(10);
         kill(); //Kill this enemy
     }
+	//It was a log that hit us!
+    else if (collider->getType() == LOG && !isDead())
+    {
+        getWorld()->getPlayer()->increaseScore(10);
+        kill(); //Kill this enemy
+    }
 }
 
 void Enemy::setPosition(const Vector3& pos)

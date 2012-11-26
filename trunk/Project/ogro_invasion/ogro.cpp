@@ -7,6 +7,7 @@
 #include "glee/GLee.h"
 #include <GL/glu.h>
 #include "ogro.h"
+#include <math.h>
 #include "glslshader.h"
 #include "md2model.h"
 #include "collider.h"
@@ -61,7 +62,7 @@ void Ogro::onPrepare(float dT)
     }
     else if (m_AIState == OGRO_WALK)
     {
-        speed = 0.5f * dT;
+        speed = 1.0f * dT;
     }
 
     float cosYaw = cosf(degreesToRadians(m_yaw));
@@ -170,17 +171,18 @@ void Ogro::processAI()
 
     Vector3 playerPosition = getWorld()->getPlayer()->getPosition();
     Vector3 playerDirection = getPosition() - playerPosition;
+	Vector3 centerDirection = Vector3(0,0,0)- getPosition();
     float playerDistance = playerDirection.length();
 
-    if (playerDistance < DANGER_DISTANCE && m_AIState != OGRO_RUNNING && (m_currentTime - m_lastAIChange) > 3.0f)
+    /*if (playerDistance < DANGER_DISTANCE && m_AIState != OGRO_RUNNING && (m_currentTime - m_lastAIChange) > 3.0f)
     {
         m_model->setAnimation(Animation::RUN);
         m_AIState = OGRO_RUNNING;
         m_lastAIChange = m_currentTime;
-    }
+    }*/
 
-    if (playerDistance >= DANGER_DISTANCE)
-    {
+    /*if (playerDistance >= DANGER_DISTANCE)
+    {*/
         if (((m_currentTime + float(rand() % 5) / 10.0f) - m_lastAIChange) > 8.0f)
         {
             AIState newState = getRandomIdleState();
@@ -200,11 +202,21 @@ void Ogro::processAI()
                 if (newState == OGRO_WALK)
                 {
                     m_model->setAnimation(Animation::CROUCH_WALK);
-                    m_yaw += float(rand() % 180) - 90.0f;
+                    //m_yaw += float(rand() % 180) - 90.0f;
+					/*if(centerDirection.x == 0)
+					{
+
+					}
+					else if(centerDirection.z == 0)
+					{
+						if(centerDirection.x < 0)
+					}*/
+					//else
+						m_yaw = radiansToDegrees(atan2f( centerDirection.z, centerDirection.x));
                 }
             }
         }
-    }
+    //}
 
     //Stop the Ogro's going outside the map bounds
     float minX = getWorld()->getLandscape()->getTerrain()->getMinX() + 2.5f;
