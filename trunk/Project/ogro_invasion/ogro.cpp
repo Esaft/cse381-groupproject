@@ -55,7 +55,7 @@ void Ogro::onPrepare(float dT)
 
     Vector3 pos = getPosition();
 
-	bool gameL = true;
+	bool gameL = false;
 
 	if(pos.x > -5 && pos.x < 5 && pos.z > -5 && pos.z < 0 && gameL)
 		getWorld()->loseGame();

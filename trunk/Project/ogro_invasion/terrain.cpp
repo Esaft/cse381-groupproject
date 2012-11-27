@@ -16,6 +16,7 @@
 #include "glslshader.h"
 #include "BulletCollision/CollisionShapes/btBvhTriangleMeshShape.h"
 #include "BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h"
+#include "BulletCollision/CollisionShapes/btHeightfieldTerrainShape.h"
 
 using std::vector;
 using std::string;
@@ -362,7 +363,7 @@ bool Terrain::loadHeightmap(const string& rawFile, const string& grassTexture, c
 
     generateVertices(heights, width);
     generateIndices(width);
-	//generateShape();
+	generateShape(heights);
 
     generateTexCoords(width);
     generateNormals();
@@ -476,8 +477,16 @@ Vertex Terrain::getPositionAt(int x, int z)
     return m_vertices[(z * m_width) + x];
 }
 
-void Terrain::generateShape()
+void Terrain::generateShape(vector<float> heights)
 {
+	/* Trying with Float heights
+	
+	float* heights_f = new float[heights.size()];
+	for (int i = 0 ; i < heights.size() ; i++)
+		heights_f[i] = heights.at(i);
+	shape = new btHeightfieldTerrainShape(65, 65, heights_f, 50, 1, true, false);*/
+
+	// Trying with Mesh
 	m_physics_indices = new int[m_indices.size()];
 	m_physics_vertex = new btScalar[m_vertices.size() * 3];
 
@@ -505,7 +514,7 @@ void Terrain::generateShape()
 													3 * sizeof(int), //int triangleIndexStride,
 													m_vertices.size(), //int numVertices,
 													m_physics_vertex, //btScalar *vertexBase,
-													sizeof(btScalar) * 3); //int vertexStride);
+													sizeof(float) * 3); //int vertexStride);
 	
 
 	/*btTriangleIndexVertexArray* meshInterface = new btTriangleIndexVertexArray();
@@ -525,11 +534,12 @@ void Terrain::generateShape()
 
 	meshInterface->addIndexedMesh(part,PHY_INTEGER);*/
 
-	shape = new btBvhTriangleMeshShape(meshInterface, true); // Check both true or false
+
+	//shape = new btBvhTriangleMeshShape(meshInterface, true); // Check both true or false
 
 }
 
-btBvhTriangleMeshShape* Terrain::createShape()
+btCollisionShape* Terrain::createShape()
 {
 	return shape;
 }

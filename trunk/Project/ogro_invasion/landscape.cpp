@@ -60,12 +60,12 @@ void Landscape::onCollision(Entity* entity)
     /*
         On collision with the terrain the entity is moved upwards (if it's not dead)
     */
-    Vector3 entityPos = entity->getPosition();
+    /*Vector3 entityPos = entity->getPosition();
     float terrainHeight = m_terrain.getHeightAt(entityPos.x, entityPos.z);
     float entityRadius = entity->getCollider()->getRadius();
 
     entityPos.y = terrainHeight + entityRadius;
-    entity->setPosition(entityPos);
+    entity->setPosition(entityPos);*/
 }
 
 void Landscape::onPrepare(float dT)
