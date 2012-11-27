@@ -6,8 +6,27 @@
 #include "terrain.h"
 #include "landscape.h"
 #include <string>
+#include <cassert>
+#include <sys/stat.h>
 #include <vector>
 using std::vector;
+struct stat results;
+
+static btVector3
+getUpVector
+(
+int upAxis,
+btScalar regularValue,
+btScalar upValue
+)
+{
+	btAssert(upAxis >= 0 && upAxis <= 2 && "bad up axis");
+
+	btVector3 v(regularValue, regularValue, regularValue);
+	v[upAxis] = upValue;
+
+	return v;
+}
 
 Physics::Physics(GameWorld* gworld)
 {
@@ -30,7 +49,7 @@ void Physics::initPhysics()
 	m_broadphase = new btDbvtBroadphase();
 	m_solver = new btSequentialImpulseConstraintSolver();
 	m_dynamicsWorld = new btDiscreteDynamicsWorld( m_dispatcher, m_broadphase, m_solver, m_collisionConfiguration );
-	m_dynamicsWorld->setGravity( btVector3(0.0,-10,0.0));
+	m_dynamicsWorld->setGravity( btVector3(0.0,-12,0.0));
 
 	//addStaticPlane();
 
@@ -123,35 +142,32 @@ void Physics::registerEntity(Entity* entity)
 					} else {
 
 				
-					std::string heightmap_str = "data/island.raw";
+					std::string heightmap_str = "data/hilltest2.raw";
 
-					std::ifstream fileIn(heightmap_str.c_str(), std::ios::binary);
+					std::ifstream fileIn(heightmap_str.c_str(), std::ios::in | std::ios::binary);
 
 					if (!fileIn.good())
 					{
 						//std::cout << "File does not exist" << std::endl;
 						return;
 					}
+					assert(stat(heightmap_str.c_str(), &results) == 0); // Should always be 0 otherwise error occured
+
+					char* bytes = new char[results.st_size];
+					fileIn.read(bytes, results.st_size);
+					int fileSize = results.st_size;
 
 					//This line reads in the whole file into a string
-					string stringBuffer(std::istreambuf_iterator<char>(fileIn), (std::istreambuf_iterator<char>()));
+					//string stringBuffer(std::istreambuf_iterator<char>(fileIn), (std::istreambuf_iterator<char>()));
 
 					fileIn.close();
-					vector<float> heights;
-					heights.reserve(65 * 65); //Reserve some space (faster)
 
-					//Go through the string converting each character to a float and scale it
-					for (int i = 0; i < (65* 65); ++i)
-					{
-						//Convert to floating value, the unsigned char cast is importantant otherwise the values wrap at 128
-						float value = (float)(unsigned char)stringBuffer[i] / 256.0f;
+					colShape = new btHeightfieldTerrainShape(65, 65, bytes, 10, 1, false, false);
+					colShape->setLocalScaling(btVector3(5.0, 10.0, 5.0));
 
-						heights.push_back(value * 10.);
-					}
-
-					colShape = new btHeightfieldTerrainShape(65, 65, &heights[0],
-						10., 0., 20.,
-						1, PHY_FLOAT, false);
+					/*colShape = new btHeightfieldTerrainShape(65, 65, bytes,//&heights[0],
+						1, 1, 5,
+						1, PHY_UCHAR, false);*/
 				}
 
 				break;
@@ -174,11 +190,8 @@ void Physics::registerEntity(Entity* entity)
 		} else if (entity->getType() == LOG) {
 			float height = world->getLandscape()->getTerrain()->getHeightAt(pos.x, pos.z);
 			startTransform.setOrigin(btVector3(pos.x, height + 1,pos.z));
-			btQuaternion quat;
-			quat.setEuler(0, 90, 90); //or quat.setEulerZYX depending on the ordering you want
-			startTransform.setRotation(quat);
 		} else // Make entities fall from sky
-			startTransform.setOrigin(btVector3(pos.x,pos.y + 5,pos.z));
+			startTransform.setOrigin(btVector3(pos.x,pos.y + 50,pos.z));
 
 		//rigidbody is dynamic if and only if mass is non zero, otherwise static
 		bool isDynamic = (mass != 0.f);
@@ -192,7 +205,8 @@ void Physics::registerEntity(Entity* entity)
 		btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
 		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass,myMotionState,colShape, localInertia);
 		btRigidBody* body = new btRigidBody(rbInfo);
-
+		
+		//body->setContactProcessingThreshold(BT_LARGE_FLOAT);
 		body->setUserPointer(entity);
 		m_dynamicsWorld->addRigidBody(body);
 		entity->getCollider()->setBody(body);

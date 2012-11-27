@@ -29,7 +29,7 @@ public:
 
     Vertex getPositionAt(int x, int z);
     GLfloat getHeightAt(GLfloat x, GLfloat z);
-	btBvhTriangleMeshShape* createShape();
+	btCollisionShape* createShape();
 
     void normalizeTerrain();
     void scaleHeights(float scale);
@@ -98,9 +98,9 @@ private:
 	int* m_physics_indices;
 	btScalar* m_physics_vertex;
 	int numVertices;
-	btBvhTriangleMeshShape* shape;
-
-	void generateShape();
+	//btBvhTriangleMeshShape* shape;
+	void generateShape(std::vector<float>);
+	btCollisionShape* shape;
 };
 
 #endif
