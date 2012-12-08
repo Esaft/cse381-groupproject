@@ -363,7 +363,9 @@ bool Terrain::loadHeightmap(const string& rawFile, const string& grassTexture, c
 
     generateVertices(heights, width);
     generateIndices(width);
-	generateShape(heights);
+	
+	// Uncomment this if we should use heightmap
+	//generateShape(&heights);
 
     generateTexCoords(width);
     generateNormals();
@@ -477,66 +479,86 @@ Vertex Terrain::getPositionAt(int x, int z)
     return m_vertices[(z * m_width) + x];
 }
 
-void Terrain::generateShape(vector<float> heights)
+void Terrain::generateShape(vector<float>* heights)
 {
-	/* Trying with Float heights
+
+	if (heights == 0) {
+		btTriangleMesh *mesh = new btTriangleMesh();
+
+		for (int i = 0; i < m_indices.size(); i = i + 6)
+		{
+
+			GLuint indice1 = m_indices.at(i);
+			GLuint indice2 = m_indices.at(i+1);
+			GLuint indice3 = m_indices.at(i+2);
+
+			mesh->addTriangle(
+				btVector3(m_vertices.at(indice1).x, m_vertices.at(indice1).y, m_vertices.at(indice1).z),
+				btVector3(m_vertices.at(indice2).x, m_vertices.at(indice2).y, m_vertices.at(indice2).z),
+				btVector3(m_vertices.at(indice3).x, m_vertices.at(indice3).y, m_vertices.at(indice3).z),
+				false);
+		}
+
+		shape = new btBvhTriangleMeshShape(mesh, true);
+	} else {
+		float* heights_f = new float[heights->size()];
+		for (int i = 0 ; i < heights->size() ; i++)
+			heights_f[i] = heights->at(i);
+		//shape = new btHeightfieldTerrainShape(65, 65, heights_f, 50, 1, true, false);
+
+		/// Generate Raw Heightfield
+		long nBytes = heights->size() * sizeof(float);
+		byte_t *raw = new byte_t[nBytes];
+		for (long i = 0 ; i < nBytes ; i++) {
+			raw[i] = 0;
+		}
+
+
+		for (int i = 0 ; i < heights->size() ; i++) {
+			float * pf = (float *) raw;
+			*pf = heights->at(i);
+			raw += sizeof(float);
+		}
 	
-	float* heights_f = new float[heights.size()];
-	for (int i = 0 ; i < heights.size() ; i++)
-		heights_f[i] = heights.at(i);
-	shape = new btHeightfieldTerrainShape(65, 65, heights_f, 50, 1, true, false);*/
 
-	// Trying with Mesh
-	m_physics_indices = new int[m_indices.size()];
-	m_physics_vertex = new btScalar[m_vertices.size() * 3];
+		shape = new btHeightfieldTerrainShape(65, 65, raw, 5, 1, true, false);
+		shape->setLocalScaling(btVector3(1.0, 3.0, 1.0));
 
-	int vertexCounter = 0;
-	for (int i = 0 ; i < m_vertices.size() ; i++) {
-		Vertex v = m_vertices.at(i);
-		m_physics_vertex[vertexCounter++] = btScalar(v.x);
-		m_physics_vertex[vertexCounter++] = btScalar(v.y);
-		m_physics_vertex[vertexCounter++] = btScalar(v.z);
+		/*shape = new btHeightfieldTerrainShape(65, 65,
+						  raw,
+						  1,
+						  -10, 10,
+						  1, PHY_FLOAT, false);*/
+
+		/*
+		std::string heightmap_str = "data/hilltest2.raw";
+
+					std::ifstream fileIn(heightmap_str.c_str(), std::ios::in | std::ios::binary);
+
+					if (!fileIn.good())
+					{
+						//std::cout << "File does not exist" << std::endl;
+						return;
+					}
+					assert(stat(heightmap_str.c_str(), &results) == 0); // Should always be 0 otherwise error occured
+
+					char* bytes = new char[results.st_size];
+					fileIn.read(bytes, results.st_size);
+					int fileSize = results.st_size;
+
+					//This line reads in the whole file into a string
+					//string stringBuffer(std::istreambuf_iterator<char>(fileIn), (std::istreambuf_iterator<char>()));
+
+					fileIn.close();
+
+					colShape = new btHeightfieldTerrainShape(65, 65, bytes, 10, 1, false, false);
+					colShape->setLocalScaling(btVector3(5.0, 10.0, 5.0));
+
+					/*colShape = new btHeightfieldTerrainShape(65, 65, bytes,//&heights[0],
+						1, 1, 5,
+						1, PHY_UCHAR, false);*/
+
 	}
-
-	for (int i = 0 ; i < m_indices.size() ; i++) {
-
-		int integ = (int) m_indices.at(i);
-		unsigned int usngi = m_indices.at(i);
-		if (usngi > INT_MAX)
-			int maxint = INT_MAX;
-
-		m_physics_indices[i] = (int) m_indices.at(i);
-	}
-
-	btTriangleIndexVertexArray* meshInterface = new btTriangleIndexVertexArray(
-													m_indices.size() / 3,//numTriangles
-													m_physics_indices, //int *triangleIndexBase,
-													3 * sizeof(int), //int triangleIndexStride,
-													m_vertices.size(), //int numVertices,
-													m_physics_vertex, //btScalar *vertexBase,
-													sizeof(float) * 3); //int vertexStride);
-	
-
-	/*btTriangleIndexVertexArray* meshInterface = new btTriangleIndexVertexArray();
-	btIndexedMesh part;
-
-	btScalar number = m_physics_vertex[0];
-
-	//part.m_vertexBase = (const unsigned char*)LandscapeVtx[i]; // Vtx is made of btScalar
-	part.m_vertexBase = (const unsigned char*)m_physics_vertex;
-	part.m_vertexStride = sizeof(btScalar) * 3;
-	part.m_numVertices = m_vertices.size() * 3;
-	//part.m_triangleIndexBase = (const unsigned char*)LandscapeIdx[i]; //Idx is made of unsigned short
-	part.m_triangleIndexBase = (const unsigned char*)m_physics_indices;
-	part.m_triangleIndexStride = sizeof(unsigned int) * 3;
-	part.m_numTriangles = m_indices.size() / 3; //LandscapeIdxCount[i]/3;
-	part.m_indexType = PHY_INTEGER;
-
-	meshInterface->addIndexedMesh(part,PHY_INTEGER);*/
-
-
-	//shape = new btBvhTriangleMeshShape(meshInterface, true); // Check both true or false
-
 }
 
 btCollisionShape* Terrain::createShape()

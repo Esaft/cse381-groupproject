@@ -129,6 +129,10 @@ void Example::render()
         remainingString << "Time remaining: "  << m_world->getRemainingTimeAsString();
         m_font->printString(remainingString.str(), 20.0f, 50.0f);
 
+		stringstream playerPos;
+		playerPos << "Player Y Position: "  << m_world->getPlayer()->getPosition().y;
+        m_font->printString(playerPos.str(), 20.0f, 80.0f);
+
 		if(showCullStats)
 		{
 			stringstream cullStatString;

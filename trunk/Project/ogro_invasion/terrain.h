@@ -12,10 +12,13 @@
 #include "geom.h"
 #include "btBulletCollisionCommon.h"
 using std::string;
+using std::vector;
 
 class GLSLProgram;
 class btBvhTriangleMeshShape;
 class btTriangleIndexVertexArray;
+
+typedef unsigned int byte_t;
 
 class Terrain
 {
@@ -39,7 +42,7 @@ public:
     float getMinZ() { return m_minZ; }
     float getMaxZ() { return m_maxZ; }
 
-	static string heightmap;
+	void generateShape(vector<float>* heights);
 
 private:
     void generateVertices(const std::vector<float> heights, int width);
@@ -99,7 +102,6 @@ private:
 	btScalar* m_physics_vertex;
 	int numVertices;
 	//btBvhTriangleMeshShape* shape;
-	void generateShape(std::vector<float>);
 	btCollisionShape* shape;
 };
 
