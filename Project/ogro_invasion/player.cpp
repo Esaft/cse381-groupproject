@@ -159,6 +159,9 @@ void Player::moveForward(const float speed)
 
 void Player::moveLeft(const float speed)
 {
+
+	const float speed_multiplier = 20;
+
     //Vector3 pos = getPosition();
 
     float cosYaw = cosf(degreesToRadians(m_yaw - 90));
@@ -168,7 +171,7 @@ void Player::moveLeft(const float speed)
 
 	btVector3 linearVelocity = getCollider()->getBody()->getLinearVelocity();
 
-	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(float(cosYaw)*speed*20.), linearVelocity.getY(), btScalar(float(sinYaw)*speed*20.)));
+	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(float(cosYaw)*speed*speed_multiplier), linearVelocity.getY(), btScalar(float(sinYaw)*speed*speed_multiplier)));
 
     //setPosition(pos);
 }

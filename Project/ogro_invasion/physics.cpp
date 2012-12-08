@@ -49,9 +49,9 @@ void Physics::initPhysics()
 	m_broadphase = new btDbvtBroadphase();
 	m_solver = new btSequentialImpulseConstraintSolver();
 	m_dynamicsWorld = new btDiscreteDynamicsWorld( m_dispatcher, m_broadphase, m_solver, m_collisionConfiguration );
-	m_dynamicsWorld->setGravity( btVector3(0.0,-12,0.0));
+	m_dynamicsWorld->setGravity( btVector3(0.0,-5,0.0));
 
-	//addStaticPlane();
+	addStaticPlane();
 
 }
 
@@ -79,9 +79,6 @@ void Physics::addStaticPlane()
 	btRigidBody* body = new btRigidBody(rbInfo);
 
 	m_dynamicsWorld->addRigidBody(body);
-	//entity->getCollider()->setBody(body);
-
-	//body->forceActivationState(DISABLE_DEACTIVATION); // Check this, it should be enabled when object is moving..
 
 }
 
@@ -114,7 +111,7 @@ void Physics::registerEntity(Entity* entity)
 				break;
 			case PLAYER:
 				mass = btScalar(10.0f);
-				colShape = new btCapsuleShape(0.1, 1);
+				colShape = new btCapsuleShape(0.3, 1);
 				break;
 			case TREE:
 				mass = btScalar(0.0f);
@@ -133,42 +130,8 @@ void Physics::registerEntity(Entity* entity)
 				break;
 			case LANDSCAPE:
 			{
-				bool use_heightmap = false;
 				mass = btScalar(0.0f);
-				if (!use_heightmap) {
-					//colShape = new btBoxShape(btVector3(50, 4, 50));//new btStaticPlaneShape(btVector3(0,1,0), 1000); // Check Constant
-					colShape = new btStaticPlaneShape(btVector3(0,1,0), btScalar(0));
-					//colShape = ((Terrain*) entity)->createShape();
-					} else {
-
-				
-					std::string heightmap_str = "data/hilltest2.raw";
-
-					std::ifstream fileIn(heightmap_str.c_str(), std::ios::in | std::ios::binary);
-
-					if (!fileIn.good())
-					{
-						//std::cout << "File does not exist" << std::endl;
-						return;
-					}
-					assert(stat(heightmap_str.c_str(), &results) == 0); // Should always be 0 otherwise error occured
-
-					char* bytes = new char[results.st_size];
-					fileIn.read(bytes, results.st_size);
-					int fileSize = results.st_size;
-
-					//This line reads in the whole file into a string
-					//string stringBuffer(std::istreambuf_iterator<char>(fileIn), (std::istreambuf_iterator<char>()));
-
-					fileIn.close();
-
-					colShape = new btHeightfieldTerrainShape(65, 65, bytes, 10, 1, false, false);
-					colShape->setLocalScaling(btVector3(5.0, 10.0, 5.0));
-
-					/*colShape = new btHeightfieldTerrainShape(65, 65, bytes,//&heights[0],
-						1, 1, 5,
-						1, PHY_UCHAR, false);*/
-				}
+				colShape = dynamic_cast<Landscape*>(entity)->getTerrain()->createShape();
 
 				break;
 			}
@@ -183,7 +146,7 @@ void Physics::registerEntity(Entity* entity)
 
 		Vector3 pos = entity->getPosition();
 		if (entity->getType() == LANDSCAPE)
-			startTransform.setOrigin(btVector3(0,0,0));
+			startTransform.setOrigin(btVector3(0, 0,0));
 		else if (entity->getType() == TREE || entity->getType() == LOG) {
 			float height = world->getLandscape()->getTerrain()->getHeightAt(pos.x, pos.z);
 			startTransform.setOrigin(btVector3(pos.x, height + 1,pos.z));
@@ -191,7 +154,7 @@ void Physics::registerEntity(Entity* entity)
 			float height = world->getLandscape()->getTerrain()->getHeightAt(pos.x, pos.z);
 			startTransform.setOrigin(btVector3(pos.x, height + 1,pos.z));
 		} else // Make entities fall from sky
-			startTransform.setOrigin(btVector3(pos.x,pos.y + 50,pos.z));
+			startTransform.setOrigin(btVector3(pos.x,pos.y + 10,pos.z));
 
 		//rigidbody is dynamic if and only if mass is non zero, otherwise static
 		bool isDynamic = (mass != 0.f);
@@ -217,13 +180,14 @@ void Physics::registerEntity(Entity* entity)
 	   }
 
 		if (entity->getType() == LANDSCAPE) { // Add Friction to Landscape
-			body->setFriction(1);
+			body->setFriction(0.1);
 			body->setRollingFriction(0.35); // 0.35
 		}
 		if (entity->getType() == LOG)
 			body->setRollingFriction(0.2); // 0.2
+		if (entity->getType() == PLAYER)
+			body->setFriction(0.1);
 	}
-
 }
 
 void Physics::unregisterEntity(Entity* entity)

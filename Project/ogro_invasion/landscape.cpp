@@ -31,6 +31,8 @@ bool Landscape::onInitialize()
     if (result) {
         m_terrain.normalizeTerrain();
         m_terrain.scaleHeights(4.0f);
+		// Uncomment if you want to generate based on rendering
+		m_terrain.generateShape(0);
     }
 
     return result;

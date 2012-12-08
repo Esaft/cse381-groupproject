@@ -24,7 +24,7 @@
 
 using std::list;
 using std::string;
-const std::string TERRAIN_HEIGHTMAP = "data/flat_terrain.raw";
+const std::string TERRAIN_HEIGHTMAP = "data/hilltest2.raw";
 
 GameWorld::GameWorld(KeyboardInterface* keyboardInterface, MouseInterface* mouseInterface):
 m_entities(list<Entity*>()),
