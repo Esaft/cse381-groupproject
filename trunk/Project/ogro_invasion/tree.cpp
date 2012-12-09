@@ -23,7 +23,7 @@ const string FRAGMENT_SHADER_120 = "data/shaders/glsl1.20/alpha_test.frag";
 const string FRAGMENT_SHADER_130 = "data/shaders/glsl1.30/alpha_test.frag";
 
 const string TREE_MODEL = "data/models/Tree/tree.md2";
-const string TREE_TEXTURE = "data/models/Log/plain.tga";//"data/models/Tree/tree_tex.tga";
+const string TREE_TEXTURE = "data/models/Tree/tree_tex.tga";
 
 const string LEAF_MODEL = "data/models/Tree/leaf.md2";
 const string LEAF_TEXTURE = "data/models/Tree/leaf_tex.tga";
@@ -31,7 +31,7 @@ const string LEAF_TEXTURE = "data/models/Tree/leaf_tex.tga";
 Tree::Tree(GameWorld* const world):
 Entity(world)
 {
-    m_collider = new SphereCollider(this, 0.75f);
+    m_collider = new SphereCollider(this, 1.0f);
 	hp = 100;
 	string vertexShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.vert" : "data/shaders/glsl1.20/model.vert";
     string fragmentShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.frag" : "data/shaders/glsl1.20/model.frag";
@@ -62,8 +62,8 @@ void Tree::onRender() const
 	glBindTexture(GL_TEXTURE_2D, m_treeTextureID);
     m_model->render();
 	
-	glBindTexture(GL_TEXTURE_2D, m_leafTextureID);
-	m_leafModel->render();
+	//glBindTexture(GL_TEXTURE_2D, m_leafTextureID);
+	//m_leafModel->render();
 
     glPopMatrix();
 }
@@ -101,7 +101,7 @@ bool Tree::onInitialize()
         }
     }
 
-	result = result && m_leafModel->load(LEAF_MODEL);
+	/*result = result && m_leafModel->load(LEAF_MODEL);
     if (result)
     {
         if (!m_leafTexture.load(LEAF_TEXTURE))
@@ -120,7 +120,7 @@ bool Tree::onInitialize()
                               m_leafTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
                               m_leafTexture.getImageData());
         }
-    }
+    }*/
 
     return result;
 }

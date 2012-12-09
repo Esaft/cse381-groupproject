@@ -26,7 +26,7 @@ const string FRAGMENT_SHADER_120 = "data/shaders/glsl1.20/alpha_test.frag";
 const string FRAGMENT_SHADER_130 = "data/shaders/glsl1.30/alpha_test.frag";
 
 const string LOG_MODEL = "data/models/Log/log.md2";
-const string LOG_TEXTURE = "data/models/Log/plain.tga";
+const string LOG_TEXTURE = "data/models/Log/brown_log_tex.tga";
 
 TreeLog::TreeLog(GameWorld* const world):
 Entity(world)
