@@ -11,6 +11,7 @@
 #include "spherecollider.h"
 #include "md2model.h"
 #include "glslshader.h"
+#include "btBulletDynamicsCommon.h"
 
 using std::string;
 
@@ -38,8 +39,8 @@ Rocket::~Rocket()
 
 void Rocket::onPrepare(float dT)
 {
-    getCollider()->setRadius(m_model->getRadius());
-
+    //getCollider()->setRadius(m_model->getRadius());
+	
     Vector3 velocity;
 
     float cosYaw = cosf(degreesToRadians(m_yaw));
@@ -47,20 +48,46 @@ void Rocket::onPrepare(float dT)
     float sinPitch = sinf(degreesToRadians(m_pitch));
     float cosPitch = cosf(degreesToRadians(m_pitch));
 
-    const float speed = 20.0f;
+    const float speed = 80.0f;
 
     velocity.x = cosPitch * cosYaw * speed;
     velocity.y = sinPitch * speed;
     velocity.z = cosPitch * sinYaw * speed;
 
-    const Vector3 gravity(0.0f, -1.0f, 0.0f);
+	velocity = velocity * dT;
+    //const Vector3 gravity(0.0f, -1.0f, 0.0f);
 
-    m_position += velocity * dT;
+    //m_position += velocity * dT;
    // m_position += gravity * dT;
+
+	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(velocity.x), btScalar(velocity.y), btScalar(velocity.z)));
+	
+	timer -= (velocity.length());
+
+	if(timer <= 0)
+		destroy();
 }
+
+
 
 void Rocket::onRender() const
 {
+	bool render = false;//we will only be rendering for test purposes
+
+	if(render)
+	{
+	static float modelviewMatrix[16];
+    static float projectionMatrix[16];
+
+	btTransform t;
+	btRigidBody* body = m_collider->getBody();
+	if (body->getMotionState() != NULL)
+		body->getMotionState()->getWorldTransform(t);
+	else
+		t = body->getWorldTransform();
+
+	t.getOpenGLMatrix(modelviewMatrix);
+
     glPushMatrix();
         Vector3 pos = getPosition();
         glTranslatef(pos.x, pos.y, pos.z);
@@ -70,6 +97,7 @@ void Rocket::onRender() const
         glScalef(0.5f, 0.5f, 0.5f);
         m_model->render();
     glPopMatrix();
+	}
 }
 
 void Rocket::onPostRender()
@@ -97,6 +125,8 @@ bool Rocket::onInitialize()
         }
     }
 
+	timer = 25;
+
     return result;
 }
 
@@ -107,11 +137,16 @@ void Rocket::onShutdown()
 
 void Rocket::onCollision(Entity* collider)
 {
-    if (collider->getType() == PLAYER) return;
+    if (collider->getType() == PLAYER)
+		return;
+	if (collider->getType() == TREE)
+		getWorld()->playerHit(collider);
+	else
+		bool check = true;
 
     //Create an explosion where the rocket is
-    Entity* explosion = getWorld()->spawnEntity(EXPLOSION, Vector3(0,0,0));
-    explosion->setPosition(getPosition());
+    //Entity* explosion = getWorld()->spawnEntity(EXPLOSION, Vector3(0,0,0));
+    //explosion->setPosition(getPosition());
 
     destroy(); //Mark the rocket as dead
 }

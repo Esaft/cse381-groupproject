@@ -36,6 +36,7 @@ private:
 	std::vector<btRigidBody*> bodies;
 
 	void addStaticPlane();
+	float heightfieldData[(65*65)];
 
 	GameWorld* world;
 
