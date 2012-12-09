@@ -136,12 +136,23 @@ void OctreeNode::addEntityFromChild(Entity *e)
 		if(e->getType() == LANDSCAPE)
 			rad = 65.0f/2.0f;
 
-		if((pos.x - rad) < (m_center.x - (m_size * 1.5)) ||
+		/*if((pos.x - rad) < (m_center.x - (m_size * 1.5)) ||
 			(pos.x + rad) > (m_center.x + (m_size * 1.5)) ||
 			(pos.y - rad) < (m_center.y - (m_size * 1.5)) ||
 			(pos.y + rad) > (m_center.y + (m_size * 1.5)) ||
 			(pos.z - rad) < (m_center.z - (m_size * 1.5)) ||
 			(pos.z + rad) > (m_center.z + (m_size * 1.5)))
+		{
+			if(m_ID >= 0)
+				m_pParent->addEntityFromChild(e);
+		}
+*/
+		if((pos.x - rad) < (m_center.x - (m_size )) ||
+			(pos.x + rad) > (m_center.x + (m_size)) ||
+			(pos.y - rad) < (m_center.y - (m_size )) ||
+			(pos.y + rad) > (m_center.y + (m_size )) ||
+			(pos.z - rad) < (m_center.z - (m_size)) ||
+			(pos.z + rad) > (m_center.z + (m_size )))
 		{
 			if(m_ID >= 0)
 				m_pParent->addEntityFromChild(e);

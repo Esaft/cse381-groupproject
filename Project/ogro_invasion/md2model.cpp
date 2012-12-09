@@ -230,6 +230,7 @@ void MD2Model::update(float dt)
 
 void MD2Model::render()
 {
+	glPushMatrix();
     static float modelviewMatrix[16];
     static float projectionMatrix[16];
 
@@ -256,7 +257,42 @@ void MD2Model::render()
 
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(0);
+
+	glPopMatrix();
 }
+
+//void MD2Model::render(float[16] modelviewMatrix, float[16] projectionMatrix)
+//{
+//	glPushMatrix();
+//    static float modelviewMatrix[16];
+//    static float projectionMatrix[16];
+//
+//    glGetFloatv(GL_MODELVIEW_MATRIX, modelviewMatrix);
+//    glGetFloatv(GL_PROJECTION_MATRIX, projectionMatrix);
+//
+//    m_shaderProgram->bindShader();
+//    m_shaderProgram->sendUniform4x4("modelview_matrix", modelviewMatrix);
+//    m_shaderProgram->sendUniform4x4("projection_matrix", projectionMatrix);
+//    m_shaderProgram->sendUniform("texture0", 0);
+//
+//    //glBindTexture(GL_TEXTURE_2D, m_treeTexID);
+//
+//    glEnableVertexAttribArray(0);
+//    glEnableVertexAttribArray(1);
+//
+//    glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
+//    glVertexAttribPointer((GLint)0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+//
+//    glBindBuffer(GL_ARRAY_BUFFER, m_texCoordBuffer);
+//    glVertexAttribPointer((GLint)1, 2, GL_FLOAT, GL_FALSE, 0, 0);
+//
+//    glDrawArrays(GL_TRIANGLES, 0, m_interpolatedFrame.vertices.size());
+//
+//    glDisableVertexAttribArray(1);
+//    glDisableVertexAttribArray(0);
+//
+//	glPopMatrix();
+//}
 
 /**
 There is a slight problem rendering md2 models

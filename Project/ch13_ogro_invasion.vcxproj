@@ -31,6 +31,7 @@
     <ClInclude Include="ogro_invasion\keyboardinterface.h" />
     <ClInclude Include="ogro_invasion\landscape.h" />
     <ClInclude Include="ogro_invasion\md2model.h" />
+    <ClInclude Include="ogro_invasion\modelType.h" />
     <ClInclude Include="ogro_invasion\mouseinterface.h" />
     <ClInclude Include="ogro_invasion\Octree.h" />
     <ClInclude Include="ogro_invasion\OctreeNode.h" />

@@ -158,6 +158,7 @@ void Player::pitch(const float val)
 void Player::moveForward(const float speed)
 {
     //Vector3 pos = getPosition();
+	const float speed_multiplier = 40;
 
     float cosYaw = cosf(degreesToRadians(m_yaw));
     float sinYaw = sinf(degreesToRadians(m_yaw));
@@ -166,7 +167,7 @@ void Player::moveForward(const float speed)
 
 	btVector3 linearVelocity = getCollider()->getBody()->getLinearVelocity();
 
-	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(float(cosYaw)*speed*60.), linearVelocity.getY(), btScalar(float(sinYaw)*speed*60.)));
+	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(float(cosYaw)*speed*speed_multiplier), linearVelocity.getY(), btScalar(float(sinYaw)*speed*speed_multiplier)));
 
     //setPosition(pos);
 }
@@ -174,7 +175,7 @@ void Player::moveForward(const float speed)
 void Player::moveLeft(const float speed)
 {
 
-	const float speed_multiplier = 60;
+	const float speed_multiplier = 40;
 
     //Vector3 pos = getPosition();
 

@@ -28,6 +28,10 @@ const string TREE_TEXTURE = "data/models/Tree/tree_tex.tga";
 const string LEAF_MODEL = "data/models/Tree/leaf.md2";
 const string LEAF_TEXTURE = "data/models/Tree/leaf_tex.tga";
 
+TargaImage Tree::m_treeTexture;
+unsigned int Tree::m_treeTextureID = 0;
+bool Tree::textureLoaded = false;
+
 Tree::Tree(GameWorld* const world):
 Entity(world)
 {
@@ -43,6 +47,7 @@ Entity(world)
 
 Tree::~Tree()
 {
+	delete m_model;
     delete m_collider;
 }
 
@@ -83,22 +88,26 @@ bool Tree::onInitialize()
 	bool result = m_model->load(TREE_MODEL);
     if (result)
     {
-        if (!m_treeTexture.load(TREE_TEXTURE))
-        {
-            result = false;
-        }
-        else
-        {
-			glGenTextures(1, &m_treeTextureID);
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, m_treeTextureID);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		if(!textureLoaded)
+		{
+			if (!m_treeTexture.load(TREE_TEXTURE))
+			{
+				result = false;
+			}
+			else
+			{
+				textureLoaded = true;
+				glGenTextures(1, &m_treeTextureID);
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, m_treeTextureID);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
-			gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB8, m_treeTexture.getWidth(),
-                              m_treeTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
-                              m_treeTexture.getImageData());
-        }
+				gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB8, m_treeTexture.getWidth(),
+								  m_treeTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
+								  m_treeTexture.getImageData());
+			}
+		}
     }
 
 	/*result = result && m_leafModel->load(LEAF_MODEL);

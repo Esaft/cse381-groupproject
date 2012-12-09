@@ -21,6 +21,10 @@ using std::string;
 const string OGRO_MODEL = "data/models/Ogro/tris.md2";
 const string OGRO_TEXTURE = "data/models/Ogro/Ogrobase.tga";
 
+TargaImage Ogro::m_ogroTexture;
+unsigned int Ogro::m_ogroTextureID = 0;
+bool Ogro::textureLoaded = false;
+
 Ogro::Ogro(GameWorld* world):
 Enemy(world),
 m_AIState(OGRO_IDLE),
@@ -65,11 +69,11 @@ void Ogro::onPrepare(float dT)
 
     if (m_AIState == OGRO_RUNNING)
     {
-        speed = 2.0f * dT;
+        speed = 1.5f * dT;
     }
     else if (m_AIState == OGRO_WALK)
     {
-        speed = 1.5f * dT;
+        speed = 1.0f * dT;
     }
 
     float cosYaw = cosf(degreesToRadians(m_yaw));
@@ -120,22 +124,26 @@ bool Ogro::onInitialize()
     bool result = m_model->load(OGRO_MODEL);
     if (result)
     {
-        if (!m_ogroTexture.load(OGRO_TEXTURE))
-        {
-            result = false;
-        }
-        else
-        {
-            glGenTextures(1, &m_ogroTextureID);
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, m_ogroTextureID);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		if(!textureLoaded)
+		{
+			if (!m_ogroTexture.load(OGRO_TEXTURE))
+			{
+				result = false;
+			}
+			else
+			{
+				textureLoaded = true;
+				glGenTextures(1, &m_ogroTextureID);
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, m_ogroTextureID);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
-            gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB8, m_ogroTexture.getWidth(),
-                              m_ogroTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
-                              m_ogroTexture.getImageData());
-        }
+				gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB8, m_ogroTexture.getWidth(),
+								  m_ogroTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
+								  m_ogroTexture.getImageData());
+			}
+		}
     }
 
     m_yaw = (float(rand()) / RAND_MAX) * 360.0f;

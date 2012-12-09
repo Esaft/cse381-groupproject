@@ -31,8 +31,8 @@ class Ogro : public Enemy
         virtual void onShutdown();
 
         MD2Model* m_model;
-        TargaImage m_ogroTexture;
-        unsigned int m_ogroTextureID;
+       // TargaImage m_ogroTexture;
+        //unsigned int m_ogroTextureID;
 
         void processAI();
 
@@ -44,6 +44,11 @@ class Ogro : public Enemy
 
         virtual void onKill();
         virtual void onResurrection();
+
+protected:
+	static TargaImage m_ogroTexture;
+	static unsigned int m_ogroTextureID;
+	static bool textureLoaded;
 };
 
 #endif // OGRO_H_INCLUDED
