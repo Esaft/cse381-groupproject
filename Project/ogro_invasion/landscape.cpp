@@ -26,11 +26,11 @@ bool Landscape::onInitialize()
 {
     const string grassTexture = "data/textures/grass.tga";
     const string heightTexture = "data/textures/height.tga";
-    const string waterTexture = "data/grass.tga"; //water.tga
+    const string waterTexture = "data/textures/water.tga";
     bool result = m_terrain.loadHeightmap(m_heightmap, grassTexture, heightTexture, 65, true, waterTexture);
     if (result) {
         m_terrain.normalizeTerrain();
-        m_terrain.scaleHeights(4.0f);
+        m_terrain.scaleHeights(6.0f);
 		// Uncomment if you want to generate based on rendering
 		m_terrain.generateShape(0);
     }

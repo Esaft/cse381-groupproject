@@ -14,12 +14,7 @@
 
 using std::string;
 
-GLuint Tree::m_treeTexID = 0;
-GLuint Tree::m_vertexBuffer = 0;
-GLuint Tree::m_texCoordBuffer = 0;
-std::auto_ptr<GLSLProgram> Tree::m_shaderProgram;
-
-const string TREE_TEXTURE = "data/textures/beech.tga";
+//const string TREE_TEXTURE = "data/textures/beech.tga";
 
 const string VERTEX_SHADER_120 = "data/shaders/glsl1.20/alpha_test.vert";
 const string VERTEX_SHADER_130 = "data/shaders/glsl1.30/alpha_test.vert";
@@ -27,11 +22,23 @@ const string VERTEX_SHADER_130 = "data/shaders/glsl1.30/alpha_test.vert";
 const string FRAGMENT_SHADER_120 = "data/shaders/glsl1.20/alpha_test.frag";
 const string FRAGMENT_SHADER_130 = "data/shaders/glsl1.30/alpha_test.frag";
 
+const string TREE_MODEL = "data/models/Tree/tree.md2";
+const string TREE_TEXTURE = "data/models/Log/plain.tga";//"data/models/Tree/tree_tex.tga";
+
+const string LEAF_MODEL = "data/models/Tree/leaf.md2";
+const string LEAF_TEXTURE = "data/models/Tree/leaf_tex.tga";
+
 Tree::Tree(GameWorld* const world):
 Entity(world)
 {
     m_collider = new SphereCollider(this, 0.75f);
 	hp = 100;
+	string vertexShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.vert" : "data/shaders/glsl1.20/model.vert";
+    string fragmentShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.frag" : "data/shaders/glsl1.20/model.frag";
+
+    m_collider = new SphereCollider(this, 0.75f);
+	m_model = new MD2Model(vertexShader, fragmentShader);
+	m_leafModel = new MD2Model(vertexShader, fragmentShader);
 }
 
 Tree::~Tree()
@@ -52,31 +59,11 @@ void Tree::onRender() const
     glPushMatrix();
     glTranslatef(m_position.x, m_position.y, m_position.z);
 
-    glGetFloatv(GL_MODELVIEW_MATRIX, modelviewMatrix);
-    glGetFloatv(GL_PROJECTION_MATRIX, projectionMatrix);
-
-    m_shaderProgram->bindShader();
-    m_shaderProgram->sendUniform4x4("modelview_matrix", modelviewMatrix);
-    m_shaderProgram->sendUniform4x4("projection_matrix", projectionMatrix);
-
-    glBindTexture(GL_TEXTURE_2D, m_treeTexID);
-
-    glDisable(GL_CULL_FACE);
-    glEnableVertexAttribArray(0);
-    glEnableVertexAttribArray(1);
-
-    glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
-    glVertexAttribPointer((GLint)0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-
-    glBindBuffer(GL_ARRAY_BUFFER, m_texCoordBuffer);
-    glVertexAttribPointer((GLint)1, 2, GL_FLOAT, GL_FALSE, 0, 0);
-
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    glDrawArrays(GL_TRIANGLE_STRIP, 4, 4);
-
-    glDisableVertexAttribArray(1);
-    glDisableVertexAttribArray(0);
-    glEnable(GL_CULL_FACE);
+	glBindTexture(GL_TEXTURE_2D, m_treeTextureID);
+    m_model->render();
+	
+	glBindTexture(GL_TEXTURE_2D, m_leafTextureID);
+	m_leafModel->render();
 
     glPopMatrix();
 }
@@ -88,93 +75,54 @@ void Tree::onPostRender()
 
 void Tree::initializeVBOs()
 {
-    GLfloat vertex [] = {
-        -1.0f, -1.0f, 0.0f, //First Square vertex
-         1.0f, -1.0f, 0.0f,
-        -1.0f, 1.0f, 0.0f,
-         1.0f, 1.0f, 0.0f,  //Last Square vertex
-         0.0f, -1.0f, 1.0f, //First Square vertex
-         0.0f, -1.0f,-1.0f,
-         0.0f, 1.0f, 1.0f,  //Last Square vertex
-         0.0f, 1.0f,-1.0f,
-
-    };
-
-	 //GLfloat vertex [] = {
-  //      -1.0f, 0.0f, 0.0f, //First Square vertex
-  //       1.0f, 0.0f, 0.0f,
-  //      -1.0f, 2.0f, 0.0f,
-  //       1.0f, 2.0f, 0.0f,  //Last Square vertex
-  //       0.0f, 0.0f, 1.0f, //First Square vertex
-  //       0.0f, 0.0f,-1.0f,
-  //       0.0f, 2.0f, 1.0f,  //Last Square vertex
-  //       0.0f, 2.0f,-1.0f,
-
-  //  };
-
-
-    GLfloat texCoord [] = {
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-    };
-
-    glGenBuffers(1, &m_vertexBuffer); //Generate a buffer for the vertices
-    glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer); //Bind the vertex buffer
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 8 * 3, &vertex[0], GL_STATIC_DRAW); //Send the data to OpenGL
-
-    glGenBuffers(1, &m_texCoordBuffer); //Generate a buffer for the vertices
-    glBindBuffer(GL_ARRAY_BUFFER, m_texCoordBuffer); //Bind the vertex buffer
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 8 * 2, &texCoord[0], GL_STATIC_DRAW); //Send the data to OpenGL
 }
 
 bool Tree::onInitialize()
 {
-    if(m_treeTexID == 0)
+
+	bool result = m_model->load(TREE_MODEL);
+    if (result)
     {
-        TargaImage treeTexture;
-        if (!treeTexture.load(TREE_TEXTURE))
+        if (!m_treeTexture.load(TREE_TEXTURE))
         {
-            std::cerr << "Couldn't load the tree texture" << std::endl;
-            return false;
+            result = false;
         }
-
-        initializeVBOs();
-
-        const string vertexShader = (GLSLProgram::glsl130Supported()) ? VERTEX_SHADER_130 : VERTEX_SHADER_120;
-        const string fragmentShader = (GLSLProgram::glsl130Supported()) ? FRAGMENT_SHADER_130 : FRAGMENT_SHADER_120;
-
-        m_shaderProgram = std::auto_ptr<GLSLProgram>(new GLSLProgram(vertexShader, fragmentShader));
-
-        if (!m_shaderProgram->initialize())
+        else
         {
-            std::cerr << "Could not initialize the tree shaders" << std::endl;
-            return false;
+			glGenTextures(1, &m_treeTextureID);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, m_treeTextureID);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+
+			gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB8, m_treeTexture.getWidth(),
+                              m_treeTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
+                              m_treeTexture.getImageData());
         }
-
-        m_shaderProgram->bindAttrib(0, "a_Vertex");
-        m_shaderProgram->bindAttrib(1, "a_TexCoord");
-        m_shaderProgram->linkProgram();
-
-        glGenTextures(1, &m_treeTexID);
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, m_treeTexID);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-
-        //We load the texture with an alpha channel (RGBA)
-        gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGBA8, treeTexture.getWidth(),
-                      treeTexture.getHeight(), GL_RGBA, GL_UNSIGNED_BYTE,
-                      treeTexture.getImageData());
     }
 
-    return true;
+	result = result && m_leafModel->load(LEAF_MODEL);
+    if (result)
+    {
+        if (!m_leafTexture.load(LEAF_TEXTURE))
+        {
+            result = false;
+        }
+        else
+        {
+			glGenTextures(1, &m_leafTextureID);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, m_leafTextureID);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
+			gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB8, m_leafTexture.getWidth(),
+                              m_leafTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
+                              m_leafTexture.getImageData());
+        }
+    }
+
+    return result;
 }
 
 void Tree::onShutdown()

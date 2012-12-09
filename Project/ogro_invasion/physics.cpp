@@ -106,20 +106,20 @@ void Physics::registerEntity(Entity* entity)
 		btCollisionShape* colShape;
 		switch (entity->getType()) {
 			case OGRO:
-				mass = btScalar(0.5f);
+				mass = btScalar(0.3f);
 				colShape = new btSphereShape(0.5);
 				break;
 			case PLAYER:
 				mass = btScalar(10.0f);
-				colShape = new btCapsuleShape(0.3, 1);
+				colShape = new btCapsuleShape(0.5, 1);
 				break;
 			case TREE:
 				mass = btScalar(0.0f);
-				colShape = new btBoxShape(btVector3(0.2, 4, 0.2));
+				colShape = new btBoxShape(btVector3(0.3, 4, 0.2));
 				break;
 			case LOG:
 				mass = btScalar(100.0f);
-				colShape = new btCapsuleShape(0.2, 1.5);
+				colShape = new btCapsuleShape(0.3, 1.25);
 				break;
 			case ROCKET:
 				mass = btScalar(1.0f);
@@ -153,6 +153,8 @@ void Physics::registerEntity(Entity* entity)
 		} else if (entity->getType() == LOG) {
 			float height = world->getLandscape()->getTerrain()->getHeightAt(pos.x, pos.z);
 			startTransform.setOrigin(btVector3(pos.x, height + 1,pos.z));
+		} else if (entity->getType() == ROCKET) {
+			startTransform.setOrigin(btVector3(pos.x, pos.y,pos.z));
 		} else // Make entities fall from sky
 			startTransform.setOrigin(btVector3(pos.x,pos.y + 10,pos.z));
 
@@ -180,7 +182,7 @@ void Physics::registerEntity(Entity* entity)
 	   }
 
 		if (entity->getType() == LANDSCAPE) { // Add Friction to Landscape
-			body->setFriction(0.1);
+			body->setFriction(1);
 			body->setRollingFriction(0.35); // 0.35
 		}
 		if (entity->getType() == LOG)
