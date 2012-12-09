@@ -21,6 +21,7 @@
 #include "explosion.h"
 #include "tree.h"
 #include "frustum.h"
+#include "house.h"
 
 using std::list;
 using std::string;
@@ -155,6 +156,9 @@ Entity* GameWorld::spawnEntity(EntityType entityType, Vector3 pos = Vector3(0,0,
         case TREE:
             newEntity = new Tree(this);
         break;
+		case HOUSE:
+			newEntity = new House(this);
+			break;
 		case LOG:
 			newEntity = new TreeLog(this);
 			break;
@@ -196,23 +200,24 @@ bool GameWorld::initialize()
     //Spawn a load of monsters
     for (unsigned int i = 0; i < MAX_ENEMY_COUNT; ++i)
     {
-        Entity* newEntity = spawnEntity(OGRO, getRandomPositionR((mapWidth/2)-2));
+        Entity* newEntity = spawnEntity(OGRO, getRandomPositionR((mapWidth/2)-2, 8.0f));
     }
 
     for (int i = 0; i < TREE_COUNT; ++i)
     {
-        
-
         Vector3 pos(0.0f, -1.0f, 0.0f);
         while (pos.y < 3.0f) { // Do not care about being in a higher level
-            pos = getRandomPosition();
+            pos = getRandomPositionR(10.0f, 4.5f);
         }
 
 		Entity* newEntity = spawnEntity(TREE, pos);
     }
 
+	// Spawn House
+	spawnEntity(HOUSE);
+
     //Spawn the player and center them
-    spawnEntity(PLAYER);
+    spawnEntity(PLAYER, Vector3(0, 0, 3));
     //getPlayer()->setPositionReal(Vector3(10.0f, 0.0f, 0.0f));
     m_gameCamera->attachTo(getPlayer()); //Attach the camera to the player
 
@@ -262,7 +267,7 @@ void GameWorld::update(float dT)
     //Spawn an entity every 10 seconds if we have room
     if (getOgroCount() < MAX_ENEMY_COUNT && (m_currentTime - m_lastSpawn) > 60.0f)
     {
-        spawnEntity(OGRO)->setPosition(getRandomPositionR((mapWidth/2)-2));
+        spawnEntity(OGRO)->setPosition(getRandomPositionR((mapWidth/2)-2, 8.0f));
     }
 
 	for (EntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
@@ -350,6 +355,9 @@ void GameWorld::render() const
 	(int)numSentToFrustum = visibleEntities.size();
 	for (ConstEntityIterator entity = visibleEntities.begin(); entity != visibleEntities.end(); ++entity)
     {
+		
+		if ((*entity)->getType() == HOUSE)
+			ground = false;
 		Vector3 pos = (*entity)->getPosition();
 		if ((*entity)->getType() == LANDSCAPE || (*entity)->getCollider() == NULL)
         {
@@ -387,11 +395,14 @@ Vector3 GameWorld::getRandomPosition() const
 }
 
 //gets random position at a certain distance from center
-Vector3 GameWorld::getRandomPositionR(float radius)
+Vector3 GameWorld::getRandomPositionR(float max, float min = 0)
 {
     float minX = getLandscape()->getTerrain()->getMinX();
     float mapWidth = getLandscape()->getTerrain()->getMaxX() - minX;
 	float randDeg = (rand() % 360) - 180;
+
+	int radiusRange = floor(max - min);
+	float radius = (rand() % radiusRange) + min;
 
     float randX = cosf(degreesToRadians(randDeg)) * radius;
     float randZ = sinf(degreesToRadians(randDeg)) * radius;

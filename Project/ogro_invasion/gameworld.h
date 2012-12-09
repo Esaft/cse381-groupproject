@@ -44,7 +44,7 @@ class GameWorld : private Uncopyable
 		OctreeNode	*m_pOctreeRoot;	
 
         Vector3 getRandomPosition() const;
-		Vector3 getRandomPositionR(float radius);
+		Vector3 getRandomPositionR(float maxRadius, float minRadius);
 
         void clearDeadEntities();
 
