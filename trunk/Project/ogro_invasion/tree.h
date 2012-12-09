@@ -4,6 +4,8 @@
 #include <memory>
 #include "glee/GLee.h"
 #include "entity.h"
+#include "md2model.h"
+#include "targa.h"
 
 class GLSLProgram;
 
@@ -37,10 +39,15 @@ public:
 
     virtual void onCollision(Entity* collider) { }
 private:
-    static GLuint m_treeTexID;
-    static GLuint m_vertexBuffer;
-    static GLuint m_texCoordBuffer;
-    static std::auto_ptr<GLSLProgram> m_shaderProgram;
+	MD2Model* m_model;
+    TargaImage m_treeTexture;
+    unsigned int m_treeTextureID;
+
+	MD2Model* m_leafModel;
+    TargaImage m_leafTexture;
+    unsigned int m_leafTextureID;
+
+
 	int hp;
 
     void initializeVBOs();

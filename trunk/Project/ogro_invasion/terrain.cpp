@@ -570,7 +570,7 @@ void Terrain::renderWater() const
 {
 	
 	glPushMatrix();
-	//glTranslatef(0, 4, 0);
+	glTranslatef(0, 2, 0);
     static float modelviewMatrix[16];
     static float projectionMatrix[16];
 

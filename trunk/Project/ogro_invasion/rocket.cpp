@@ -72,7 +72,7 @@ void Rocket::onPrepare(float dT)
 
 void Rocket::onRender() const
 {
-	bool render = false;//we will only be rendering for test purposes
+	bool render = true;//we will only be rendering for test purposes
 
 	if(render)
 	{

@@ -204,11 +204,10 @@ bool GameWorld::initialize()
         
 
         Vector3 pos(0.0f, -1.0f, 0.0f);
-        /*while (pos.y < 1.1f) { // Do not care about being in a higher level
+        while (pos.y < 3.0f) { // Do not care about being in a higher level
             pos = getRandomPosition();
-        }*/
+        }
 
-		pos = getRandomPosition();
 		Entity* newEntity = spawnEntity(TREE, pos);
     }
 
