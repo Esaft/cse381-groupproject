@@ -22,7 +22,7 @@ const string HOUSE_TEXTURE = "data/models/House/house.tga";
 House::House(GameWorld* const world):
 Entity(world)
 {
-    m_collider = new SphereCollider(this, 1.0f);
+    m_collider = new SphereCollider(this, 4.0f);
 	string vertexShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.vert" : "data/shaders/glsl1.20/model.vert";
     string fragmentShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.frag" : "data/shaders/glsl1.20/model.frag";
     m_model = new MD2Model(vertexShader, fragmentShader);

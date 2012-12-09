@@ -200,7 +200,7 @@ bool GameWorld::initialize()
     //Spawn a load of monsters
     for (unsigned int i = 0; i < MAX_ENEMY_COUNT; ++i)
     {
-        Entity* newEntity = spawnEntity(OGRO, getRandomPositionR((mapWidth/2)-2, 8.0f));
+        Entity* newEntity = spawnEntity(OGRO, getRandomPositionR((mapWidth/2)-1, 29.0f));
     }
 
     for (int i = 0; i < TREE_COUNT; ++i)
@@ -267,7 +267,7 @@ void GameWorld::update(float dT)
     //Spawn an entity every 10 seconds if we have room
     if (getOgroCount() < MAX_ENEMY_COUNT && (m_currentTime - m_lastSpawn) > 60.0f)
     {
-        spawnEntity(OGRO)->setPosition(getRandomPositionR((mapWidth/2)-2, 8.0f));
+        spawnEntity(OGRO)->setPosition(getRandomPositionR((mapWidth/2)-1, 29.0f));
     }
 
 	for (EntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)

@@ -49,7 +49,7 @@ void Physics::initPhysics()
 	m_broadphase = new btDbvtBroadphase();
 	m_solver = new btSequentialImpulseConstraintSolver();
 	m_dynamicsWorld = new btDiscreteDynamicsWorld( m_dispatcher, m_broadphase, m_solver, m_collisionConfiguration );
-	m_dynamicsWorld->setGravity( btVector3(0.0,-9,0.0));
+	m_dynamicsWorld->setGravity( btVector3(0.0,-15,0.0));
 
 	addStaticPlane();
 
@@ -106,8 +106,8 @@ void Physics::registerEntity(Entity* entity)
 		btCollisionShape* colShape;
 		switch (entity->getType()) {
 			case OGRO:
-				mass = btScalar(0.3f);
-				colShape = new btSphereShape(0.35);
+				mass = btScalar(0.5f);
+				colShape = new btCapsuleShape(0.35, 0.5);
 				break;
 			case PLAYER:
 				mass = btScalar(10.0f);
@@ -127,7 +127,7 @@ void Physics::registerEntity(Entity* entity)
 				break;
 			case HOUSE:
 				mass = btScalar(0.0f);
-				colShape = new btBoxShape(btVector3(1.0f, 1.5f, 0.7f));
+				colShape = new btBoxShape(btVector3(1.2f, 1.5f, 0.9f));
 				break;
 			case LANDSCAPE:
 			{
@@ -192,7 +192,7 @@ void Physics::registerEntity(Entity* entity)
 		if (entity->getType() == LOG)
 			body->setRollingFriction(0.2); // 0.2
 		if (entity->getType() == PLAYER)
-			body->setFriction(0.0);
+			body->setFriction(0.5);
 	}
 }
 

@@ -37,7 +37,7 @@ class GameWorld : private Uncopyable
         void unregisterEntity(const Entity* entity);
 
         static const unsigned int MAX_ENEMY_COUNT = 7;
-        static const int TREE_COUNT = 50;
+        static const int TREE_COUNT = 10;
 
         Player* m_player;
         Landscape* m_landscape;

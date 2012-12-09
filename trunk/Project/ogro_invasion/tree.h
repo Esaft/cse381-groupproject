@@ -40,8 +40,8 @@ public:
     virtual void onCollision(Entity* collider) { }
 private:
 	MD2Model* m_model;
-    TargaImage m_treeTexture;
-    unsigned int m_treeTextureID;
+    //TargaImage m_treeTexture;
+    //unsigned int m_treeTextureID;
 
 	MD2Model* m_leafModel;
     TargaImage m_leafTexture;
@@ -54,6 +54,10 @@ private:
 
     Vector3 m_position;
     Collider* m_collider;
+protected:
+	static TargaImage m_treeTexture;
+	static unsigned int m_treeTextureID;
+	static bool textureLoaded;
 };
 
 #endif // TREE_H_INCLUDED

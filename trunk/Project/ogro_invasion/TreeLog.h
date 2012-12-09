@@ -37,13 +37,18 @@ public:
     virtual void onCollision(Entity* collider) { }
 private:
 	MD2Model* m_model;
-    TargaImage m_logTexture;
-    unsigned int m_logTextureID;
+    //TargaImage m_logTexture;
+    //unsigned int m_logTextureID;
 
     void initializeVBOs();
 
     Vector3 m_position;
     Collider* m_collider;
+
+protected:
+	static TargaImage m_logTexture;
+	static unsigned int m_logTextureID;
+	static bool textureLoaded;
 };
 
 #endif // TREELOG_H_INCLUDED

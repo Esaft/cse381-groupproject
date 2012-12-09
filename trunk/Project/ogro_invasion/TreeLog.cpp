@@ -14,6 +14,8 @@
 #include "collider.h"
 #include "btBulletCollisionCommon.h"
 #include "btBulletDynamicsCommon.h"
+#include "gameworld.h"
+#include "landscape.h"
 
 using std::string;
 
@@ -27,6 +29,11 @@ const string FRAGMENT_SHADER_130 = "data/shaders/glsl1.30/alpha_test.frag";
 
 const string LOG_MODEL = "data/models/Log/log.md2";
 const string LOG_TEXTURE = "data/models/Log/brown_log_tex.tga";
+
+TargaImage TreeLog::m_logTexture;
+unsigned int TreeLog::m_logTextureID = 0;
+bool TreeLog::textureLoaded = false;
+
 
 TreeLog::TreeLog(GameWorld* const world):
 Entity(world)
@@ -43,11 +50,20 @@ Entity(world)
 TreeLog::~TreeLog()
 {
     delete m_collider;
+	delete m_model;
 }
 
 void TreeLog::onPrepare(float dT)
 {
+	float minX = getWorld()->getLandscape()->getTerrain()->getMinX();
+    float maxX = getWorld()->getLandscape()->getTerrain()->getMaxX();
+    float minZ = getWorld()->getLandscape()->getTerrain()->getMinZ();
+    float maxZ = getWorld()->getLandscape()->getTerrain()->getMaxZ();
 
+    if (m_position.x < minX) destroy();
+    else if (m_position.x > maxX) destroy();
+    else if (m_position.z < minZ) destroy();
+    else if (m_position.z > maxZ) destroy();
 }
 
 void TreeLog::onRender() const
@@ -88,22 +104,26 @@ bool TreeLog::onInitialize()
 	bool result = m_model->load(LOG_MODEL);
     if (result)
     {
-        if (!m_logTexture.load(LOG_TEXTURE))
-        {
-            result = false;
-        }
-        else
-        {
-			glGenTextures(1, &m_logTextureID);
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, m_logTextureID);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		if(!textureLoaded)
+		{
+			if (!m_logTexture.load(LOG_TEXTURE))
+			{
+				result = false;
+			}
+			else
+			{
+				textureLoaded = true;
+				glGenTextures(1, &m_logTextureID);
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, m_logTextureID);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
-			gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB8, m_logTexture.getWidth(),
-                              m_logTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
-                              m_logTexture.getImageData());
-        }
+				gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB8, m_logTexture.getWidth(),
+								  m_logTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
+								  m_logTexture.getImageData());
+			}
+		}
     }
 
     return result;
