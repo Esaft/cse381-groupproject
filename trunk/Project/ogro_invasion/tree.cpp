@@ -100,6 +100,19 @@ void Tree::initializeVBOs()
 
     };
 
+	 //GLfloat vertex [] = {
+  //      -1.0f, 0.0f, 0.0f, //First Square vertex
+  //       1.0f, 0.0f, 0.0f,
+  //      -1.0f, 2.0f, 0.0f,
+  //       1.0f, 2.0f, 0.0f,  //Last Square vertex
+  //       0.0f, 0.0f, 1.0f, //First Square vertex
+  //       0.0f, 0.0f,-1.0f,
+  //       0.0f, 2.0f, 1.0f,  //Last Square vertex
+  //       0.0f, 2.0f,-1.0f,
+
+  //  };
+
+
     GLfloat texCoord [] = {
         0.0f, 0.0f,
         1.0f, 0.0f,

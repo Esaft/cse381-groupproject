@@ -22,7 +22,8 @@ bool Entity::canBeRemoved() const
 
 void Entity::destroy()
 {
-	m_node->removeEntity(this);
+	if(m_node != NULL)
+		m_node->removeEntity(this);
     m_canBeRemoved = true;
 }
 

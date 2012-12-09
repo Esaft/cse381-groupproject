@@ -268,7 +268,8 @@ void GameWorld::update(float dT)
 
 	for (EntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
     {
-		m_pOctreeRoot->addEntity(*entity);
+		//if((*entity)->getType() != ROCKET)
+			m_pOctreeRoot->addEntity(*entity);
     }
 
     /*
@@ -465,7 +466,8 @@ void GameWorld::playerHit(Entity* en)
 				if (tree->getHP() <= 0) {
 					tree->cutTree();
 					currentTree = NULL;
-					logsToSpawn.push_back(tree->getPosition());
+					Vector3 pos = tree->getPosition();
+					logsToSpawn.push_back(Vector3(pos.x,pos.y, pos.z));
 				} else {
 					currentTree = tree;
 					timeOfLastTreeHit = time(NULL);

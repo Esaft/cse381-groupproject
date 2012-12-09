@@ -24,13 +24,13 @@ Enemy::~Enemy()
 void Enemy::onCollision(Entity* collider)
 {
     //It was a rocket that hit us!
-    if (collider->getType() == ROCKET && !isDead())
-    {
-        getWorld()->getPlayer()->increaseScore(10);
-        kill(); //Kill this enemy
-    }
+    //if (collider->getType() == ROCKET && !isDead())
+    //{
+    //    getWorld()->getPlayer()->increaseScore(10);
+    //    kill(); //Kill this enemy
+    //}
 	//It was a log that hit us!
-    else if (collider->getType() == LOG && !isDead())
+    if (collider->getType() == LOG && !isDead())
     {
         getWorld()->getPlayer()->increaseScore(10);
         kill(); //Kill this enemy

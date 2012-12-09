@@ -56,7 +56,19 @@ void Player::onPrepare(float dT)
 	if (getWorld()->getKeyboard()->isKeyPressed(KC_SPACE) ||
         getWorld()->getMouse()->isButtonPressed(0))
     {
-		hitTree();
+		//hitTree();
+		float cosYaw = cosf(degreesToRadians(m_yaw));
+		float sinYaw = sinf(degreesToRadians(m_yaw));
+		float sinPitch = sinf(degreesToRadians(m_pitch));
+		float cosPitch = cosf(degreesToRadians(m_pitch));
+		Vector3 pos = getPosition();
+		// pos.y + sinPitch * 2
+		Entity* rocket = getWorld()->spawnEntity(ROCKET, Vector3(pos.x + cosYaw * cosPitch * 0.5f, pos.y + sinPitch* 0.5f, pos.z + cosPitch * sinYaw* 0.5f));
+		//Entity* rocket = getWorld()->spawnEntity(ROCKET, getPosition());
+
+        //rocket->setPosition(getPosition());
+        rocket->setYaw(getYaw());
+        rocket->setPitch(getPitch());
     }
 
     float x, y;
@@ -64,6 +76,8 @@ void Player::onPrepare(float dT)
 
     yaw(float(x) * 40.0f * dT);
     pitch(float(y)* -40.0f * dT);
+
+	
 
     //m_position.y -= 8.0f * dT;
 

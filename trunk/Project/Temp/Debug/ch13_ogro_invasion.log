@@ -1,9 +1,55 @@
-﻿Build started 11/26/2012 5:40:36 PM.
-     1>Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\ch13_ogro_invasion.vcxproj" on node 2 (clean target(s)).
-     1>_PrepareForClean:
-         Deleting file "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.lastbuildstate".
-     1>Done Building Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\ch13_ogro_invasion.vcxproj" (clean target(s)).
+﻿Build started 12/9/2012 2:19:41 PM.
+     1>Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\ch13_ogro_invasion.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Common\\" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\\" /Fd"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ogro_invasion\entity.cpp ogro_invasion\player.cpp
+         player.cpp
+         entity.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.exe" /NOLOGO /LIBPATH:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Common\\" glut32.lib BulletCollision_vs2010_debug.lib BulletDynamics_vs2010_debug.lib OpenGLSupport_vs2010_debug.lib LinearMath_vs2010_debug.lib freetype.lib glee.lib kazmath.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.lib" /MACHINE:X86 "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\camera.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\collider.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\enemy.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\entity.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\example.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\explosion.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\freetypefont.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\frustum.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\gameworld.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\glwindow.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\house.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\landscape.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\main.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\md2model.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\OctreeNode.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ogro.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\physics.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\player.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\rocket.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\spherecollider.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\targa.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\terrain.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\terraincollider.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\tree.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\TreeLog.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\common\BulletCollision_vs2010_debug.lib"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\common\BulletDynamics_vs2010_debug.lib"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\common\LinearMath_vs2010_debug.lib"
+         glee.lib(GLee.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+     1>LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+         Generating code
+         Finished generating code
+     1>glee.lib(GLee.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'glee.lib(GLee.obj)' or at 'C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\vc100.pdb'; linking object as if no debug info
+         ch13_ogro_invasion.vcxproj -> C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.exe;#1" /manifest "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.exe.intermediate.manifest"
+       FinalizeBuildStatus:
+         Deleting file "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.unsuccessfulbuild".
+         Touching "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.lastbuildstate".
+     1>Done Building Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\ch13_ogro_invasion.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.49
+Time Elapsed 00:00:07.47

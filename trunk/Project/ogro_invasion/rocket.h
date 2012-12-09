@@ -34,6 +34,7 @@ private:
 
     float m_yaw;
     float m_pitch;
+	float timer;
 
     Collider* m_collider;
 

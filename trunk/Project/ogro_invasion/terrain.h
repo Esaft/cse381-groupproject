@@ -41,8 +41,10 @@ public:
     float getMaxX() { return m_maxX; }
     float getMinZ() { return m_minZ; }
     float getMaxZ() { return m_maxZ; }
+	//vector<float>* getHeights() { return &heights; }
 
 	void generateShape(vector<float>* heights);
+
 
 private:
     void generateVertices(const std::vector<float> heights, int width);
@@ -96,6 +98,8 @@ private:
     float m_maxX;
     float m_minZ;
     float m_maxZ;
+
+	//vector<float> heights;
 
 	// Hopefully temporary variables
 	int* m_physics_indices;
