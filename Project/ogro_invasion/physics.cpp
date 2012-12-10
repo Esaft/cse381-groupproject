@@ -176,6 +176,8 @@ void Physics::registerEntity(Entity* entity)
 		btRigidBody* body = new btRigidBody(rbInfo);
 		
 		//body->setContactProcessingThreshold(BT_LARGE_FLOAT);
+		if (body->getUserPointer())
+			delete body->getUserPointer();
 		body->setUserPointer(entity);
 		m_dynamicsWorld->addRigidBody(body);
 		entity->getCollider()->setBody(body);
@@ -192,6 +194,8 @@ void Physics::registerEntity(Entity* entity)
 		if (entity->getType() == LOG)
 			body->setRollingFriction(0.2); // 0.2
 		if (entity->getType() == PLAYER)
+			body->setFriction(0);
+		if (entity->getType() == OGRO)
 			body->setFriction(0);
 	}
 }

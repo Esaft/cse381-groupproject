@@ -24,6 +24,7 @@ void Entity::destroy()
 {
 	if(m_node != NULL)
 		m_node->removeEntity(this);
+	m_node = NULL;
     m_canBeRemoved = true;
 }
 

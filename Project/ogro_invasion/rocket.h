@@ -29,6 +29,7 @@ private:
     virtual bool onInitialize();
     virtual void onShutdown();
     virtual void onCollision(Entity* collider);
+	void onRevive() { timer = 25; }
 
     Vector3 m_position;
 

@@ -29,6 +29,7 @@ class Ogro : public Enemy
         virtual void onPostRender();
         virtual bool onInitialize();
         virtual void onShutdown();
+		void onRevive();
 
         MD2Model* m_model;
        // TargaImage m_ogroTexture;

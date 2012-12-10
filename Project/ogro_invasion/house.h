@@ -20,6 +20,7 @@ public:
     virtual void onPostRender();
     virtual bool onInitialize();
     virtual void onShutdown();
+	void onRevive() {}
 
     void setPosition(const Vector3& v) { m_position = v; }
     Vector3 getPosition() const { return m_position; }

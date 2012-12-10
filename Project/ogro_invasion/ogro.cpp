@@ -43,6 +43,11 @@ Ogro::~Ogro()
     delete m_model;
 }
 
+void Ogro::onRevive()
+{
+	onResurrection();
+}
+
 void Ogro::onPrepare(float dT)
 {
     getCollider()->setRadius(m_model->getRadius());

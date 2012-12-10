@@ -113,10 +113,10 @@ Entity* GameWorld::spawnEntity(EntityType entityType, Vector3 pos = Vector3(0,0,
     {
         case OGRO:
             //In the case of the ogro, we can reuse old dead ones
-            newEntity = findDeadEnemy();
+            newEntity = findDead(OGRO);
             if (newEntity)
             {
-                (dynamic_cast<Enemy*>(newEntity))->bringToLife();
+                newEntity->revive();
                 initialize = false;
             }
             else
@@ -151,20 +151,47 @@ Entity* GameWorld::spawnEntity(EntityType entityType, Vector3 pos = Vector3(0,0,
         }
         break;
         case ROCKET:
-            newEntity = new Rocket(this);
+            newEntity = findDead(ROCKET);
+            if (newEntity)
+            {
+				newEntity->revive();
+                initialize = false;
+            }
+            else
+            {
+                newEntity = new Rocket(this);
+            }
         break;
         case EXPLOSION:
             newEntity = new Explosion(this, 250);
         break;
         case TREE:
-            newEntity = new Tree(this);
+			newEntity = findDead(TREE);
+            if (newEntity)
+            {
+				newEntity->revive();
+                initialize = false;
+            }
+            else
+            {
+                newEntity = new Tree(this);
+            }
 			m_lastSpawnTree = m_currentTime;
         break;
 		case HOUSE:
 			newEntity = new House(this);
 			break;
 		case LOG:
-			newEntity = new TreeLog(this);
+			newEntity = findDead(LOG);
+            if (newEntity)
+            {
+				newEntity->revive();
+                initialize = false;
+            }
+            else
+            {
+                newEntity = new TreeLog(this);
+            }
 			break;
         default:
             throw std::invalid_argument("Attempted to spawn an invalid entity");
@@ -277,7 +304,7 @@ void GameWorld::update(float dT)
     //Spawn an entity every 10 seconds if we have room
     if (getOgroCount() < MAX_ENEMY_COUNT && (m_currentTime - m_lastSpawn) > 60.0f)
     {
-        spawnEntity(OGRO)->setPosition(getRandomPositionR((mapWidth/2)-1, 29.0f));
+        spawnEntity(OGRO, getRandomPositionR((mapWidth/2)-1, 29.0f));
     }
 
 	int treeCount = getTreeCount();
@@ -285,7 +312,7 @@ void GameWorld::update(float dT)
 
 		for (int i = 0 ; i < TREE_COUNT - treeCount ; i++) {
 			Vector3 pos(0.0f, -1.0f, 0.0f);
-			while (pos.y < 3.0f || !isNotCloseToAnyEntity(pos)) { // Do not care about being in a higher level
+			while (pos.y < 3.0f || !isNotCloseToAnyEntity(pos)) {
 				pos = getRandomPositionR(10.0f, 4.5f);
 			}
 
@@ -296,8 +323,7 @@ void GameWorld::update(float dT)
 
 	for (EntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
     {
-		//if((*entity)->getType() != ROCKET)
-			m_pOctreeRoot->addEntity(*entity);
+		m_pOctreeRoot->addEntity(*entity);
     }
 
     /*
@@ -446,7 +472,8 @@ void GameWorld::clearDeadEntities()
         unregisterCollider((*entity)->getCollider());
 		physics->unregisterEntity((*entity));
 		(*entity)->destroy();
-        delete (*entity);
+        //delete (*entity);
+		m_dead_entities.push_back((*entity));
         entity = m_entities.erase(entity);
     }
 }
@@ -464,7 +491,8 @@ void GameWorld::clearInvisibleEntities()
 		unregisterCollider((*entity)->getCollider());
 		physics->unregisterEntity((*entity));
 		(*entity)->destroy();
-		delete (*entity);
+		//delete (*entity);
+		m_dead_entities.push_back((*entity));
         entity = m_entities.erase(entity);
     }
 }
@@ -490,7 +518,6 @@ void GameWorld::registerCollider(Collider* collider)
     {
         return;
     }
-
     m_colliders.push_back(collider);
 }
 
