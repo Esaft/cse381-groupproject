@@ -1,10 +1,19 @@
-﻿Build started 12/9/2012 11:14:09 PM.
+﻿Build started 12/10/2012 12:48:37 PM.
      1>Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\ch13_ogro_invasion.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Common\\" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\\" /Fd"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ogro_invasion\skybox.cpp
-         skybox.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Common\\" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\\" /Fd"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ogro_invasion\enemy.cpp ogro_invasion\example.cpp ogro_invasion\gameworld.cpp ogro_invasion\ogro.cpp
+         ogro.cpp
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\ogro.cpp(301): warning C4244: '=' : conversion from 'time_t' to 'int', possible loss of data
+         gameworld.cpp
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameworld.cpp(441): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameworld.cpp(443): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameworld.cpp(542): warning C4244: '=' : conversion from 'time_t' to 'int', possible loss of data
+         example.cpp
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\example.cpp(92): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+         enemy.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.exe" /NOLOGO /LIBPATH:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Common\\" glut32.lib BulletCollision_vs2010_debug.lib BulletDynamics_vs2010_debug.lib OpenGLSupport_vs2010_debug.lib LinearMath_vs2010_debug.lib freetype.lib glee.lib kazmath.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.lib" /MACHINE:X86 "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\camera.obj"
          "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\collider.obj"
@@ -14,6 +23,7 @@
          "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\explosion.obj"
          "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\freetypefont.obj"
          "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\frustum.obj"
+         "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\GameAudio.obj"
          "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\gameworld.obj"
          "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\glwindow.obj"
          "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\house.obj"
@@ -51,4 +61,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:07.01
+Time Elapsed 00:00:16.37

@@ -177,7 +177,7 @@ void Example::render()
     else
     {
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        m_font->printString("Game Over", (float)viewport[2] / 2 - 40, (float)viewport[3] / 2);
+        m_font->printString("You Survived!", (float)viewport[2] / 2 - 40, (float)viewport[3] / 2);
 
         stringstream scoreMessage;
         scoreMessage << "Your score was " << m_world->getPlayer()->getScore();

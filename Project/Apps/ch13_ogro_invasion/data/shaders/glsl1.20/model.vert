@@ -16,6 +16,6 @@ void main(void)
 {
 	vec4 pos = modelview_matrix * vec4(a_Vertex, 1.0);	
 	texCoord0 = a_TexCoord0;
-	alpha0 = a_Alpha0;
+	alpha0 = a_Alpha;
 	gl_Position = projection_matrix * pos;	
 }
