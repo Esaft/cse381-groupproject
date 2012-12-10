@@ -107,7 +107,7 @@ void Physics::registerEntity(Entity* entity)
 		switch (entity->getType()) {
 			case OGRO:
 				mass = btScalar(0.5f);
-				colShape = new btCapsuleShape(0.35, 0.5);
+				colShape = new btCapsuleShape(0.5, 0.5);//0.35, 0.5);
 				break;
 			case PLAYER:
 				mass = btScalar(10.0f);
@@ -118,8 +118,8 @@ void Physics::registerEntity(Entity* entity)
 				colShape = new btBoxShape(btVector3(0.3, 4, 0.3));
 				break;
 			case LOG:
-				mass = btScalar(100.0f);
-				colShape = new btCylinderShape(btVector3(0.3, 0.75, 0.3)); // No less than 0.3
+				mass = btScalar(80.0f);
+				colShape = new btCylinderShape(btVector3(0.4, 1.0, 0.4)); // No less than 0.3
 				break;
 			case ROCKET:
 				mass = btScalar(1.0f);
@@ -159,8 +159,10 @@ void Physics::registerEntity(Entity* entity)
 			startTransform.setOrigin(btVector3(pos.x, height + 1,pos.z));
 		} else if (entity->getType() == ROCKET) {
 			startTransform.setOrigin(btVector3(pos.x, pos.y,pos.z));
-		} else // Make entities fall from sky
-			startTransform.setOrigin(btVector3(pos.x,pos.y + 10,pos.z));
+		} else { // Make entities fall from sky
+			float height = world->getLandscape()->getTerrain()->getHeightAt(pos.x, pos.z);
+			startTransform.setOrigin(btVector3(pos.x, height + 2,pos.z));
+		}
 
 		//rigidbody is dynamic if and only if mass is non zero, otherwise static
 		bool isDynamic = (mass != 0.f);
@@ -192,7 +194,7 @@ void Physics::registerEntity(Entity* entity)
 			body->setRollingFriction(0.35); // 0.35
 		}
 		if (entity->getType() == LOG)
-			body->setRollingFriction(0.2); // 0.2
+			body->setRollingFriction(1); // 0.2
 		if (entity->getType() == PLAYER)
 			body->setFriction(0);
 		if (entity->getType() == OGRO)

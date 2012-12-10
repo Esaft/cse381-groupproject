@@ -36,7 +36,6 @@ public:
     void bringToLife()
     {
         m_isDead = false;
-        onResurrection();
     }
 
     bool isDead() const { return m_isDead; }

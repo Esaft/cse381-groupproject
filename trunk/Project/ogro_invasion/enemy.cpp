@@ -33,12 +33,17 @@ void Enemy::onCollision(Entity* collider)
     if (collider->getType() == LOG && !isDead())
     {
         getWorld()->getPlayer()->increaseScore(10);
-		char* painSound = (char*)("pain" + (rand() / 3 + 1));
+
+		char* painArray [3] =
+		{
+			"pain1","pain2","pain3"
+		};
+		char* painSound = (char*)(painArray[(rand() % 3)]);
 		getWorld()->playSound(painSound);
         kill(); //Kill this enemy
     }
 
-	bool canLose = false;
+	bool canLose = true;
 	if (collider->getType() == HOUSE && canLose)
     {
 		getWorld()->loseGame();

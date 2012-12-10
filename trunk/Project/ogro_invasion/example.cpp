@@ -157,8 +157,8 @@ void Example::render()
 			m_font->printString(treeHPString.str(), 20.0f, 120.0f);
 		}
 
-        m_font->printString(m_world->getSpawnMessage(), 20.0f, 80.0f);
-        m_font->printString("+", (float)viewport[2] / 2, (float)viewport[3] / 2);
+       /* m_font->printString(m_world->getSpawnMessage(), 20.0f, 80.0f);
+        m_font->printString("+", (float)viewport[2] / 2, (float)viewport[3] / 2);*/
 
         stringstream fpsMessage;     
         fpsMessage << "FPS: " << std::setprecision(3) << m_FPS;
@@ -167,7 +167,7 @@ void Example::render()
 	else if(m_world->isGameLost())
 	{
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        m_font->printString("They got to your cabin!", (float)viewport[2] / 2 - 40, (float)viewport[3] / 2);
+        m_font->printString("They got to your cabin!", (float)viewport[2] / 2 - 60, (float)viewport[3] / 2);
 
         stringstream scoreMessage;
         scoreMessage << "Your score was " << m_world->getPlayer()->getScore();

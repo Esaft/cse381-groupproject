@@ -71,6 +71,7 @@ class GameWorld : private Uncopyable
 		int numRendered;
 		bool gameLost;
 		bool doAudio;
+		bool lumberjack;
 
         std::auto_ptr<Frustum> m_frustum;
 
@@ -94,6 +95,7 @@ class GameWorld : private Uncopyable
         void update(float dt);
         void render() const;
 		void playSound(char* cue) {audio->playSound(cue);}
+		void makeLumberjack();
 
         typedef std::list<Entity*>::iterator EntityIterator;
         typedef std::list<Entity*>::const_iterator ConstEntityIterator;

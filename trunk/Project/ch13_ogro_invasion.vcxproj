@@ -148,7 +148,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Apps\$(ProjectName)\</OutDir>
     <IntDir>$(ProjectDir)Temp\$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir)/../Bullet3D/src/;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(DXSDK_DIR)Include</IncludePath>
+    <IncludePath>$(ProjectDir)/../Bullet3D/src/;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)include;$(DXSDK_DIR)Include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

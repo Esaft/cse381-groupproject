@@ -19,15 +19,13 @@
 
 using std::string;
 
-const string TREE_TEXTURE = "data/textures/log.tga";
-
 const string VERTEX_SHADER_120 = "data/shaders/glsl1.20/alpha_test.vert";
 const string VERTEX_SHADER_130 = "data/shaders/glsl1.30/alpha_test.vert";
 
 const string FRAGMENT_SHADER_120 = "data/shaders/glsl1.20/alpha_test.frag";
 const string FRAGMENT_SHADER_130 = "data/shaders/glsl1.30/alpha_test.frag";
 
-const string LOG_MODEL = "data/models/Log/log.md2";
+const string LOG_MODEL = "data/models/Log/log_longer.md2";
 const string LOG_TEXTURE = "data/models/Log/brown_log_tex.tga";
 
 TargaImage TreeLog::m_logTexture;
@@ -42,7 +40,7 @@ Entity(world)
 	string vertexShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.vert" : "data/shaders/glsl1.20/model.vert";
     string fragmentShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.frag" : "data/shaders/glsl1.20/model.frag";
 
-    m_collider = new SphereCollider(this, 0.75f);
+    m_collider = new SphereCollider(this, 1.5f);
 	m_model = new MD2Model(vertexShader, fragmentShader);
 
 }
