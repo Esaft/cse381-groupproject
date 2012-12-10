@@ -351,6 +351,14 @@ void GameWorld::render() const
         }
     }*/
 
+	// Send everything to render
+	/*for(ConstEntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
+    {
+		(*entity)->render();
+		(*entity)->postRender();
+	}*/
+
+	
 	(int)numSentToFrustum = 0;
 	(int)numRendered = 0;
 

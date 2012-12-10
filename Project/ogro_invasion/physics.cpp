@@ -111,7 +111,7 @@ void Physics::registerEntity(Entity* entity)
 				break;
 			case PLAYER:
 				mass = btScalar(10.0f);
-				colShape = new btCapsuleShape(0.3, 1);
+				colShape = new btCapsuleShape(0.4, 1);
 				break;
 			case TREE:
 				mass = btScalar(0.0f);
@@ -192,7 +192,7 @@ void Physics::registerEntity(Entity* entity)
 		if (entity->getType() == LOG)
 			body->setRollingFriction(0.2); // 0.2
 		if (entity->getType() == PLAYER)
-			body->setFriction(0.5);
+			body->setFriction(0);
 	}
 }
 
