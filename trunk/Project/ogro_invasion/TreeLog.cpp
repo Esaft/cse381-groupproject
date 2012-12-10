@@ -64,6 +64,8 @@ void TreeLog::onPrepare(float dT)
     else if (m_position.x > maxX) destroy();
     else if (m_position.z < minZ) destroy();
     else if (m_position.z > maxZ) destroy();
+
+	m_model->updateFade();
 }
 
 void TreeLog::onRender() const

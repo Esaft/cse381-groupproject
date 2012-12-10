@@ -75,6 +75,12 @@ public:
         return m_radii[m_currentFrame]; //Return the current radius
     }
 
+	void fade(float);
+	void fadeOut(float);
+	bool isVisible() { return visible; }
+	bool isFading() { return fading; }
+	void updateFade();
+
 private:
 
     void reorganizeVertices();
@@ -148,6 +154,13 @@ private:
     int m_nextFrame;
     float m_interpolation;
     bool m_loopAnimation;
+
+	GLfloat alpha;
+
+	bool visible;
+	bool fading;
+	int targetfadeTime;
+	int initialFadeTime;
 
     GLuint m_vertexBuffer;
     GLuint m_texCoordBuffer;

@@ -27,12 +27,17 @@ public:
     float getYaw() const { return 0.0f; }
     float getPitch() const { return 0.0f; }
 
+	bool isFading() { return m_model->isFading(); }
+	bool isVisible() { return m_model->isVisible(); }
+
     void setYaw(const float val) { }
     void setPitch(const float val) { }
 
     Collider* getCollider() { return m_collider; }
 
     EntityType getType() const { return LOG; }
+
+	MD2Model* getModel() { return m_model; }
 
     virtual void onCollision(Entity* collider) { }
 private:
