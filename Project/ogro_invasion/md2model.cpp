@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <time.h>
 
 #include "glslshader.h"
 #include "md2model.h"
@@ -43,11 +44,27 @@ m_interpolation(0.0f),
 m_shaderProgram(NULL)
 {
     m_shaderProgram = new GLSLProgram(vertexShader, fragmentShader);
+	alpha = 1.0f;
+	fading = false;
+	visible = true;
 }
 
 MD2Model::~MD2Model()
 {
     delete m_shaderProgram;
+}
+
+void MD2Model::fade(float rate) {
+
+	initialFadeTime = time(0);
+	fading = true;
+	targetfadeTime = time(0) + rate;
+}
+
+void MD2Model::fadeOut(float rate) {
+	initialFadeTime = time(0);
+	fading = true;
+	targetfadeTime = time(0) + rate;
 }
 
 bool MD2Model::load(const string& filename)
@@ -183,6 +200,25 @@ void MD2Model::generateBuffers() {
     glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 2 * m_texCoords.size(), &m_texCoords[0], GL_STATIC_DRAW);
 }
 
+void MD2Model::updateFade()
+{
+	// Fading
+	if (fading) {
+		float currentTime = targetfadeTime - time(0);
+		float diff = targetfadeTime - initialFadeTime;
+		float percentage = (diff - currentTime) / diff;
+		if (visible)
+			alpha = 1.0f - percentage;
+		else
+			alpha = percentage;
+
+		if (percentage >= 1.0f) {
+			fading = false;
+			visible = !visible;
+		}
+	}
+}
+
 void MD2Model::update(float dt)
 {
     const float FRAMES_PER_SECOND = 8.0f;
@@ -241,11 +277,14 @@ void MD2Model::render()
     m_shaderProgram->sendUniform4x4("modelview_matrix", modelviewMatrix);
     m_shaderProgram->sendUniform4x4("projection_matrix", projectionMatrix);
     m_shaderProgram->sendUniform("texture0", 0);
+	m_shaderProgram->sendUniform("a_Alpha", alpha);
 
     //glBindTexture(GL_TEXTURE_2D, m_treeTexID);
 
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
     glVertexAttribPointer((GLint)0, 3, GL_FLOAT, GL_FALSE, 0, 0);
@@ -255,6 +294,8 @@ void MD2Model::render()
 
     glDrawArrays(GL_TRIANGLES, 0, m_interpolatedFrame.vertices.size());
 
+
+	glDisable(GL_BLEND);
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(0);
 

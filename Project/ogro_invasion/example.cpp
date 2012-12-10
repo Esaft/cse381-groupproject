@@ -130,7 +130,7 @@ void Example::render()
         m_font->printString(remainingString.str(), 20.0f, 50.0f);
 
 		stringstream playerPos;
-		playerPos << "Player Y Position: "  << m_world->getPlayer()->getPosition().y;
+		playerPos << "Trees: "  << m_world->getTreeCount();
         m_font->printString(playerPos.str(), 20.0f, 80.0f);
 
 		if(showCullStats)

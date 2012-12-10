@@ -40,6 +40,9 @@ class Entity : private Uncopyable {
         bool canBeRemoved() const;
         void destroy();
 
+		virtual bool isFading() { return false; }
+		virtual bool isVisible() { return true; }
+
         void collide(Entity* collider);
 
         virtual Vector3 getPosition() const = 0;

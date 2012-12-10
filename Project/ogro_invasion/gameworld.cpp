@@ -38,6 +38,7 @@ m_gameCamera(NULL),
 m_keyboard(keyboardInterface),
 m_mouse(mouseInterface),
 m_lastSpawn(0),
+m_lastSpawnTree(0),
 m_currentTime(0),
 m_relX(0),
 m_relY(0)
@@ -157,6 +158,7 @@ Entity* GameWorld::spawnEntity(EntityType entityType, Vector3 pos = Vector3(0,0,
         break;
         case TREE:
             newEntity = new Tree(this);
+			m_lastSpawnTree = m_currentTime;
         break;
 		case HOUSE:
 			newEntity = new House(this);
@@ -211,7 +213,7 @@ bool GameWorld::initialize()
     for (int i = 0; i < TREE_COUNT; ++i)
     {
         Vector3 pos(0.0f, -1.0f, 0.0f);
-        while (pos.y < 3.0f) { // Do not care about being in a higher level
+        while (pos.y < 3.0f || !isNotCloseToAnyEntity(pos)) { // Do not care about being in a higher level
             pos = getRandomPositionR(10.0f, 4.5f);
         }
 
@@ -261,11 +263,14 @@ void GameWorld::update(float dT)
     //Collider::updateColliders(m_colliders);
 	physics->update(dT);
     clearDeadEntities(); //Remove any entities that were killed as a result of a collision
+	clearInvisibleEntities();
 
 	// Spawn Logs
 	for (list<Vector3>::iterator pos = logsToSpawn.begin(); pos != logsToSpawn.end(); ++pos)
     {
-		spawnEntity(LOG, (*pos));
+		Entity* log = spawnEntity(LOG, (*pos));
+		dynamic_cast<TreeLog*>(log)->getModel()->fadeOut(100.0f);
+
 	}
 	logsToSpawn.clear();
 
@@ -274,6 +279,20 @@ void GameWorld::update(float dT)
     {
         spawnEntity(OGRO)->setPosition(getRandomPositionR((mapWidth/2)-1, 29.0f));
     }
+
+	int treeCount = getTreeCount();
+	if (treeCount < TREE_COUNT && (m_currentTime - m_lastSpawnTree) > 10.0f) {
+
+		for (int i = 0 ; i < TREE_COUNT - treeCount ; i++) {
+			Vector3 pos(0.0f, -1.0f, 0.0f);
+			while (pos.y < 3.0f || !isNotCloseToAnyEntity(pos)) { // Do not care about being in a higher level
+				pos = getRandomPositionR(10.0f, 4.5f);
+			}
+
+			Entity* newEntity = spawnEntity(TREE, pos);
+		}
+	}
+
 
 	for (EntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
     {
@@ -335,33 +354,11 @@ void GameWorld::render() const
     m_frustum->updateFrustum();
 	
 	m_skybox->render(m_gameCamera->getPosition());//we always render the skybox
-
-    /*for (ConstEntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
-    {
-        Vector3 pos = (*entity)->getPosition();
-        if ((*entity)->getType() == LANDSCAPE || (*entity)->getCollider() == NULL)
-        {
-            (*entity)->render();
-            (*entity)->postRender();
-        }
-        else if (m_frustum->sphereInFrustum(pos.x, pos.y, pos.z, (*entity)->getCollider()->getRadius()))
-        {
-            (*entity)->render();
-            (*entity)->postRender();
-        }
-    }*/
-
-	// Send everything to render
-	/*for(ConstEntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
-    {
-		(*entity)->render();
-		(*entity)->postRender();
-	}*/
-
 	
 	(int)numSentToFrustum = 0;
 	(int)numRendered = 0;
 
+	std::list<Entity*> fadingEntities; // list for entities that are fading
 	std::list<Entity*> visibleEntities;
 	m_pOctreeRoot->SceneCull(&visibleEntities, &(*m_frustum));
 	bool ground = false;
@@ -382,9 +379,13 @@ void GameWorld::render() const
         }
         else if (m_frustum->sphereInFrustum(pos.x, pos.y, pos.z, (*entity)->getCollider()->getRadius()))
         {
-			((int)numRendered) ++;
-            (*entity)->render();
-            (*entity)->postRender();
+			if ((*entity)->isFading()) {
+				fadingEntities.push_back((*entity));
+			} else {
+				((int)numRendered) ++;
+				(*entity)->render();
+				(*entity)->postRender();
+			}
         }
     }
 
@@ -393,6 +394,13 @@ void GameWorld::render() const
 		ground = true;
 	}
 
+	for (ConstEntityIterator entity = fadingEntities.begin(); entity != fadingEntities.end(); ++entity)
+    {
+		(*entity)->render();
+		(*entity)->postRender();
+	}
+
+	fadingEntities.clear();
 	visibleEntities.clear();
 }
 
@@ -437,7 +445,26 @@ void GameWorld::clearDeadEntities()
 
         unregisterCollider((*entity)->getCollider());
 		physics->unregisterEntity((*entity));
+		(*entity)->destroy();
         delete (*entity);
+        entity = m_entities.erase(entity);
+    }
+}
+
+void GameWorld::clearInvisibleEntities()
+{
+    for (EntityIterator entity = m_entities.begin(); entity != m_entities.end();)
+    {
+        if ((*entity)->isVisible())
+        {
+            ++entity;
+            continue;
+        }
+
+		unregisterCollider((*entity)->getCollider());
+		physics->unregisterEntity((*entity));
+		(*entity)->destroy();
+		delete (*entity);
         entity = m_entities.erase(entity);
     }
 }

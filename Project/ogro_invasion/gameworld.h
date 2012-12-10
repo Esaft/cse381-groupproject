@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <memory>
+#include <math.h>
 
 #include "uncopyable.h"
 #include "enemy.h"
@@ -49,6 +50,7 @@ class GameWorld : private Uncopyable
 		Vector3 getRandomPositionR(float maxRadius, float minRadius);
 
         void clearDeadEntities();
+		void clearInvisibleEntities();
 
         std::auto_ptr<Camera> m_gameCamera;
 
@@ -57,6 +59,7 @@ class GameWorld : private Uncopyable
 
         float m_lastSpawn;
         float m_currentTime;
+		float m_lastSpawnTree;
 
         float m_remainingTime;
 
@@ -109,6 +112,34 @@ class GameWorld : private Uncopyable
                     {
                         ++count;
                     }
+                }
+            }
+
+            return count;
+        }
+		
+		// Checks if the position has no other entity close to it
+		bool isNotCloseToAnyEntity(Vector3 pos) {
+			for (EntityIterator it = m_entities.begin(); it != m_entities.end(); ++it)
+            {
+				if (dis(pos, (*it)->getPosition()) < 2.0f)
+					return false;
+            }
+			return true;
+		}
+
+		// Since we dont care about eh Y Coordinate, we check just X and Z
+		float dis(Vector3 v1, Vector3 v2) {
+			return sqrt( (v2.x - v1.x) * (v2.x - v1.x) + (v2.z - v1.z) * (v2.z - v1.z) );
+		}
+
+		unsigned int getTreeCount()
+        {
+            unsigned int count = 0;
+            for (EntityIterator it = m_entities.begin(); it != m_entities.end(); ++it)
+            {
+                if ((*it)->getType() == TREE) {
+					++count;
                 }
             }
 
