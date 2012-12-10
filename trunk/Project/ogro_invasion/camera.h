@@ -20,6 +20,10 @@ public:
     {
         m_attachedEntity = entity;
     }
+
+	Vector3 getLookAt();
+	Vector3 getPosition();
+
 private:
     Vector3 m_position;
     Vector3 m_up;

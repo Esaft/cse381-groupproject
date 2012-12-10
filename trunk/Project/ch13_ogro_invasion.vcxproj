@@ -39,6 +39,7 @@
     <ClInclude Include="ogro_invasion\physics.h" />
     <ClInclude Include="ogro_invasion\player.h" />
     <ClInclude Include="ogro_invasion\rocket.h" />
+    <ClInclude Include="ogro_invasion\skybox.h" />
     <ClInclude Include="ogro_invasion\spherecollider.h" />
     <ClInclude Include="ogro_invasion\targa.h" />
     <ClInclude Include="ogro_invasion\terrain.h" />
@@ -69,6 +70,7 @@
     <ClCompile Include="ogro_invasion\physics.cpp" />
     <ClCompile Include="ogro_invasion\player.cpp" />
     <ClCompile Include="ogro_invasion\rocket.cpp" />
+    <ClCompile Include="ogro_invasion\skybox.cpp" />
     <ClCompile Include="ogro_invasion\spherecollider.cpp" />
     <ClCompile Include="ogro_invasion\targa.cpp" />
     <ClCompile Include="ogro_invasion\terrain.cpp" />

@@ -9,7 +9,8 @@ enum EntityType {
     LANDSCAPE,
     TREE,
 	LOG,
-	HOUSE
+	HOUSE,
+	SKYBOX
 };
 
 #endif // ENTITYTYPES_H_INCLUDED

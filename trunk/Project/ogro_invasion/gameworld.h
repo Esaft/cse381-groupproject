@@ -21,6 +21,7 @@ class Player;
 class Landscape;
 class Frustum;
 class Physics;
+class SkyBox;
 
 class GameWorld : private Uncopyable
 {
@@ -42,6 +43,7 @@ class GameWorld : private Uncopyable
         Player* m_player;
         Landscape* m_landscape;
 		OctreeNode	*m_pOctreeRoot;	
+		SkyBox* m_skybox;
 
         Vector3 getRandomPosition() const;
 		Vector3 getRandomPositionR(float maxRadius, float minRadius);
