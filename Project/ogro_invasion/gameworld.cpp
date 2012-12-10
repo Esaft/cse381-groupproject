@@ -22,6 +22,7 @@
 #include "tree.h"
 #include "frustum.h"
 #include "house.h"
+#include "skybox.h"
 
 using std::list;
 using std::string;
@@ -64,6 +65,7 @@ GameWorld::~GameWorld()
 	}
 
 	physics->exitPhysics();
+	delete m_skybox;
 
     //Free any allocated memory
     for (list<Entity*>::iterator entity = m_entities.begin();
@@ -191,6 +193,9 @@ bool GameWorld::initialize()
 	OctreeNode		*pRoot=NULL;
 
     srand((unsigned int)time(0));
+	
+	m_skybox = new SkyBox();
+	m_skybox->initialize();
 
     spawnEntity(LANDSCAPE); //Spawn the landscape
 
@@ -329,7 +334,8 @@ void GameWorld::render() const
     m_gameCamera->apply();
     m_frustum->updateFrustum();
 	
-	
+	m_skybox->render(m_gameCamera->getPosition());//we always render the skybox
+
     /*for (ConstEntityIterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
     {
         Vector3 pos = (*entity)->getPosition();

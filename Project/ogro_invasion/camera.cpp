@@ -61,6 +61,16 @@ void Camera::pitch(const float degrees)
 
 }
 
+Vector3 Camera::getLookAt()
+{
+	return m_lookAt;
+}
+
+Vector3 Camera::getPosition()
+{
+	return m_position;
+}
+
 void Camera::apply()
 {
     if (m_attachedEntity != NULL) {
