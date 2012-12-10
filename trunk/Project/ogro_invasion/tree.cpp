@@ -15,12 +15,12 @@
 using std::string;
 
 //const string TREE_TEXTURE = "data/textures/beech.tga";
-
+/*
 const string VERTEX_SHADER_120 = "data/shaders/glsl1.20/alpha_test.vert";
 const string VERTEX_SHADER_130 = "data/shaders/glsl1.30/alpha_test.vert";
 
 const string FRAGMENT_SHADER_120 = "data/shaders/glsl1.20/alpha_test.frag";
-const string FRAGMENT_SHADER_130 = "data/shaders/glsl1.30/alpha_test.frag";
+const string FRAGMENT_SHADER_130 = "data/shaders/glsl1.30/alpha_test.frag";*/
 
 const string TREE_MODEL = "data/models/Tree/tree.md2";
 const string TREE_TEXTURE = "data/models/Tree/tree_tex.tga";
@@ -35,10 +35,19 @@ bool Tree::textureLoaded = false;
 Tree::Tree(GameWorld* const world):
 Entity(world)
 {
-    m_collider = new SphereCollider(this, 1.0f);
+	/*
+	const string VERTEX_SHADER_120 = "data/shaders/glsl1.20/alpha_test.vert";
+const string VERTEX_SHADER_130 = "data/shaders/glsl1.30/alpha_test.vert";
+
+const string FRAGMENT_SHADER_120 = "data/shaders/glsl1.20/alpha_test.frag";
+const string FRAGMENT_SHADER_130 = "data/shaders/glsl1.30/alpha_test.frag";
+*/
+
+
+    m_collider = new SphereCollider(this, 3.0f);
 	hp = 100;
-	string vertexShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.vert" : "data/shaders/glsl1.20/model.vert";
-    string fragmentShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/model.frag" : "data/shaders/glsl1.20/model.frag";
+	string vertexShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/alpha_test.vert" : "data/shaders/glsl1.20/alpha_test.vert";
+    string fragmentShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/alpha_test.frag" : "data/shaders/glsl1.20/alpha_test.frag";
 
     m_collider = new SphereCollider(this, 0.75f);
 	m_model = new MD2Model(vertexShader, fragmentShader);
@@ -67,8 +76,8 @@ void Tree::onRender() const
 	glBindTexture(GL_TEXTURE_2D, m_treeTextureID);
     m_model->render();
 	
-	//glBindTexture(GL_TEXTURE_2D, m_leafTextureID);
-	//m_leafModel->render();
+	glBindTexture(GL_TEXTURE_2D, m_leafTextureID);
+	m_leafModel->render();
 
     glPopMatrix();
 }
@@ -110,7 +119,7 @@ bool Tree::onInitialize()
 		}
     }
 
-	/*result = result && m_leafModel->load(LEAF_MODEL);
+	result = result && m_leafModel->load(LEAF_MODEL);
     if (result)
     {
         if (!m_leafTexture.load(LEAF_TEXTURE))
@@ -125,11 +134,24 @@ bool Tree::onInitialize()
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
-			gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB8, m_leafTexture.getWidth(),
-                              m_leafTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
+			gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGBA8, m_leafTexture.getWidth(),
+                              m_leafTexture.getHeight(), GL_RGBA, GL_UNSIGNED_BYTE,
                               m_leafTexture.getImageData());
+			/*
+
+			        glGenTextures(1, &m_treeTexID);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, m_treeTexID);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+
+        //We load the texture with an alpha channel (RGBA)
+        gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGBA8, treeTexture.getWidth(),
+                      treeTexture.getHeight(), GL_RGBA, GL_UNSIGNED_BYTE,
+                      treeTexture.getImageData());
+					  */
         }
-    }*/
+    }
 
     return result;
 }
