@@ -1,4 +1,4 @@
-﻿Build started 12/9/2012 10:51:50 PM.
+﻿Build started 12/9/2012 11:14:09 PM.
      1>Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\ch13_ogro_invasion.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -51,4 +51,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.82
+Time Elapsed 00:00:07.01
