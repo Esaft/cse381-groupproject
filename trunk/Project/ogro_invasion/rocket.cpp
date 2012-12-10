@@ -140,7 +140,10 @@ void Rocket::onCollision(Entity* collider)
     if (collider->getType() == PLAYER)
 		return;
 	if (collider->getType() == TREE)
+	{
 		getWorld()->playerHit(collider);
+		getWorld()->playSound("Axe");
+	}
 	else
 		bool check = true;
 

@@ -1,9 +1,56 @@
-﻿Build started 11/26/2012 1:40:54 AM.
-     1>Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\BulletDynamics.vcxproj" on node 2 (clean target(s)).
-     1>_PrepareForClean:
-         Deleting file "obj\x32\Debug\BulletDynamics\BulletDynamics.lastbuildstate".
-     1>Done Building Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\BulletDynamics.vcxproj" (clean target(s)).
+﻿Build started 12/10/2012 11:32:58 AM.
+     1>Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\BulletDynamics.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "obj\x32\Debug\BulletDynamics\BulletDynamics.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\src /Zi /nologo /W3 /WX- /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D _MBCS /Gm- /RTC1 /MTd /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Debug\BulletDynamics\\" /Fd"..\..\..\Project\common\BulletDynamics_vs2010_debug.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\BulletDynamics\Character\btKinematicCharacterController.cpp ..\..\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btContactConstraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btGearConstraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btHingeConstraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.cpp ..\..\src\BulletDynamics\ConstraintSolver\btSliderConstraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btTypedConstraint.cpp ..\..\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.cpp ..\..\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.cpp ..\..\src\BulletDynamics\Dynamics\btRigidBody.cpp ..\..\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.cpp "..\..\src\BulletDynamics\Dynamics\Bullet-C-API.cpp" ..\..\src\BulletDynamics\Vehicle\btRaycastVehicle.cpp ..\..\src\BulletDynamics\Vehicle\btWheelInfo.cpp /MP 
+         btKinematicCharacterController.cpp
+         btConeTwistConstraint.cpp
+         btContactConstraint.cpp
+         btGearConstraint.cpp
+         btGeneric6DofConstraint.cpp
+         btGeneric6DofSpringConstraint.cpp
+         btHinge2Constraint.cpp
+         btHingeConstraint.cpp
+         btPoint2PointConstraint.cpp
+         btSequentialImpulseConstraintSolver.cpp
+         btSliderConstraint.cpp
+         btSolve2LinearConstraint.cpp
+         btTypedConstraint.cpp
+         btUniversalConstraint.cpp
+         btDiscreteDynamicsWorld.cpp
+         btRigidBody.cpp
+         btSimpleDynamicsWorld.cpp
+         Bullet-C-API.cpp
+         btRaycastVehicle.cpp
+         btWheelInfo.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"..\..\..\Project\common\BulletDynamics_vs2010_debug.lib" /NOLOGO /MACHINE:X86 obj\x32\Debug\BulletDynamics\btKinematicCharacterController.obj
+         obj\x32\Debug\BulletDynamics\btConeTwistConstraint.obj
+         obj\x32\Debug\BulletDynamics\btContactConstraint.obj
+         obj\x32\Debug\BulletDynamics\btGearConstraint.obj
+         obj\x32\Debug\BulletDynamics\btGeneric6DofConstraint.obj
+         obj\x32\Debug\BulletDynamics\btGeneric6DofSpringConstraint.obj
+         obj\x32\Debug\BulletDynamics\btHinge2Constraint.obj
+         obj\x32\Debug\BulletDynamics\btHingeConstraint.obj
+         obj\x32\Debug\BulletDynamics\btPoint2PointConstraint.obj
+         obj\x32\Debug\BulletDynamics\btSequentialImpulseConstraintSolver.obj
+         obj\x32\Debug\BulletDynamics\btSliderConstraint.obj
+         obj\x32\Debug\BulletDynamics\btSolve2LinearConstraint.obj
+         obj\x32\Debug\BulletDynamics\btTypedConstraint.obj
+         obj\x32\Debug\BulletDynamics\btUniversalConstraint.obj
+         obj\x32\Debug\BulletDynamics\btDiscreteDynamicsWorld.obj
+         obj\x32\Debug\BulletDynamics\btRigidBody.obj
+         obj\x32\Debug\BulletDynamics\btSimpleDynamicsWorld.obj
+         "obj\x32\Debug\BulletDynamics\Bullet-C-API.obj"
+         obj\x32\Debug\BulletDynamics\btRaycastVehicle.obj
+         obj\x32\Debug\BulletDynamics\btWheelInfo.obj
+         BulletDynamics.vcxproj -> C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\..\..\..\Project\common\BulletDynamics_vs2010_debug.lib
+       FinalizeBuildStatus:
+         Deleting file "obj\x32\Debug\BulletDynamics\BulletDynamics.unsuccessfulbuild".
+         Touching "obj\x32\Debug\BulletDynamics\BulletDynamics.lastbuildstate".
+     1>Done Building Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Bullet3D\solutions\vs2010\BulletDynamics.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.04
+Time Elapsed 00:00:09.20

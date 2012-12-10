@@ -23,6 +23,7 @@
     <ClInclude Include="ogro_invasion\explosion.h" />
     <ClInclude Include="ogro_invasion\freetypefont.h" />
     <ClInclude Include="ogro_invasion\frustum.h" />
+    <ClInclude Include="ogro_invasion\GameAudio.h" />
     <ClInclude Include="ogro_invasion\gameworld.h" />
     <ClInclude Include="ogro_invasion\geom.h" />
     <ClInclude Include="ogro_invasion\glslshader.h" />
@@ -59,6 +60,7 @@
     <ClCompile Include="ogro_invasion\explosion.cpp" />
     <ClCompile Include="ogro_invasion\freetypefont.cpp" />
     <ClCompile Include="ogro_invasion\frustum.cpp" />
+    <ClCompile Include="ogro_invasion\GameAudio.cpp" />
     <ClCompile Include="ogro_invasion\gameworld.cpp" />
     <ClCompile Include="ogro_invasion\glwindow.cpp" />
     <ClCompile Include="ogro_invasion\house.cpp" />
@@ -146,7 +148,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Apps\$(ProjectName)\</OutDir>
     <IntDir>$(ProjectDir)Temp\$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir)/../Bullet3D/src/;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include</IncludePath>
+    <IncludePath>$(ProjectDir)/../Bullet3D/src/;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(DXSDK_DIR)Include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

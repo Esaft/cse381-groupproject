@@ -13,6 +13,7 @@
 #include "tree.h"
 #include "TreeLog.h"
 #include "physics.h"
+#include "GameAudio.h"
 
 class KeyboardInterface;
 class MouseInterface;
@@ -69,11 +70,13 @@ class GameWorld : private Uncopyable
 		int numSentToFrustum;
 		int numRendered;
 		bool gameLost;
+		bool doAudio;
 
         std::auto_ptr<Frustum> m_frustum;
 
 		int timeOfLastTreeHit;
 		Tree* currentTree;
+		GameAudio* audio;
 		std::list<Vector3> logsToSpawn;
 
     public:
@@ -90,6 +93,7 @@ class GameWorld : private Uncopyable
         bool initialize();
         void update(float dt);
         void render() const;
+		void playSound(char* cue) {audio->playSound(cue);}
 
         typedef std::list<Entity*>::iterator EntityIterator;
         typedef std::list<Entity*>::const_iterator ConstEntityIterator;

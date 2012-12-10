@@ -35,6 +35,13 @@ void Enemy::onCollision(Entity* collider)
         getWorld()->getPlayer()->increaseScore(10);
         kill(); //Kill this enemy
     }
+
+	bool canLose = false;
+	if (collider->getType() == HOUSE && canLose)
+    {
+		getWorld()->loseGame();
+    }
+
 }
 
 void Enemy::setPosition(const Vector3& pos)
