@@ -68,6 +68,11 @@ GameWorld::~GameWorld()
 	physics->exitPhysics();
 	delete m_skybox;
 
+	//audio->manualStopMusic();
+	//audio->shutdown();
+	doAudio = false;
+	//delete audio;
+
     //Free any allocated memory
     for (list<Entity*>::iterator entity = m_entities.begin();
          entity != m_entities.end(); ++entity)
@@ -270,6 +275,16 @@ bool GameWorld::initialize()
 
 	m_e.clear();
 
+	doAudio = true;
+
+	audio = new GameAudio();
+	audio->initialize(L"data/audio/Win/Wave Bank.xwb",L"data/audio/Win/Music Bank.xwb", L"data/audio/Win/Sound Bank.xsb");
+	
+	queue<char*>* sequence = new queue<char*>();
+	sequence->push("lumberjack");
+	audio->setMusicSequence(sequence, 0);
+	audio->playMusic();
+
     return true;
 }
 
@@ -278,6 +293,8 @@ void GameWorld::update(float dT)
     m_currentTime += dT; //Update the time since we started
     m_remainingTime -= dT;
 
+	if(doAudio)
+		audio->doWork();
 	float minX = getLandscape()->getTerrain()->getMinX();
 	float mapWidth = getLandscape()->getTerrain()->getMaxX() - minX;
 
@@ -546,6 +563,7 @@ void GameWorld::playerHit(Entity* en)
 					currentTree = NULL;
 					Vector3 pos = tree->getPosition();
 					logsToSpawn.push_back(Vector3(pos.x,pos.y, pos.z));
+					playSound("creak");
 				} else {
 					currentTree = tree;
 					timeOfLastTreeHit = time(NULL);
