@@ -33,6 +33,8 @@ void Enemy::onCollision(Entity* collider)
     if (collider->getType() == LOG && !isDead())
     {
         getWorld()->getPlayer()->increaseScore(10);
+		char* painSound = (char*)("pain" + (rand() / 3 + 1));
+		getWorld()->playSound(painSound);
         kill(); //Kill this enemy
     }
 

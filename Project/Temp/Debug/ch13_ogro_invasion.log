@@ -1,18 +1,63 @@
-﻿Build started 12/10/2012 12:48:37 PM.
+﻿Build started 12/10/2012 1:07:12 PM.
      1>Project "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\ch13_ogro_invasion.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Common\\" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\\" /Fd"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ogro_invasion\enemy.cpp ogro_invasion\example.cpp ogro_invasion\gameworld.cpp ogro_invasion\ogro.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Common\\" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\\" /Fd"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ogro_invasion\GameAudio.cpp ogro_invasion\OctreeNode.cpp ogro_invasion\TreeLog.cpp ogro_invasion\camera.cpp ogro_invasion\collider.cpp ogro_invasion\enemy.cpp ogro_invasion\entity.cpp ogro_invasion\example.cpp ogro_invasion\explosion.cpp ogro_invasion\gameworld.cpp ogro_invasion\house.cpp ogro_invasion\landscape.cpp ogro_invasion\md2model.cpp ogro_invasion\ogro.cpp ogro_invasion\physics.cpp ogro_invasion\player.cpp ogro_invasion\rocket.cpp ogro_invasion\skybox.cpp ogro_invasion\spherecollider.cpp ogro_invasion\terrain.cpp ogro_invasion\terraincollider.cpp ogro_invasion\tree.cpp
+         tree.cpp
+         terrain.cpp
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\terrain.cpp(488): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\terrain.cpp(505): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\terrain.cpp(517): warning C4018: '<' : signed/unsigned mismatch
+         physics.cpp
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\physics.cpp(110): warning C4305: 'argument' : truncation from 'double' to 'btScalar'
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\physics.cpp(114): warning C4305: 'argument' : truncation from 'double' to 'btScalar'
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\physics.cpp(118): warning C4305: 'argument' : truncation from 'double' to 'const btScalar'
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\physics.cpp(118): warning C4305: 'argument' : truncation from 'double' to 'const btScalar'
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\physics.cpp(122): warning C4305: 'argument' : truncation from 'double' to 'const btScalar'
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\physics.cpp(122): warning C4305: 'argument' : truncation from 'double' to 'const btScalar'
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\physics.cpp(192): warning C4305: 'argument' : truncation from 'double' to 'btScalar'
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\physics.cpp(195): warning C4305: 'argument' : truncation from 'double' to 'btScalar'
          ogro.cpp
-     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\ogro.cpp(301): warning C4244: '=' : conversion from 'time_t' to 'int', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\ogro.cpp(304): warning C4244: '=' : conversion from 'time_t' to 'int', possible loss of data
          gameworld.cpp
-     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameworld.cpp(441): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameworld.cpp(443): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameworld.cpp(542): warning C4244: '=' : conversion from 'time_t' to 'int', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameworld.cpp(467): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameworld.cpp(469): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameworld.cpp(569): warning C4244: '=' : conversion from 'time_t' to 'int', possible loss of data
+         entity.cpp
+         enemy.cpp
+         TreeLog.cpp
+         GameAudio.cpp
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameaudio.cpp(25): warning C4101: 'musicFile' : unreferenced local variable
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\gameaudio.cpp(28): warning C4101: 'pbMusicBank' : unreferenced local variable
+         Generating Code...
+         Compiling...
+         terraincollider.cpp
+         spherecollider.cpp
+         skybox.cpp
+         rocket.cpp
+         player.cpp
+         md2model.cpp
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\md2model.cpp(59): warning C4244: '=' : conversion from 'time_t' to 'int', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\md2model.cpp(61): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\md2model.cpp(65): warning C4244: '=' : conversion from 'time_t' to 'int', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\md2model.cpp(67): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\md2model.cpp(207): warning C4244: 'initializing' : conversion from 'time_t' to 'float', possible loss of data
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\md2model.cpp(208): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         landscape.cpp
+         house.cpp
+         explosion.cpp
          example.cpp
      1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\example.cpp(92): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-         enemy.cpp
+         collider.cpp
+         camera.cpp
+         OctreeNode.cpp
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\octreenode.cpp(60): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\octreenode.cpp(182): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\octreenode.cpp(240): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\octreenode.cpp(325): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\octreenode.cpp(385): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\evan\documents\classes\cse 381\group\cse381-groupproject\project\ogro_invasion\octreenode.cpp(403): warning C4018: '<' : signed/unsigned mismatch
          Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.exe" /NOLOGO /LIBPATH:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Common\\" glut32.lib BulletCollision_vs2010_debug.lib BulletDynamics_vs2010_debug.lib OpenGLSupport_vs2010_debug.lib LinearMath_vs2010_debug.lib freetype.lib glee.lib kazmath.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\ch13_ogro_invasion.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Apps\ch13_ogro_invasion\ch13_ogro_invasion.lib" /MACHINE:X86 "C:\Users\Evan\Documents\Classes\CSE 381\Group\cse381-groupproject\Project\Temp\Debug\camera.obj"
@@ -61,4 +106,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:16.37
+Time Elapsed 00:00:54.90
