@@ -19,7 +19,7 @@ GLuint SkyBox::m_skyBoxTexID = 0;
 //GLuint SkyBox::m_texCoordBuffer = 0;
 std::auto_ptr<GLSLProgram> SkyBox::m_shaderProgram;
 
-const string SKYBOX_TEXTURE = "data/textures/sky.tga";
+const string SKYBOX_TEXTURE = "data/textures/skyBlah.tga";
 
 const string VERTEX_SHADER_120 = "data/shaders/glsl1.20/alpha_test.vert";
 const string VERTEX_SHADER_130 = "data/shaders/glsl1.30/alpha_test.vert";
@@ -187,7 +187,7 @@ void SkyBox::initializeVBOs()
     
 	float modY = 0.0017f;
 	float modX = 0.00125f;
-	float x0 = 0.0f + modX;
+	/*float x0 = 0.0f + modX;
 	float x1 = 0.25f + modX;
 	float x2 = 0.5f - modX;
 	float x3 = 0.75f + modX;
@@ -195,7 +195,16 @@ void SkyBox::initializeVBOs()
 	float y0 = 0.0f;
 	float y1 = 0.33f;
 	float y2 = 0.66f - modY;
-	float y3 = 1.00f - modY * 2;
+	float y3 = 1.00f - modY * 2;*/
+	float x0 = 0.0f;
+	float x1 = 0.25f;
+	float x2 = 0.5f;
+	float x3 = 0.75f;
+	float x4 = 1.0f;
+	float y0 = 0.0f;
+	float y1 = 0.33f;
+	float y2 = 0.66f;
+	float y3 = 1.00f;
 	
 	m_texCoordBuffer.push_back(TexCoord(x1,   y1));
 	m_texCoordBuffer.push_back(TexCoord(x1,   y0));
@@ -249,16 +258,16 @@ bool SkyBox::initialize()
         glGenTextures(1, &m_skyBoxTexID);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, m_skyBoxTexID);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-		/*glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);*/
+        /*glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);*/
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
         //We load the texture with an alpha channel (RGBA)
-        gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGBA8, skyBoxTexture.getWidth(),
-                      skyBoxTexture.getHeight(), GL_RGBA, GL_UNSIGNED_BYTE,
+        gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, skyBoxTexture.getWidth(),
+                      skyBoxTexture.getHeight(), GL_RGB, GL_UNSIGNED_BYTE,
                       skyBoxTexture.getImageData());
     }
 
