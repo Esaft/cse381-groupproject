@@ -35,7 +35,7 @@ bool Tree::textureLoaded = false;
 Tree::Tree(GameWorld* const world):
 Entity(world)
 {
-    m_collider = new SphereCollider(this, 3.0f);
+    m_collider = new SphereCollider(this, 10.0f);
 	hp = 100;
 	string vertexShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/alpha_test.vert" : "data/shaders/glsl1.20/alpha_test.vert";
     string fragmentShader = (GLSLProgram::glsl130Supported())? "data/shaders/glsl1.30/alpha_test.frag" : "data/shaders/glsl1.20/alpha_test.frag";

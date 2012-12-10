@@ -87,7 +87,7 @@ void Ogro::onPrepare(float dT)
     //pos.z += float(sinYaw) * speed;
 
 	btVector3 linearVelocity = getCollider()->getBody()->getLinearVelocity();
-	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(float(cosYaw)*speed*10.), linearVelocity.getY(), btScalar(float(sinYaw)*speed*10.)));
+	getCollider()->getBody()->setLinearVelocity(btVector3(btScalar(float(cosYaw)*speed*25.), linearVelocity.getY(), btScalar(float(sinYaw)*speed*25.)));
 	//setPosition(pos);
 
 
@@ -115,6 +115,7 @@ void Ogro::onRender() const
         //glTranslatef(pos.x, pos.y, pos.z); // Pos y-1
         glRotatef(getYaw(), 0.0f, -1.0f, 0.0f);
         glBindTexture(GL_TEXTURE_2D, m_ogroTextureID);
+		glScalef(2.0f, 2.0f, 2.0f);
         m_model->render();
     glPopMatrix();
 }
@@ -306,6 +307,7 @@ void Ogro::onKill()
 
 void Ogro::onResurrection()
 {
+	bringToLife();
     m_model->setAnimation(Animation::IDLE);
     m_AIState = OGRO_IDLE;
     m_lastAIChange = m_currentTime;

@@ -260,7 +260,7 @@ bool GameWorld::initialize()
     //getPlayer()->setPositionReal(Vector3(10.0f, 0.0f, 0.0f));
     m_gameCamera->attachTo(getPlayer()); //Attach the camera to the player
 
-    m_remainingTime = 60.0f * 5; //5 minutes
+    m_remainingTime = 60.0f * 3; //5 minutes
 
 	//BUILDING OCTREE
 
@@ -280,18 +280,35 @@ bool GameWorld::initialize()
 	audio = new GameAudio();
 	audio->initialize(L"data/audio/Win/Wave Bank.xwb",L"data/audio/Win/Music Bank.xwb", L"data/audio/Win/Sound Bank.xsb");
 	
+	lumberjack = false;
+
 	queue<char*>* sequence = new queue<char*>();
-	sequence->push("lumberjack");
+	sequence->push("Minigame");
 	audio->setMusicSequence(sequence, 0);
 	audio->playMusic();
 
     return true;
 }
 
+void GameWorld::makeLumberjack()
+{
+	if(lumberjack)
+		return;
+	lumberjack = true;
+	audio->manualStopMusic();
+	queue<char*>* sequence = new queue<char*>();
+	sequence->push("lumberjack");
+	audio->setMusicSequence(sequence, 0);
+	audio->playMusic();
+}
+
 void GameWorld::update(float dT)
 {
     m_currentTime += dT; //Update the time since we started
     m_remainingTime -= dT;
+
+	if(getKeyboard()->isKeyPressed(KC_l) && !lumberjack)
+		makeLumberjack();
 
 	if(doAudio)
 		audio->doWork();
@@ -313,13 +330,13 @@ void GameWorld::update(float dT)
 	for (list<Vector3>::iterator pos = logsToSpawn.begin(); pos != logsToSpawn.end(); ++pos)
     {
 		Entity* log = spawnEntity(LOG, (*pos));
-		dynamic_cast<TreeLog*>(log)->getModel()->fadeOut(100.0f);
+		dynamic_cast<TreeLog*>(log)->getModel()->fadeOut(75.0f);
 
 	}
 	logsToSpawn.clear();
 
     //Spawn an entity every 10 seconds if we have room
-    if (getOgroCount() < MAX_ENEMY_COUNT && (m_currentTime - m_lastSpawn) > 60.0f)
+    if (getOgroCount() < MAX_ENEMY_COUNT && (m_currentTime - m_lastSpawn) > 10.0f)
     {
         spawnEntity(OGRO, getRandomPositionR((mapWidth/2)-1, 29.0f));
     }
