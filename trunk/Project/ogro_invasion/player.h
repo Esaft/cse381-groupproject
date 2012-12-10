@@ -30,6 +30,8 @@ class Player : public Entity
         Vector3 getPosition() const { return m_position; }
         void setPosition(const Vector3& pos);
 
+		void onRevive() {}
+
         Vector3 getVelocity() const { return m_velocity; }
 
         float getYaw() const { return m_yaw; }

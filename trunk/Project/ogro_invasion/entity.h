@@ -23,6 +23,7 @@ class Entity : private Uncopyable {
         virtual bool onInitialize() = 0;
         virtual void onShutdown() = 0;
         virtual void onCollision(Entity* collider) = 0;
+		virtual void onRevive() = 0;
 
         bool m_canBeRemoved;
 
@@ -42,6 +43,8 @@ class Entity : private Uncopyable {
 
 		virtual bool isFading() { return false; }
 		virtual bool isVisible() { return true; }
+
+		void revive() { m_canBeRemoved = false; onRevive(); }
 
         void collide(Entity* collider);
 

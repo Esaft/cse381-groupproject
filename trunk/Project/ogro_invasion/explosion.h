@@ -42,6 +42,7 @@ public:
     float getPitch() const { return 0.0f; }
     void setYaw(const float v) { }
     void setPitch(const float v) { }
+	void onRevive() {}
 
     Collider* getCollider() { return NULL; }
 

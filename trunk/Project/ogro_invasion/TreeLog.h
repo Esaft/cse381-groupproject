@@ -35,6 +35,8 @@ public:
 
     Collider* getCollider() { return m_collider; }
 
+	void onRevive();
+
     EntityType getType() const { return LOG; }
 
 	MD2Model* getModel() { return m_model; }

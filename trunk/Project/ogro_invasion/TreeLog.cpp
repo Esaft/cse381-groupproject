@@ -53,6 +53,11 @@ TreeLog::~TreeLog()
 	delete m_model;
 }
 
+void TreeLog::onRevive()
+{
+	m_model->setVisible(true);
+}
+
 void TreeLog::onPrepare(float dT)
 {
 	float minX = getWorld()->getLandscape()->getTerrain()->getMinX();

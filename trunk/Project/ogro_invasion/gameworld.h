@@ -30,6 +30,7 @@ class GameWorld : private Uncopyable
 		Physics* physics;
 
         std::list<Entity*> m_entities; //!< Member variable "m_enemies"
+		std::list<Entity*> m_dead_entities;
         std::list<Collider*> m_colliders;
 
         void registerCollider(Collider* collider);
@@ -146,19 +147,17 @@ class GameWorld : private Uncopyable
             return count;
         }
 
-        Enemy* findDeadEnemy()
+        Entity* findDead(EntityType eType)
         { // Deactivate Enemy Resuse (Bugged)
-            /*for (EntityIterator it = m_entities.begin(); it != m_entities.end(); ++it)
+            for (EntityIterator it = m_dead_entities.begin(); it != m_dead_entities.end(); ++it)
             {
-                if ((*it)->getType() == OGRO) {
-                    Enemy* ogro = dynamic_cast<Enemy*>((*it));
-                    if (ogro->isDead())
-                    {
-                        return ogro;
-                    }
+                if ((*it)->getType() == eType) {
+					Entity* entity = (*it);
+					m_dead_entities.erase(it);
+                    return entity;
                 }
 
-            }*/
+            }
 
             return NULL;
         }

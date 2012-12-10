@@ -21,6 +21,7 @@ private:
     virtual void onCollision(Entity* entity);
     virtual void onPrepare(float dT);
     virtual void onPostRender();
+	void onRevive() {}
 
 public:
     Landscape(GameWorld* world, const std::string& heighMap, const std::string& vertexShader,

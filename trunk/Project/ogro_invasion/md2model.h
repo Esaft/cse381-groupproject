@@ -78,6 +78,7 @@ public:
 	void fade(float);
 	void fadeOut(float);
 	bool isVisible() { return visible; }
+	void setVisible(bool vis) { if (vis) alpha = 1.0f; else alpha = 0.0f; visible = vis; }
 	bool isFading() { return fading; }
 	void updateFade();
 
